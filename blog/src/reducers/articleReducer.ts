@@ -1,25 +1,18 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-export type Article = {
-  id: number;
-  title: string;
-  subtitle: string;
-  text: string;
-  img: string;
-  date: string;
-  updatedate: string;
-  name: string;
-  tags: Array<string>;
-};
+import { Article } from "../types/articleTypes";
+import { ArticleAction } from "../actions/articleActions";
 
 type Articles = Array<Article>;
 
 const defaultArticles: Articles = [];
 
-export const articleSlice = createSlice({
-  name: "article",
-  initialState: defaultArticles,
-  reducers: {},
-});
-
-export default articleSlice.reducer;
+export default function articleReducer(
+  state = defaultArticles,
+  action: ArticleAction
+) {
+  switch (action.type) {
+    case "GET_ARTICLES":
+      return [...state, action.payload];
+    default:
+      return state;
+  }
+}

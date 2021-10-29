@@ -1,15 +1,15 @@
-import { FixedSizeList as List } from "react-window";
-import { useAppSelector } from "../store";
-import ArticlePreview from "./articlePreview";
+import { RootState, useAppSelector } from "../store";
+import { Article } from "../types/articleTypes";
+import ArticleView from "./articleView";
 
 export default function Feed() {
-  const articles = useAppSelector((state) => state.articles);
-  const listArticle = articles.map((item) => (
-    <ArticlePreview article={item}></ArticlePreview>
+  const articles = useAppSelector((state: RootState) => state.articles);
+  const listArticle = articles.map((item: Article) => (
+    <ArticleView article={item}></ArticleView>
   ));
   return (
-    <List height={150} itemCount={1000} itemSize={35} width={300}>
-      {listArticle}
-    </List>
+    <div>
+      <ul>{listArticle}</ul>
+    </div>
   );
 }
