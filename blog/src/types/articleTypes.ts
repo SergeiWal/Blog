@@ -9,3 +9,9 @@ export type Article = {
   name: string;
   tags: Array<string>;
 };
+
+export type Articles = Array<Article>;
+
+export type ArticlePreviewProps = {
+  article: Article;
+};

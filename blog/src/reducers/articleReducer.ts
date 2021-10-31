@@ -1,7 +1,6 @@
-import { Article } from "../types/articleTypes";
+import { Articles } from "../types/articleTypes";
 import { ArticleAction } from "../actions/articleActions";
-
-type Articles = Array<Article>;
+import { GET_ARTICLES } from "../constants/article";
 
 const defaultArticles: Articles = [];
 
@@ -10,8 +9,8 @@ export default function articleReducer(
   action: ArticleAction
 ) {
   switch (action.type) {
-    case "GET_ARTICLES":
-      return [...state, action.payload];
+    case GET_ARTICLES:
+      return [...state, ...action.payload];
     default:
       return state;
   }

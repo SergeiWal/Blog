@@ -1,11 +1,7 @@
-import { Article } from "../types/articleTypes";
+import { ArticlePreviewProps } from "../types/articleTypes";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
-
-type ArticlePreviewProps = {
-  article: Article;
-};
 
 export default function ArticleView({ article }: ArticlePreviewProps) {
   return (

@@ -2,16 +2,12 @@ import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { applyMiddleware, compose, createStore } from "redux";
 import rootReducer from "./reducers/rootReducer";
 import createSagaMiddleware from "@redux-saga/core";
-import TestSaga from "./sagas/testSaga";
+import rootSaga from "./sagas/rootSaga";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const composeEnhancers =
-  process.env.NODE_ENV !== "production" &&
-  typeof window === "object" &&
-  (window as any)._REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? (window as any)._REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
-    : compose;
+  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const configureStore = (preloadedState: any) =>
   createStore(
@@ -21,7 +17,7 @@ const configureStore = (preloadedState: any) =>
   );
 const store = configureStore({});
 
-sagaMiddleware.run(TestSaga);
+sagaMiddleware.run(rootSaga);
 
 export default store;
 
