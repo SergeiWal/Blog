@@ -1,5 +1,5 @@
 import { put, call } from "redux-saga/effects";
-import { GET_ARTICLES } from "../constants/article";
+import { loadArticleAction } from "../actions/articleActions";
 import { Article } from "../types/articleTypes";
 
 const getArticles = async (): Promise<Article[]> => {
@@ -10,7 +10,7 @@ const getArticles = async (): Promise<Article[]> => {
 
 function* getArticleSagaWorker() {
   const data: Article[] = yield call(getArticles);
-  yield put({ type: GET_ARTICLES, payload: data });
+  yield put(loadArticleAction(data));
 }
 
 export default function* rootSaga() {

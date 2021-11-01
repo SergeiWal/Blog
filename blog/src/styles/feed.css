@@ -1,0 +1,52 @@
+@charset "utf-8";
+
+body {
+  overflow: hidden;
+}
+
+/* article card */
+.cardContent {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardImg img {
+  width: 100%;
+  min-width: 200px;
+  height: auto;
+  max-height: 250px;
+  object-fit: cover;
+}
+
+.cardInfo {
+  font-size: 18px;
+  margin-right: 20px;
+}
+
+.blogName {
+  font-weight: normal;
+}
+
+.articleTitle {
+  font-size: 24px;
+  font-weight: bolder;
+}
+
+.articleSubtitle {
+  font-weight: bold;
+}
+
+.articleText {
+  margin: 15px 0;
+  text-align: justify;
+}
+
+.tags,
+.timeInfo {
+  font-size: 14px;
+}
+
+/* feed */
+.articlesList::-webkit-scrollbar {
+  display: none;
+}

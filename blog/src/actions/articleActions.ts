@@ -1,3 +1,4 @@
+import { GET_ARTICLES } from "../constants/article";
 import { Article } from "../types/articleTypes";
 
 export interface SetArticle {
@@ -7,9 +8,9 @@ export interface SetArticle {
 
 export type ArticleAction = SetArticle | any;
 
-export const getArticleAction = (items: Array<Article>): SetArticle => {
+export const loadArticleAction = (items: Array<Article>): SetArticle => {
   return {
-    type: "GET_ARTICLE",
+    type: GET_ARTICLES,
     payload: items,
   };
 };
