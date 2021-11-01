@@ -1,13 +1,12 @@
 @charset "utf-8";
 
-body {
-  overflow: hidden;
-}
-
 /* article card */
 .cardContent {
   display: flex;
   justify-content: space-between;
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
 }
 
 .cardImg img {

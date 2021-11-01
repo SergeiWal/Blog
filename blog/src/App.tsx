@@ -1,11 +1,9 @@
-import Feed from "./components/feed";
+type AppPropsType = {
+  children: any;
+};
 
-function App() {
-  return (
-    <div className="App">
-      <Feed />
-    </div>
-  );
+function App({ children }: AppPropsType) {
+  return <div className="App">{children}</div>;
 }
 
 export default App;

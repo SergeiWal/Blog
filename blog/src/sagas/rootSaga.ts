@@ -3,7 +3,7 @@ import { loadArticleAction } from "../actions/articleActions";
 import { Article } from "../types/articleTypes";
 
 const getArticles = async (): Promise<Article[]> => {
-  const response = await fetch("http://localhost:3004/artcles");
+  const response = await fetch("http://localhost:3004/articles");
   const data = await response.json();
   return data;
 };
