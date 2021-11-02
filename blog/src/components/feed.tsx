@@ -10,17 +10,18 @@ export default function Feed() {
   const listArticle = articles.map((item: Article) => (
     <ArticleCard key={item.id} article={item}></ArticleCard>
   ));
+  console.log("listArticle", listArticle);
   return (
     <List
       className="articlesList"
       itemData={listArticle}
       height={WINDOW_HEIGHT}
       itemCount={listArticle.length}
-      itemSize={5}
+      itemSize={300}
       width={700}
     >
       {({ data, index, style }) => {
-        return <div style={style}>{data}</div>;
+        return <div style={style}>{data[index]}</div>;
       }}
     </List>
   );
