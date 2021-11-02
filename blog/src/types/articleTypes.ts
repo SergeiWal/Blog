@@ -19,3 +19,9 @@ export type ArticlePreviewProps = {
 export type ArticleParamsType = {
   id: string;
 };
+
+export type ListGeneratorParams = {
+  data: JSX.Element[];
+  index: number;
+  style: React.CSSProperties;
+};

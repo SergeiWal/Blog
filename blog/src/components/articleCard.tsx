@@ -5,10 +5,11 @@ import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 import "../styles/feed.css";
 import { createTextPreview, tagsArrToStr } from "../services/articles";
+import { cardStyle } from "../constants/styles";
 
 export default function ArticleCard({ article }: ArticlePreviewProps) {
   return (
-    <Card sx={{ maxWidth: 700, width: "100%" }}>
+    <Card sx={cardStyle}>
       <CardActionArea>
         <CardContent>
           <Link to={`/articles/${article.id}`} className="cardContent">

@@ -1,5 +1,5 @@
 import { Article, ArticleParamsType } from "../types/articleTypes";
-import { requestToApi, tagsArrToStr } from "../services/articles";
+import { requestToApi } from "../services/articles";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { DEFAULT_ARTICLE } from "../constants/article";
@@ -19,15 +19,14 @@ export default function ArticlePage() {
         <div className="articleTitle">{article.title}</div>
         <div className="articleSubtitle">{article.subtitle}</div>
         <div>{article.name}</div>
-        <div>
-          {article.date} . {article.updatedate}
+        <div className="articleDateInfo">
+          cretead: {article.date} last update:{article.updatedate}
         </div>
       </div>
       <div className="articleImg">
         <img src={article.img} alt={`Image for article ${article.id}`}></img>
       </div>
       <div className="articleTextContent">{article.text}</div>
-      <div className="articleTags">{tagsArrToStr(article.tags)}</div>
     </div>
   );
 }
