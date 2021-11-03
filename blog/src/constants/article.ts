@@ -1,6 +1,7 @@
 import { Article } from "../types/articleTypes";
 
 export const GET_ARTICLES: string = "GET_ARTICLES";
+export const LIKE: string = "LIKE";
 
 export const MAX_WORDS_IN_CARD = 200;
 
@@ -14,4 +15,6 @@ export const DEFAULT_ARTICLE: Article = {
   date: "",
   updatedate: "",
   tags: [],
+  likes: [],
+  comments: [],
 };

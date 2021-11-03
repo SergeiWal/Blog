@@ -8,6 +8,8 @@ export type Article = {
   updatedate: string;
   name: string;
   tags: Array<string>;
+  likes: Array<number>;
+  comments: Comments;
 };
 
 export type Articles = Array<Article>;
@@ -25,3 +27,11 @@ export type ListGeneratorParams = {
   index: number;
   style: React.CSSProperties;
 };
+
+export type Comment = {
+  id: number;
+  author: number;
+  text: string;
+};
+
+export type Comments = Array<Comment>;

@@ -26,7 +26,6 @@
 }
 
 .articleTextContent {
-  border-bottom: 2px #ccc solid;
   margin: 10px 0;
   padding-bottom: 10px;
   width: 880px;
@@ -34,4 +33,9 @@
 
 .articleDateInfo {
   font-size: 14px;
+}
+
+.articleFooter {
+  border-bottom: 2px #ccc solid;
+  width: 880px;
 }
