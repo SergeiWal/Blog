@@ -1,4 +1,4 @@
-import { Article, ArticleParamsType } from "../types/articleTypes";
+import { Article, ArticleParamsType, Articles } from "../types/articleTypes";
 import { requestToApi } from "../services/articles";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -11,20 +11,27 @@ import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import { useAppDispatch, useAppSelector } from "../store";
 import { likeArticleAction } from "../actions/articleActions";
 
+const findArticle = (articles: Articles, id: number) =>
+  articles.find((article) => article.id === id) || DEFAULT_ARTICLE;
+
 export default function ArticlePage() {
   const { id } = useParams<ArticleParamsType>();
   const [article, setArticle] = useState<Article>(DEFAULT_ARTICLE);
-  const user = useAppSelector((state) => state.user);
+  const state = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    requestToApi(`http://localhost:3004/articles/${id}`, setArticle);
-  }, []);
+    //console.log("GET article");
+    setArticle(findArticle(state.articles, Number.parseInt(id)));
+  }, [state]);
 
   const likeHandler = () => {
-    if (!article.likes.includes(user.id)) {
+    if (!article.likes.includes(state.user.id)) {
       dispatch(
-        likeArticleAction({ articleId: Number.parseInt(id), userId: user.id })
+        likeArticleAction({
+          articleId: Number.parseInt(id),
+          userId: state.user.id,
+        })
       );
     }
   };
