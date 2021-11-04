@@ -22,6 +22,19 @@ export const likeArticle = async (article: Article, userId: number) => {
   });
 };
 
+export const deleteLikeFromArticle = async (
+  article: Article,
+  userId: number
+) => {
+  const index: number = article.likes.indexOf(userId);
+  article.likes.splice(index, 1);
+  await fetch(`http://localhost:3004/articles/${article.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(article),
+  });
+};
+
 export const getCurrentUser = async (): Promise<User> => {
   const response = await fetch("http://localhost:3004/users/1");
   const data = await response.json();
@@ -36,6 +49,16 @@ export const getUserById = async (id: number): Promise<User> => {
 
 export const addToBookmarks = async (user: User, articleId: number) => {
   user.bookmarks.push(articleId);
+  await fetch(`http://localhost:3004/users/${user.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(user),
+  });
+};
+
+export const deleteFromBookmarks = async (user: User, articleId: number) => {
+  const index = user.bookmarks.indexOf(articleId);
+  user.bookmarks.splice(index, 1);
   await fetch(`http://localhost:3004/users/${user.id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

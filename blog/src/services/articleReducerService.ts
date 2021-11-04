@@ -14,3 +14,18 @@ export function likeArticles(
 
   return articles;
 }
+
+export function deleteLikeFromArticles(
+  articles: Articles,
+  articleId: number,
+  userId: number
+) {
+  for (let article of articles) {
+    const index: number = article.likes.indexOf(userId);
+    if (article.id === articleId && index != -1) {
+      article.likes.splice(index, 1);
+      break;
+    }
+  }
+  return articles;
+}

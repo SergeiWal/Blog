@@ -1,4 +1,4 @@
-import { GET_ARTICLES, LIKE } from "../constants/article";
+import { GET_ARTICLES, LIKE, DELETE_LIKE } from "../constants/article";
 import { Article } from "../types/articleTypes";
 
 export type LikePayload = {
@@ -16,6 +16,11 @@ export interface LikeArticle {
   payload: LikePayload;
 }
 
+export interface DeleteLike {
+  type: string;
+  payload: LikePayload;
+}
+
 export type ArticleAction = SetArticle | LikeArticle | any;
 
 export const loadArticleAction = (items: Array<Article>): SetArticle => {
@@ -28,6 +33,13 @@ export const loadArticleAction = (items: Array<Article>): SetArticle => {
 export const likeArticleAction = (payload: LikePayload): LikeArticle => {
   return {
     type: LIKE,
+    payload,
+  };
+};
+
+export const deleteLikeAction = (payload: LikePayload): LikeArticle => {
+  return {
+    type: DELETE_LIKE,
     payload,
   };
 };

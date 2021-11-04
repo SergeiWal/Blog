@@ -1,7 +1,11 @@
-import { ADD_TO_BOOKMARKS, GET_CURRENT_USER } from "../constants/user";
+import {
+  ADD_TO_BOOKMARKS,
+  DELETE_FROM_BOOKMARKS,
+  GET_CURRENT_USER,
+} from "../constants/user";
 import { User } from "../types/userTypes";
 
-export type AddToBookmarksPayload = {
+export type BookmarksPayload = {
   articleId: number;
   userId: number;
 };
@@ -11,12 +15,21 @@ export interface GetCurrentUser {
   payload: User;
 }
 
-export interface AddToToBookmarks {
+export interface AddToBookmarks {
   type: string;
-  payload: AddToBookmarksPayload;
+  payload: BookmarksPayload;
 }
 
-export type UserAction = GetCurrentUser | AddToBookmarksPayload | any;
+export interface DeleteFromBookmarks {
+  type: string;
+  payload: BookmarksPayload;
+}
+
+export type UserAction =
+  | GetCurrentUser
+  | AddToBookmarks
+  | DeleteFromBookmarks
+  | any;
 
 export const getCurrentUserAction = (payload: User): GetCurrentUser => {
   return {
@@ -26,10 +39,19 @@ export const getCurrentUserAction = (payload: User): GetCurrentUser => {
 };
 
 export const addToBookmarksAction = (
-  payload: AddToBookmarksPayload
-): AddToToBookmarks => {
+  payload: BookmarksPayload
+): AddToBookmarks => {
   return {
     type: ADD_TO_BOOKMARKS,
-    payload: payload,
+    payload,
+  };
+};
+
+export const deleteFromBookmarksAction = (
+  payload: BookmarksPayload
+): DeleteFromBookmarks => {
+  return {
+    type: DELETE_FROM_BOOKMARKS,
+    payload,
   };
 };
