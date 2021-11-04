@@ -1,4 +1,4 @@
-import { ArticlePreviewProps } from "../types/articleTypes";
+import { ArticlePreviewProps } from "../types/articlePropsTypes";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";

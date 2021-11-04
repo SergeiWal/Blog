@@ -14,10 +14,6 @@ export type Article = {
 
 export type Articles = Array<Article>;
 
-export type ArticlePreviewProps = {
-  article: Article;
-};
-
 export type ArticleParamsType = {
   id: string;
 };

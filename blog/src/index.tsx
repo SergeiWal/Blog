@@ -6,7 +6,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Feed from "./components/feed";
-import ArticlePage from "./components/articlePage";
+import ArticlePageContainer from "./containers/articlePageContainer";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,7 +15,7 @@ ReactDOM.render(
         <App>
           <Switch>
             <Route exact path="/" component={Feed} />
-            <Route path="/articles/:id" component={ArticlePage} />
+            <Route path="/articles/:id" component={ArticlePageContainer} />
           </Switch>
         </App>
       </Router>
