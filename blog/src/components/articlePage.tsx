@@ -11,7 +11,7 @@ import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import { useAppDispatch, useAppSelector } from "../store";
 import { likeArticleAction } from "../actions/articleActions";
 
-const findArticle = (articles: Articles, id: number) =>
+const findArticle = (articles: Articles, id: number): Article =>
   articles.find((article) => article.id === id) || DEFAULT_ARTICLE;
 
 export default function ArticlePage() {
@@ -21,7 +21,6 @@ export default function ArticlePage() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    //console.log("GET article");
     setArticle(findArticle(state.articles, Number.parseInt(id)));
   }, [state]);
 

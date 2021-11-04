@@ -27,3 +27,18 @@ export const getCurrentUser = async (): Promise<User> => {
   const data = await response.json();
   return data;
 };
+
+export const getUserById = async (id: number): Promise<User> => {
+  const response = await fetch(`http://localhost:3004/users/${id}`);
+  const data = await response.json();
+  return data;
+};
+
+export const addToBookmarks = async (user: User, articleId: number) => {
+  user.bookmarks.push(articleId);
+  await fetch(`http://localhost:3004/users/${user.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(user),
+  });
+};
