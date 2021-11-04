@@ -14,7 +14,8 @@
         "#tag2"
       ],
       "likes": [
-        1
+        1,
+        2
       ]
     },
     {
@@ -31,7 +32,8 @@
         "#tag2"
       ],
       "likes": [
-        1
+        1,
+        2
       ]
     },
     {
@@ -98,7 +100,9 @@
         "#tag1",
         "#tag2"
       ],
-      "likes": []
+      "likes": [
+        1
+      ]
     },
     {
       "id": 7,
@@ -173,14 +177,20 @@
       "name": "Sergei",
       "password": "12321432",
       "photo": "",
-      "posts": []
+      "posts": [],
+      "bookmarks": [
+        1,
+        2,
+        5
+      ]
     },
     {
       "id": 2,
       "name": "Maxim",
       "password": "23142143",
       "photo": "",
-      "posts": []
+      "posts": [],
+      "bookmarks": []
     }
   ]
 }

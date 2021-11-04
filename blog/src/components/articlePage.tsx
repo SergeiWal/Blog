@@ -1,5 +1,5 @@
 import { Article, ArticleParamsType, Articles } from "../types/articleTypes";
-import { requestToApi } from "../services/articles";
+import { User } from "../types/userTypes";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { DEFAULT_ARTICLE } from "../constants/article";
@@ -10,9 +10,14 @@ import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined
 import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import { useAppDispatch, useAppSelector } from "../store";
 import { likeArticleAction } from "../actions/articleActions";
+import { addToBookmarksAction } from "../actions/userAction";
 
 const findArticle = (articles: Articles, id: number): Article =>
   articles.find((article) => article.id === id) || DEFAULT_ARTICLE;
+
+const getButtonColorForCollection = (collection: Array<number>, id: number) => {
+  return collection.includes(id) ? "success" : "inherit";
+};
 
 export default function ArticlePage() {
   const { id } = useParams<ArticleParamsType>();
@@ -28,6 +33,17 @@ export default function ArticlePage() {
     if (!article.likes.includes(state.user.id)) {
       dispatch(
         likeArticleAction({
+          articleId: Number.parseInt(id),
+          userId: state.user.id,
+        })
+      );
+    }
+  };
+
+  const addToBookmarksHandler = () => {
+    if (!state.user.bookmarks.includes(Number.parseInt(id))) {
+      dispatch(
+        addToBookmarksAction({
           articleId: Number.parseInt(id),
           userId: state.user.id,
         })
@@ -52,7 +68,7 @@ export default function ArticlePage() {
       <div className="articleFooter">
         <Button
           startIcon={<RecommendOutlinedIcon />}
-          color="inherit"
+          color={getButtonColorForCollection(article.likes, state.user.id)}
           onClick={likeHandler}
         >
           {article.likes.length}
@@ -63,7 +79,11 @@ export default function ArticlePage() {
         ></Button>
         <Button
           startIcon={<BookmarkAddOutlinedIcon />}
-          color="inherit"
+          color={getButtonColorForCollection(
+            state.user.bookmarks,
+            Number.parseInt(id)
+          )}
+          onClick={addToBookmarksHandler}
         ></Button>
       </div>
     </div>

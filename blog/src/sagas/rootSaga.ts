@@ -1,4 +1,4 @@
-import { put, call, takeEvery } from "redux-saga/effects";
+import { put, call, takeLatest, all } from "redux-saga/effects";
 import { LikeArticle, loadArticleAction } from "../actions/articleActions";
 import { LIKE } from "../constants/article";
 import { Article } from "../types/articleTypes";
@@ -25,26 +25,26 @@ function* getCurrentUserSagaWorker() {
 }
 
 function* likeArticleSagaWorker({ payload }: LikeArticle) {
-  const article: Article = yield getArticlesById(payload.articleId);
+  const article: Article = yield call(getArticlesById, payload.articleId);
   yield call(likeArticle, article, payload.userId);
 }
 
 function* addToBookmarksWorker({ payload }: AddToToBookmarks) {
-  const user: User = yield getUserById(payload.userId);
+  const user: User = yield call(getUserById, payload.userId);
   yield call(addToBookmarks, user, payload.articleId);
 }
 
 function* likeArticlesSagaWatcher() {
-  yield takeEvery(LIKE, likeArticleSagaWorker);
+  yield takeLatest(LIKE, likeArticleSagaWorker);
 }
 
 function* addToBookmarksWatcher() {
-  yield takeEvery(ADD_TO_BOOKMARKS, addToBookmarksWorker);
+  console.log("bookmarks");
+  yield takeLatest(ADD_TO_BOOKMARKS, addToBookmarksWorker);
 }
 
 export default function* rootSaga() {
   yield getArticleSagaWorker();
   yield getCurrentUserSagaWorker();
-  yield likeArticlesSagaWatcher();
-  yield addToBookmarksWatcher();
+  yield all([likeArticlesSagaWatcher(), addToBookmarksWatcher()]);
 }
