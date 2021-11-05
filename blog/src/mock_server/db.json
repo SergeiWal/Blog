@@ -25,6 +25,10 @@
         {
           "author": 1,
           "text": "Second comment"
+        },
+        {
+          "author": 1,
+          "text": "Third comment"
         }
       ]
     },
