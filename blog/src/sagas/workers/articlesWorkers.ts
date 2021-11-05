@@ -8,14 +8,14 @@ import {
   saveComment,
 } from "../../services/apiService";
 import {
-  loadArticleAction,
+  setArticleAction,
   LikeArticle,
   SaveComment,
 } from "../../actions/articleActions";
 
-export function* getArticleSagaWorker() {
+export function* setArticleSagaWorker() {
   const data: Articles = yield call(getArticles);
-  yield put(loadArticleAction(data));
+  yield put(setArticleAction(data));
 }
 
 export function* likeArticleSagaWorker({ payload }: LikeArticle) {

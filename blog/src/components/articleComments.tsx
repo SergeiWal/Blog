@@ -19,7 +19,7 @@ export default function ArticleCommentList({ comments }: ArticleCommentsProps) {
   const commentsList = comments.map((comment) => {
     return <CommentView user={comment.author} text={comment.text} />;
   });
-  return (
+  return commentsList.length > 0 ? (
     <List
       itemData={commentsList}
       className="commentsList"
@@ -30,5 +30,7 @@ export default function ArticleCommentList({ comments }: ArticleCommentsProps) {
     >
       {generateCommentRows}
     </List>
+  ) : (
+    <div></div>
   );
 }

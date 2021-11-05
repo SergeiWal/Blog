@@ -3,6 +3,7 @@ import {
   LIKE,
   DELETE_LIKE,
   SAVE_COMMENT,
+  SET_ARTICLES,
 } from "../constants/article";
 import { Article, ArticleComment } from "../types/articleTypes";
 
@@ -38,9 +39,9 @@ export interface SaveComment {
 
 export type ArticleAction = SetArticle | LikeArticle | SaveComment | any;
 
-export const loadArticleAction = (items: Array<Article>): SetArticle => {
+export const setArticleAction = (items: Array<Article>): SetArticle => {
   return {
-    type: GET_ARTICLES,
+    type: SET_ARTICLES,
     payload: items,
   };
 };

@@ -1,10 +1,11 @@
 import { all } from "redux-saga/effects";
-import { getArticleSagaWorker } from "./workers/articlesWorkers";
+import { setArticleSagaWorker } from "./workers/articlesWorkers";
 import { getCurrentUserSagaWorker } from "./workers/userWorkers";
 import {
   likeArticlesSagaWatcher,
   deleteLikeFromArticlesSagaWatcher,
   saveCommentSagaWatcher,
+  getArticlesSagaWatcher,
 } from "./wathers/articleWatchers";
 import {
   addToBookmarksWatcher,
@@ -12,9 +13,10 @@ import {
 } from "./wathers/userWatchers";
 
 export default function* rootSaga() {
-  yield getArticleSagaWorker();
+  yield setArticleSagaWorker();
   yield getCurrentUserSagaWorker();
   yield all([
+    getArticlesSagaWatcher(),
     likeArticlesSagaWatcher(),
     deleteLikeFromArticlesSagaWatcher(),
     addToBookmarksWatcher(),

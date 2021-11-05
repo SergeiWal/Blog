@@ -1,6 +1,7 @@
 import { Article } from "../types/articleTypes";
 
 export const GET_ARTICLES: string = "GET_ARTICLES";
+export const SET_ARTICLES: string = "SET_ARTICLES";
 export const LIKE: string = "LIKE";
 export const DELETE_LIKE: string = "DELETE_LIKE";
 export const SAVE_COMMENT: string = "SAVE_COMMENT";

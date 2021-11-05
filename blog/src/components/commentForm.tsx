@@ -31,22 +31,24 @@ export default function CommentForm({
 
   return (
     <Dialog open={open} onClose={closeHandler}>
-      <DialogTitle>Comment</DialogTitle>
+      <DialogTitle>New comment</DialogTitle>
       <DialogContent>
-        <TextField
+        <textarea
+          className="commentInputField"
+          color="info"
           autoFocus
-          margin="dense"
           id="comment"
-          label="Comment"
           placeholder="Write anythinq ..."
           onChange={(e) => changeCommentHandler(e.target.value)}
-          multiline
-          fullWidth
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={closeHandler}>Cancel</Button>
-        <Button onClick={saveCommentHandler}>Save</Button>
+        <Button onClick={closeHandler} color="inherit">
+          Cancel
+        </Button>
+        <Button onClick={saveCommentHandler} color="inherit">
+          Save
+        </Button>
       </DialogActions>
     </Dialog>
   );

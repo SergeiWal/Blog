@@ -1,10 +1,20 @@
 import { takeEvery } from "redux-saga/effects";
-import { LIKE, DELETE_LIKE, SAVE_COMMENT } from "../../constants/article";
+import {
+  LIKE,
+  DELETE_LIKE,
+  SAVE_COMMENT,
+  GET_ARTICLES,
+} from "../../constants/article";
 import {
   likeArticleSagaWorker,
   deleteLikeFromArticlesSagaWorker,
   saveCommentSagaWorker,
+  setArticleSagaWorker,
 } from "../workers/articlesWorkers";
+
+export function* getArticlesSagaWatcher() {
+  yield takeEvery(GET_ARTICLES, setArticleSagaWorker);
+}
 
 export function* likeArticlesSagaWatcher() {
   yield takeEvery(LIKE, likeArticleSagaWorker);

@@ -37,21 +37,24 @@ export default function ArticlePageFooter({
           startIcon={<RecommendOutlinedIcon />}
           color={getButtonColorForCollection(article.likes, user.id)}
           onClick={likeHandler}
+          size="large"
         >
           {article.likes.length}
-        </Button>
-        <Button
-          startIcon={<InsertCommentOutlinedIcon />}
-          color="inherit"
-          onClick={openHandler}
-        >
-          {article.comments.length}
         </Button>
         <Button
           startIcon={<BookmarkAddOutlinedIcon />}
           color={getButtonColorForCollection(user.bookmarks, article.id)}
           onClick={addToBookmarksHandler}
+          size="large"
         ></Button>
+        <Button
+          startIcon={<InsertCommentOutlinedIcon />}
+          color="inherit"
+          onClick={openHandler}
+          size="large"
+        >
+          {article.comments.length}
+        </Button>
       </div>
       <CommentForm
         open={open}
