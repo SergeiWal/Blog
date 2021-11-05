@@ -35,6 +35,18 @@ export const deleteLikeFromArticle = async (
   });
 };
 
+export const saveComment = async (
+  article: Article,
+  comment: ArticleComment
+) => {
+  article.comments.push(comment);
+  await fetch(`http://localhost:3004/articles/${article.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(article),
+  });
+};
+
 export const getCurrentUser = async (): Promise<User> => {
   const response = await fetch("http://localhost:3004/users/1");
   const data = await response.json();
@@ -65,8 +77,3 @@ export const deleteFromBookmarks = async (user: User, articleId: number) => {
     body: JSON.stringify(user),
   });
 };
-
-export const saveComment = async (
-  article: Article,
-  comment: ArticleComment
-) => {};

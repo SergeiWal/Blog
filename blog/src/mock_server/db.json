@@ -16,6 +16,16 @@
       "likes": [
         2,
         1
+      ],
+      "comments": [
+        {
+          "author": 1,
+          "text": "First comment"
+        },
+        {
+          "author": 1,
+          "text": "Second comment"
+        }
       ]
     },
     {
@@ -34,7 +44,8 @@
       "likes": [
         2,
         1
-      ]
+      ],
+      "comments": []
     },
     {
       "id": 3,
@@ -51,7 +62,8 @@
       ],
       "likes": [
         1
-      ]
+      ],
+      "comments": []
     },
     {
       "id": 4,
@@ -68,7 +80,8 @@
       ],
       "likes": [
         1
-      ]
+      ],
+      "comments": []
     },
     {
       "id": 5,
@@ -83,7 +96,8 @@
         "#tag1",
         "#tag2"
       ],
-      "likes": []
+      "likes": [],
+      "comments": []
     },
     {
       "id": 6,
@@ -100,7 +114,8 @@
       ],
       "likes": [
         1
-      ]
+      ],
+      "comments": []
     },
     {
       "id": 7,
@@ -117,7 +132,8 @@
       ],
       "likes": [
         1
-      ]
+      ],
+      "comments": []
     },
     {
       "id": 8,
@@ -134,7 +150,8 @@
       ],
       "likes": [
         1
-      ]
+      ],
+      "comments": []
     },
     {
       "id": 9,
@@ -149,7 +166,8 @@
         "#tag1",
         "#tag2"
       ],
-      "likes": []
+      "likes": [],
+      "comments": []
     },
     {
       "id": 10,
@@ -166,7 +184,8 @@
       ],
       "likes": [
         1
-      ]
+      ],
+      "comments": []
     }
   ],
   "users": [

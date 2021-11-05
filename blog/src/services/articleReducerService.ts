@@ -22,7 +22,7 @@ export function deleteLikeFromArticles(
 ) {
   for (let article of articles) {
     const index: number = article.likes.indexOf(userId);
-    if (article.id === articleId && index != -1) {
+    if (article.id === articleId && index !== -1) {
       article.likes.splice(index, 1);
       break;
     }

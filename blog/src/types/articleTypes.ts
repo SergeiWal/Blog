@@ -25,7 +25,6 @@ export type ListGeneratorParams = {
 };
 
 export type ArticleComment = {
-  id: number;
   author: number;
   text: string;
 };

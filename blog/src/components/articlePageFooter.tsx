@@ -6,6 +6,8 @@ import { getButtonColorForCollection } from "../services/articles";
 import { ArticlePageFooterProps } from "../types/articlePropsTypes";
 import CommentForm from "./commentForm";
 import { useState } from "react";
+import { useAppDispatch } from "../store";
+import { saveCommentAction } from "../actions/articleActions";
 
 export default function ArticlePageFooter({
   id,
@@ -15,10 +17,18 @@ export default function ArticlePageFooter({
   addToBookmarksHandler,
 }: ArticlePageFooterProps) {
   const [open, setOpen] = useState(false);
+  const dispatch = useAppDispatch();
 
   const openHandler = () => setOpen(true);
   const closeHandler = () => setOpen(false);
-  const saveCommentHandler = (comment: string) => console.log(comment);
+  const saveCommentHandler = (comment: string) => {
+    dispatch(
+      saveCommentAction({
+        articleId: Number.parseInt(id),
+        comment: { author: user.id, text: comment },
+      })
+    );
+  };
 
   return (
     <div>

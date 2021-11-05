@@ -4,6 +4,7 @@ import { getCurrentUserSagaWorker } from "./workers/userWorkers";
 import {
   likeArticlesSagaWatcher,
   deleteLikeFromArticlesSagaWatcher,
+  saveCommentSagaWatcher,
 } from "./wathers/articleWatchers";
 import {
   addToBookmarksWatcher,
@@ -18,5 +19,6 @@ export default function* rootSaga() {
     deleteLikeFromArticlesSagaWatcher(),
     addToBookmarksWatcher(),
     deleteFromBookmarksWatcher(),
+    saveCommentSagaWatcher(),
   ]);
 }

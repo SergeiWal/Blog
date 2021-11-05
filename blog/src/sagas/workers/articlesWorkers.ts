@@ -5,8 +5,13 @@ import {
   getArticlesById,
   likeArticle,
   deleteLikeFromArticle,
+  saveComment,
 } from "../../services/apiService";
-import { loadArticleAction, LikeArticle } from "../../actions/articleActions";
+import {
+  loadArticleAction,
+  LikeArticle,
+  SaveComment,
+} from "../../actions/articleActions";
 
 export function* getArticleSagaWorker() {
   const data: Articles = yield call(getArticles);
@@ -21,4 +26,9 @@ export function* likeArticleSagaWorker({ payload }: LikeArticle) {
 export function* deleteLikeFromArticlesSagaWorker({ payload }: LikeArticle) {
   const article: Article = yield call(getArticlesById, payload.articleId);
   yield call(deleteLikeFromArticle, article, payload.userId);
+}
+
+export function* saveCommentSagaWorker({ payload }: SaveComment) {
+  const article: Article = yield call(getArticlesById, payload.articleId);
+  yield call(saveComment, article, payload.comment);
 }

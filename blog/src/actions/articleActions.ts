@@ -59,7 +59,7 @@ export const deleteLikeAction = (payload: LikePayload): LikeArticle => {
   };
 };
 
-export const saveCommitAction = (payload: SaveCommentPayload): SaveComment => {
+export const saveCommentAction = (payload: SaveCommentPayload): SaveComment => {
   return {
     type: SAVE_COMMENT,
     payload,
