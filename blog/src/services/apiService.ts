@@ -1,4 +1,4 @@
-import { Article } from "../types/articleTypes";
+import { Article, ArticleComment } from "../types/articleTypes";
 import { User } from "../types/userTypes";
 
 export const getArticles = async (): Promise<Article[]> => {
@@ -65,3 +65,8 @@ export const deleteFromBookmarks = async (user: User, articleId: number) => {
     body: JSON.stringify(user),
   });
 };
+
+export const saveComment = async (
+  article: Article,
+  comment: ArticleComment
+) => {};

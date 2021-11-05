@@ -1,4 +1,4 @@
-import { Articles } from "../types/articleTypes";
+import { Articles, ArticleComment } from "../types/articleTypes";
 
 export function likeArticles(
   articles: Articles,
@@ -25,6 +25,20 @@ export function deleteLikeFromArticles(
     if (article.id === articleId && index != -1) {
       article.likes.splice(index, 1);
       break;
+    }
+  }
+  return articles;
+}
+
+export default function saveCommentForArticle(
+  articleId: number,
+  articles: Articles,
+  comment: ArticleComment
+) {
+  for (let article of articles) {
+    if (article.id === articleId) {
+      article.comments.push(comment);
+      return articles;
     }
   }
   return articles;

@@ -1,9 +1,19 @@
-import { GET_ARTICLES, LIKE, DELETE_LIKE } from "../constants/article";
-import { Article } from "../types/articleTypes";
+import {
+  GET_ARTICLES,
+  LIKE,
+  DELETE_LIKE,
+  SAVE_COMMENT,
+} from "../constants/article";
+import { Article, ArticleComment } from "../types/articleTypes";
 
 export type LikePayload = {
   articleId: number;
   userId: number;
+};
+
+export type SaveCommentPayload = {
+  articleId: number;
+  comment: ArticleComment;
 };
 
 export interface SetArticle {
@@ -21,7 +31,12 @@ export interface DeleteLike {
   payload: LikePayload;
 }
 
-export type ArticleAction = SetArticle | LikeArticle | any;
+export interface SaveComment {
+  type: string;
+  payload: SaveCommentPayload;
+}
+
+export type ArticleAction = SetArticle | LikeArticle | SaveComment | any;
 
 export const loadArticleAction = (items: Array<Article>): SetArticle => {
   return {
@@ -40,6 +55,13 @@ export const likeArticleAction = (payload: LikePayload): LikeArticle => {
 export const deleteLikeAction = (payload: LikePayload): LikeArticle => {
   return {
     type: DELETE_LIKE,
+    payload,
+  };
+};
+
+export const saveCommitAction = (payload: SaveCommentPayload): SaveComment => {
+  return {
+    type: SAVE_COMMENT,
     payload,
   };
 };

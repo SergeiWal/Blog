@@ -9,7 +9,7 @@ export type Article = {
   name: string;
   tags: Array<string>;
   likes: Array<number>;
-  comments: Comments;
+  comments: ArticleComments;
 };
 
 export type Articles = Array<Article>;
@@ -24,10 +24,10 @@ export type ListGeneratorParams = {
   style: React.CSSProperties;
 };
 
-export type Comment = {
+export type ArticleComment = {
   id: number;
   author: number;
   text: string;
 };
 
-export type Comments = Array<Comment>;
+export type ArticleComments = Array<ArticleComment>;
