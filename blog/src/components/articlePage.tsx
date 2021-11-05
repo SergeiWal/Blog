@@ -26,8 +26,7 @@ export default function ArticlePage({
         text={article.text}
       />
       <ArticlePageFooter
-        id={id}
-        likes={article.likes}
+        article={article}
         user={user}
         likeHandler={likeHandler}
         addToBookmarksHandler={addToBookmarksHandler}

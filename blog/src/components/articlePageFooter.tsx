@@ -8,10 +8,10 @@ import CommentForm from "./commentForm";
 import { useState } from "react";
 import { useAppDispatch } from "../store";
 import { saveCommentAction } from "../actions/articleActions";
+import ArticleCommentList from "./articleComments";
 
 export default function ArticlePageFooter({
-  id,
-  likes,
+  article,
   user,
   likeHandler,
   addToBookmarksHandler,
@@ -24,8 +24,8 @@ export default function ArticlePageFooter({
   const saveCommentHandler = (comment: string) => {
     dispatch(
       saveCommentAction({
-        articleId: Number.parseInt(id),
-        comment: { author: user.id, text: comment },
+        articleId: article.id,
+        comment: { author: user, text: comment },
       })
     );
   };
@@ -35,22 +35,21 @@ export default function ArticlePageFooter({
       <div className="articleFooter">
         <Button
           startIcon={<RecommendOutlinedIcon />}
-          color={getButtonColorForCollection(likes, user.id)}
+          color={getButtonColorForCollection(article.likes, user.id)}
           onClick={likeHandler}
         >
-          {likes.length}
+          {article.likes.length}
         </Button>
         <Button
           startIcon={<InsertCommentOutlinedIcon />}
           color="inherit"
           onClick={openHandler}
-        ></Button>
+        >
+          {article.comments.length}
+        </Button>
         <Button
           startIcon={<BookmarkAddOutlinedIcon />}
-          color={getButtonColorForCollection(
-            user.bookmarks,
-            Number.parseInt(id)
-          )}
+          color={getButtonColorForCollection(user.bookmarks, article.id)}
           onClick={addToBookmarksHandler}
         ></Button>
       </div>
@@ -59,6 +58,7 @@ export default function ArticlePageFooter({
         closeHandler={closeHandler}
         saveComment={saveCommentHandler}
       />
+      <ArticleCommentList comments={article.comments} />
     </div>
   );
 }

@@ -36,6 +36,15 @@
 }
 
 .articleFooter {
+  display: flex;
   border-bottom: 2px #ccc solid;
   width: 880px;
+}
+
+.commentsList::-webkit-scrollbar {
+  display: none;
+}
+
+.CommentView {
+  max-width: 880px;
 }

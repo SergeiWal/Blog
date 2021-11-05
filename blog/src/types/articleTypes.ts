@@ -1,3 +1,5 @@
+import { User } from "./userTypes";
+
 export type Article = {
   id: number;
   title: string;
@@ -25,7 +27,7 @@ export type ListGeneratorParams = {
 };
 
 export type ArticleComment = {
-  author: number;
+  author: User;
   text: string;
 };
 

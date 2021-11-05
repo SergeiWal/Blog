@@ -10,8 +10,7 @@ export type ArticlePageProps = {
 };
 
 export type ArticlePageFooterProps = {
-  id: string;
-  likes: Array<number>;
+  article: Article;
   user: User;
   likeHandler: () => void;
   addToBookmarksHandler: () => void;
