@@ -7,11 +7,8 @@ import {
   deleteLikeFromArticle,
   saveComment,
 } from "../../services/apiService";
-import {
-  setArticleAction,
-  LikeArticle,
-  SaveComment,
-} from "../../actions/articleActions";
+import { LikeArticle, SaveComment } from "../../types/articleActionsType";
+import { setArticleAction } from "../../actions/articleActions";
 
 export function* setArticleSagaWorker() {
   const data: Articles = yield call(getArticles);

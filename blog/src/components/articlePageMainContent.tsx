@@ -8,7 +8,7 @@ export default function ArticlePageMainContent({
   return (
     <div>
       <div className="articleImg">
-        <img src={img} alt={`Image for article ${id}`}></img>
+        <img src={img} alt={`Article ${id}`}></img>
       </div>
       <div className="articleTextContent">{text}</div>
     </div>

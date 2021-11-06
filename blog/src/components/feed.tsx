@@ -28,7 +28,7 @@ export default function Feed() {
 
   useEffect(() => {
     setTimeout(() => dispatch(getArticleAction()), 1000);
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setArticles(state.articles);

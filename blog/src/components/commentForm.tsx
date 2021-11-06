@@ -2,23 +2,17 @@ import {
   Dialog,
   DialogTitle,
   DialogContent,
-  TextField,
   DialogActions,
   Button,
 } from "@mui/material";
 import { useState } from "react";
-
-export type CommetFormProps = {
-  open: boolean;
-  closeHandler: () => void;
-  saveComment: (comment: string) => void;
-};
+import { CommentFormProps } from "../types/articlePropsTypes";
 
 export default function CommentForm({
   open,
   closeHandler,
   saveComment,
-}: CommetFormProps) {
+}: CommentFormProps) {
   const [comment, setComment] = useState("");
 
   const changeCommentHandler = (text: string) => {

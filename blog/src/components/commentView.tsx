@@ -4,12 +4,7 @@ import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import { User } from "../types/userTypes";
-
-export type CommentViewProps = {
-  user: User;
-  text: string;
-};
+import { CommentViewProps } from "../types/articlePropsTypes";
 
 export default function CommentView({ user, text }: CommentViewProps) {
   return (

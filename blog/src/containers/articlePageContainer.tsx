@@ -19,7 +19,7 @@ export default function ArticlePageContainer() {
 
   useEffect(() => {
     setArticle(findArticle(state.articles, Number.parseInt(id)));
-  }, [state]);
+  }, [state, id]);
 
   const likeHandler = () => {
     if (!article.likes.includes(state.user.id)) {
@@ -59,7 +59,6 @@ export default function ArticlePageContainer() {
 
   return (
     <ArticlePage
-      id={id}
       article={article}
       user={state.user}
       likeHandler={likeHandler}

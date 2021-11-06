@@ -1,8 +1,7 @@
-import { Article } from "./articleTypes";
+import { Article, ArticleComments } from "./articleTypes";
 import { User } from "./userTypes";
 
 export type ArticlePageProps = {
-  id: string;
   article: Article;
   user: User;
   likeHandler: () => void;
@@ -32,4 +31,19 @@ export type ArticlePageMainContentProps = {
 
 export type ArticlePreviewProps = {
   article: Article;
+};
+
+export type ArticleCommentsProps = {
+  comments: ArticleComments;
+};
+
+export type CommentFormProps = {
+  open: boolean;
+  closeHandler: () => void;
+  saveComment: (comment: string) => void;
+};
+
+export type CommentViewProps = {
+  user: User;
+  text: string;
 };

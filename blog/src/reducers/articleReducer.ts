@@ -3,7 +3,7 @@ import {
   ArticleAction,
   LikeArticle,
   SaveComment,
-} from "../actions/articleActions";
+} from "../types/articleActionsType";
 import {
   DELETE_LIKE,
   GET_ARTICLES,

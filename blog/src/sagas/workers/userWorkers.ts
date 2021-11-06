@@ -1,6 +1,7 @@
 import { put, call } from "redux-saga/effects";
 import { User } from "../../types/userTypes";
-import { AddToBookmarks, getCurrentUserAction } from "../../actions/userAction";
+import { getCurrentUserAction } from "../../actions/userAction";
+import { AddToBookmarks } from "../../types/userActionsTypes";
 import {
   getCurrentUser,
   getUserById,

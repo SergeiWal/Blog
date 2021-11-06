@@ -26,10 +26,7 @@ export default function ArticleCard({ article }: ArticlePreviewProps) {
               </div>
             </div>
             <div className="cardImg">
-              <img
-                src={article.img}
-                alt={`Image for article ${article.id}`}
-              ></img>
+              <img src={article.img} alt={`Article ${article.id}`}></img>
             </div>
           </Link>
         </CardContent>

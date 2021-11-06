@@ -1,11 +1,8 @@
 import { FixedSizeList as List } from "react-window";
-import { cardHeight, cardMaxWidth } from "../constants/styles";
-import { ArticleComments, ListGeneratorParams } from "../types/articleTypes";
+import { cardHeight } from "../constants/styles";
+import { ListGeneratorParams } from "../types/articleTypes";
+import { ArticleCommentsProps } from "../types/articlePropsTypes";
 import CommentView from "../components/commentView";
-
-export type ArticleCommentsProps = {
-  comments: ArticleComments;
-};
 
 const generateCommentRows = ({ data, index, style }: ListGeneratorParams) => {
   return (

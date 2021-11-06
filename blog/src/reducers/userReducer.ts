@@ -4,7 +4,7 @@ import {
   DeleteFromBookmarks,
   GetCurrentUser,
   UserAction,
-} from "../actions/userAction";
+} from "../types/userActionsTypes";
 import {
   ADD_TO_BOOKMARKS,
   DELETE_FROM_BOOKMARKS,

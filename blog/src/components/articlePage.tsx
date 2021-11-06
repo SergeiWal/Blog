@@ -5,7 +5,6 @@ import ArticlePageMainContent from "./articlePageMainContent";
 import ArticlePageFooter from "./articlePageFooter";
 
 export default function ArticlePage({
-  id,
   article,
   user,
   likeHandler,
