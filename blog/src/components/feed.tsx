@@ -6,7 +6,8 @@ import { FixedSizeList as List } from "react-window";
 import { cardHeight, cardMaxWidth } from "../constants/styles";
 import "../styles/feed.css";
 import { useEffect, useState } from "react";
-import { GET_ARTICLES } from "../constants/article";
+import { getArticleAction } from "../actions/articleActions";
+import { Skeleton, Stack } from "@mui/material";
 
 const generateArticleListRows = ({
   data,
@@ -19,16 +20,21 @@ const generateArticleListRows = ({
 export default function Feed() {
   const state = useAppSelector((state: RootState) => state);
   const [articles, setArticles] = useState<Array<Article>>([]);
+  const dispatch = useAppDispatch();
 
   const listArticle = articles.map((item: Article) => (
     <ArticleCard key={item.id} article={item}></ArticleCard>
   ));
 
   useEffect(() => {
+    setTimeout(() => dispatch(getArticleAction()), 1000);
+  }, []);
+
+  useEffect(() => {
     setArticles(state.articles);
   }, [state.articles]);
 
-  return (
+  return articles.length > 0 ? (
     <List
       className="articlesList"
       itemData={listArticle}
@@ -39,5 +45,13 @@ export default function Feed() {
     >
       {generateArticleListRows}
     </List>
+  ) : (
+    <Stack spacing={1}>
+      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
+      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
+      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
+      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
+      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
+    </Stack>
   );
 }

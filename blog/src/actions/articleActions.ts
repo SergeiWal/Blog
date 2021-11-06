@@ -17,6 +17,10 @@ export type SaveCommentPayload = {
   comment: ArticleComment;
 };
 
+export interface GetArticle {
+  type: string;
+}
+
 export interface SetArticle {
   type: string;
   payload: Array<Article>;
@@ -37,7 +41,16 @@ export interface SaveComment {
   payload: SaveCommentPayload;
 }
 
-export type ArticleAction = SetArticle | LikeArticle | SaveComment | any;
+export type ArticleAction =
+  | GetArticle
+  | SetArticle
+  | LikeArticle
+  | SaveComment
+  | any;
+
+export const getArticleAction = (): GetArticle => {
+  return { type: GET_ARTICLES };
+};
 
 export const setArticleAction = (items: Array<Article>): SetArticle => {
   return {
