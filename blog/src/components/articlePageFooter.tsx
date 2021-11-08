@@ -22,12 +22,14 @@ export default function ArticlePageFooter({
   const openHandler = () => setOpen(true);
   const closeHandler = () => setOpen(false);
   const saveCommentHandler = (comment: string) => {
-    dispatch(
-      saveCommentAction({
-        articleId: article.id,
-        comment: { author: user, text: comment },
-      })
-    );
+    if (comment.length > 0) {
+      dispatch(
+        saveCommentAction({
+          articleId: article.id,
+          comment: { author: user, text: comment },
+        })
+      );
+    }
   };
 
   return (

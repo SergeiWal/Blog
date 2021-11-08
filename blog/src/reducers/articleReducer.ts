@@ -29,7 +29,7 @@ export default function articleReducer(
     case GET_ARTICLES:
       return state;
     case SET_ARTICLES:
-      return [...state, ...action.payload];
+      return [...action.payload];
     case LIKE:
       userID = (action as LikeArticle).payload.userId;
       articleID = (action as LikeArticle).payload.articleId;

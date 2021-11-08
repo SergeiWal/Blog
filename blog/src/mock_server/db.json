@@ -79,6 +79,36 @@
             ]
           },
           "text": ""
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Comment comment"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Comment comment"
         }
       ]
     },
@@ -114,6 +144,21 @@
             ]
           },
           "text": "gerjorbortbr"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              2,
+              9
+            ]
+          },
+          "text": "Hello, good post!!!\n"
         }
       ]
     },
@@ -319,8 +364,8 @@
       "posts": [],
       "bookmarks": [
         5,
-        2,
-        9
+        9,
+        2
       ]
     },
     {
