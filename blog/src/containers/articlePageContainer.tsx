@@ -15,6 +15,7 @@ import {
 import { findArticle } from "../services/articles";
 import ArticlePage from "../components/articlePage";
 import { Stack, Skeleton } from "@mui/material";
+import { signOutAction } from "../actions/authorizeActions";
 
 export default function ArticlePageContainer() {
   const { id } = useParams<ArticleParamsType>();
@@ -24,9 +25,7 @@ export default function ArticlePageContainer() {
 
   useEffect(() => {
     if (state.articles.length === 0) {
-      setTimeout(() => {
-        dispatch(getArticleByIdAction(Number.parseInt(id)));
-      }, 50);
+      dispatch(getArticleByIdAction(Number.parseInt(id)));
     }
   }, []);
 
@@ -70,12 +69,17 @@ export default function ArticlePageContainer() {
     }
   };
 
-  return article !== DEFAULT_ARTICLE ? (
+  const signOutHandler = () => {
+    dispatch(signOutAction());
+  };
+
+  return !state.isFetching ? (
     <ArticlePage
       article={article}
       user={state.user}
       likeHandler={likeHandler}
       addToBookmarksHandler={addToBookmarksHandler}
+      signOutHandler={signOutHandler}
     />
   ) : (
     <div className="articleContent">

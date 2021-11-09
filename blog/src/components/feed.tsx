@@ -7,7 +7,8 @@ import { cardHeight, cardMaxWidth } from "../constants/styles";
 import "../styles/feed.css";
 import { useEffect, useState } from "react";
 import { getArticleAction } from "../actions/articleActions";
-import { Skeleton, Stack } from "@mui/material";
+import { Skeleton, Stack, Button } from "@mui/material";
+import { signOutAction } from "../actions/authorizeActions";
 
 const generateArticleListRows = ({
   data,
@@ -27,24 +28,35 @@ export default function Feed() {
   ));
 
   useEffect(() => {
-    setTimeout(() => dispatch(getArticleAction()), 50);
+    dispatch(getArticleAction());
   }, [dispatch]);
 
   useEffect(() => {
     setArticles(state.articles);
   }, [state.articles]);
 
-  return articles.length > 0 ? (
-    <List
-      className="articlesList"
-      itemData={listArticle}
-      height={WINDOW_HEIGHT}
-      itemCount={listArticle.length}
-      itemSize={cardHeight}
-      width={cardMaxWidth}
-    >
-      {generateArticleListRows}
-    </List>
+  const signOutHandler = () => {
+    dispatch(signOutAction());
+  };
+
+  return !state.isFetching ? (
+    <div>
+      <header className="header">
+        <Button variant="contained" onClick={signOutHandler}>
+          Sign Out
+        </Button>
+      </header>
+      <List
+        className="articlesList"
+        itemData={listArticle}
+        height={WINDOW_HEIGHT}
+        itemCount={listArticle.length}
+        itemSize={cardHeight}
+        width={cardMaxWidth}
+      >
+        {generateArticleListRows}
+      </List>
+    </div>
   ) : (
     <Stack spacing={1}>
       <Skeleton variant="rectangular" width={700} height={250}></Skeleton>

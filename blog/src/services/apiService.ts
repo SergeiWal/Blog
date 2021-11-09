@@ -47,8 +47,8 @@ export const saveComment = async (
   });
 };
 
-export const getCurrentUser = async (): Promise<User> => {
-  const response = await fetch("http://localhost:3004/users/1");
+export const getCurrentUser = async (id: number): Promise<User> => {
+  const response = await fetch(`http://localhost:3004/users/${id}`);
   const data = await response.json();
   return data;
 };

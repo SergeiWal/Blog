@@ -6,6 +6,7 @@ export type ArticlePageProps = {
   user: User;
   likeHandler: () => void;
   addToBookmarksHandler: () => void;
+  signOutHandler: () => void;
 };
 
 export type ArticlePageFooterProps = {

@@ -49,3 +49,8 @@
 .articlesList::-webkit-scrollbar {
   display: none;
 }
+
+.header {
+  display: flex;
+  justify-content: end;
+}

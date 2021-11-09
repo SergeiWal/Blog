@@ -7,6 +7,11 @@ export type BookmarksPayload = {
 
 export interface GetCurrentUser {
   type: string;
+  payload: number;
+}
+
+export interface GetCurrentUserLoaded {
+  type: string;
   payload: User;
 }
 
@@ -24,4 +29,5 @@ export type UserAction =
   | GetCurrentUser
   | AddToBookmarks
   | DeleteFromBookmarks
+  | GetCurrentUserLoaded
   | any;

@@ -2,18 +2,29 @@ import { User } from "../types/userTypes";
 import {
   ADD_TO_BOOKMARKS,
   DELETE_FROM_BOOKMARKS,
-  GET_CURRENT_USER,
+  GET_USER,
+  GET_USER_lOADED,
 } from "../constants/user";
 import {
   GetCurrentUser,
+  GetCurrentUserLoaded,
   BookmarksPayload,
   AddToBookmarks,
   DeleteFromBookmarks,
 } from "../types/userActionsTypes";
 
-export const getCurrentUserAction = (payload: User): GetCurrentUser => {
+export const getCurrentUserAction = (payload: number): GetCurrentUser => {
   return {
-    type: GET_CURRENT_USER,
+    type: GET_USER,
+    payload,
+  };
+};
+
+export const getCurrentUserLoadedAction = (
+  payload: User
+): GetCurrentUserLoaded => {
+  return {
+    type: GET_USER_lOADED,
     payload,
   };
 };
