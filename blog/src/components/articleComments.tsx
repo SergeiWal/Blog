@@ -16,6 +16,7 @@ export default function ArticleCommentList({ comments }: ArticleCommentsProps) {
   const commentsList = comments.map((comment) => {
     return <CommentView user={comment.author} text={comment.text} />;
   });
+
   return commentsList.length > 0 ? (
     <List
       itemData={commentsList}

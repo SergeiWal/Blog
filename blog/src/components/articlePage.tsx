@@ -2,7 +2,7 @@ import { ArticlePageProps } from "../types/articlePropsTypes";
 import "../styles/articlePage.css";
 import ArticlePageHeader from "./articlePageHeader";
 import ArticlePageMainContent from "./articlePageMainContent";
-import ArticlePageFooter from "./articlePageFooter";
+import ArticlePageFooterContainer from "../containers/articlePageFooterContainer";
 import { Button } from "@mui/material";
 
 export default function ArticlePage({
@@ -15,7 +15,7 @@ export default function ArticlePage({
   return (
     <div>
       <header className="header">
-        <Button variant="contained" onClick={signOutHandler}>
+        <Button variant="contained" color="inherit" onClick={signOutHandler}>
           Sign Out
         </Button>
       </header>
@@ -32,7 +32,7 @@ export default function ArticlePage({
           img={article.img}
           text={article.text}
         />
-        <ArticlePageFooter
+        <ArticlePageFooterContainer
           article={article}
           user={user}
           likeHandler={likeHandler}

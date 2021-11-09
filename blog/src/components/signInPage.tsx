@@ -1,14 +1,10 @@
 import { Button } from "@mui/material";
-import { useAppDispatch } from "../store";
-import { getCurrentUserAction } from "../actions/userAction";
 
-export default function SignInPage() {
-  const dispatch = useAppDispatch();
+export type SignInPageProps = {
+  clickHandler: () => void;
+};
 
-  const clickHandler = () => {
-    dispatch(getCurrentUserAction(1));
-  };
-
+export default function SignInPage({ clickHandler }: SignInPageProps) {
   return (
     <div>
       <Button variant="contained" onClick={clickHandler}>

@@ -4,34 +4,19 @@ import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import { Button } from "@mui/material";
 import { getButtonColorForCollection } from "../services/articles";
 import { ArticlePageFooterProps } from "../types/articlePropsTypes";
-import CommentForm from "./commentForm";
-import { useState } from "react";
-import { useAppDispatch } from "../store";
-import { saveCommentAction } from "../actions/articleActions";
 import ArticleCommentList from "./articleComments";
+import CommentFormContainer from "../containers/commentFormContainer";
 
 export default function ArticlePageFooter({
   article,
   user,
+  open,
   likeHandler,
   addToBookmarksHandler,
+  openHandler,
+  closeHandler,
+  saveCommentHandler,
 }: ArticlePageFooterProps) {
-  const [open, setOpen] = useState(false);
-  const dispatch = useAppDispatch();
-
-  const openHandler = () => setOpen(true);
-  const closeHandler = () => setOpen(false);
-  const saveCommentHandler = (comment: string) => {
-    if (comment.length > 0) {
-      dispatch(
-        saveCommentAction({
-          articleId: article.id,
-          comment: { author: user, text: comment },
-        })
-      );
-    }
-  };
-
   return (
     <div>
       <div className="articleFooter">
@@ -58,7 +43,7 @@ export default function ArticlePageFooter({
           {article.comments.length}
         </Button>
       </div>
-      <CommentForm
+      <CommentFormContainer
         open={open}
         closeHandler={closeHandler}
         saveComment={saveCommentHandler}

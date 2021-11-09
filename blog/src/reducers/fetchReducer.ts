@@ -3,7 +3,7 @@ import {
   FETCH_DATA_FINISHED,
   FETCH_DATA_STARTED,
 } from "../constants/fetch";
-import { FetchAction } from "../actions/fetchActions";
+import { FetchAction } from "../types/otherActionTypes";
 
 export default function fetchReducer(
   state: boolean = false,

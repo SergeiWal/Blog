@@ -3,8 +3,7 @@ import {
   FETCH_DATA_FINISHED,
   FETCH_DATA_STARTED,
 } from "../constants/fetch";
-
-export type FetchAction = { type: string };
+import { FetchAction } from "../types/otherActionTypes";
 
 export const fetchStartAction = (): FetchAction => {
   return {

@@ -1,4 +1,4 @@
-import { AuthorizeAction } from "../actions/authorizeActions";
+import { AuthorizeAction } from "../types/otherActionTypes";
 import { SIGN_IN, SIGN_OUT } from "../constants/authorize";
 
 export default function AuthorizeReducer(

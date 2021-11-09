@@ -109,6 +109,96 @@
             ]
           },
           "text": "Comment comment"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hi"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hi"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hi"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Lalala"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "tttt"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "tttt"
         }
       ]
     },
@@ -127,8 +217,8 @@
       ],
       "likes": [
         2,
-        1,
-        0
+        0,
+        1
       ],
       "comments": [
         {
@@ -160,6 +250,21 @@
             ]
           },
           "text": "Hello, good post!!!\n"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hello"
         }
       ]
     },
@@ -230,7 +335,83 @@
       "likes": [
         1
       ],
-      "comments": []
+      "comments": [
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hello"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hello"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hello2"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hello2"
+        },
+        {
+          "author": {
+            "id": 1,
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              5,
+              9,
+              2
+            ]
+          },
+          "text": "Hello3"
+        }
+      ]
     },
     {
       "id": 5,

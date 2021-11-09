@@ -26,6 +26,5 @@ export function* rootSagaWatcher() {
 }
 
 export default function* rootSaga() {
-  // yield getCurrentUserSagaWorker();
   yield rootSagaWatcher();
 }

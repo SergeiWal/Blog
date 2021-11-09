@@ -1,48 +1,22 @@
-import { RootState, useAppDispatch, useAppSelector } from "../store";
-import { Article, ListGeneratorParams } from "../types/articleTypes";
+import { Article } from "../types/articleTypes";
 import ArticleCard from "./articleCard";
 import { WINDOW_HEIGHT } from "../constants/app";
 import { FixedSizeList as List } from "react-window";
 import { cardHeight, cardMaxWidth } from "../constants/styles";
 import "../styles/feed.css";
-import { useEffect, useState } from "react";
-import { getArticleAction } from "../actions/articleActions";
-import { Skeleton, Stack, Button } from "@mui/material";
-import { signOutAction } from "../actions/authorizeActions";
+import { Button } from "@mui/material";
+import { generateArticleListRows } from "../containers/feedContainer";
+import { FeedProps } from "../types/articlePropsTypes";
 
-const generateArticleListRows = ({
-  data,
-  index,
-  style,
-}: ListGeneratorParams) => {
-  return <div style={style}>{data[index]}</div>;
-};
-
-export default function Feed() {
-  const state = useAppSelector((state: RootState) => state);
-  const [articles, setArticles] = useState<Array<Article>>([]);
-  const dispatch = useAppDispatch();
-
+export default function Feed({ articles, signOutHandler }: FeedProps) {
   const listArticle = articles.map((item: Article) => (
     <ArticleCard key={item.id} article={item}></ArticleCard>
   ));
 
-  useEffect(() => {
-    dispatch(getArticleAction());
-  }, [dispatch]);
-
-  useEffect(() => {
-    setArticles(state.articles);
-  }, [state.articles]);
-
-  const signOutHandler = () => {
-    dispatch(signOutAction());
-  };
-
-  return !state.isFetching ? (
+  return (
     <div>
       <header className="header">
-        <Button variant="contained" onClick={signOutHandler}>
+        <Button variant="contained" color="inherit" onClick={signOutHandler}>
           Sign Out
         </Button>
       </header>
@@ -57,13 +31,5 @@ export default function Feed() {
         {generateArticleListRows}
       </List>
     </div>
-  ) : (
-    <Stack spacing={1}>
-      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
-      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
-      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
-      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
-      <Skeleton variant="rectangular" width={700} height={250}></Skeleton>
-    </Stack>
   );
 }

@@ -5,24 +5,14 @@ import {
   DialogActions,
   Button,
 } from "@mui/material";
-import { useState } from "react";
 import { CommentFormProps } from "../types/articlePropsTypes";
 
 export default function CommentForm({
   open,
   closeHandler,
-  saveComment,
+  changeCommentHandler,
+  saveCommentHandler,
 }: CommentFormProps) {
-  const [comment, setComment] = useState("");
-
-  const changeCommentHandler = (text: string) => {
-    setComment(text);
-  };
-  const saveCommentHandler = () => {
-    saveComment(comment);
-    closeHandler();
-  };
-
   return (
     <Dialog open={open} onClose={closeHandler}>
       <DialogTitle>New comment</DialogTitle>

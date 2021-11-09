@@ -14,8 +14,8 @@ import {
 } from "../actions/userAction";
 import { findArticle } from "../services/articles";
 import ArticlePage from "../components/articlePage";
-import { Stack, Skeleton } from "@mui/material";
 import { signOutAction } from "../actions/authorizeActions";
+import ArticlePageLoader from "../components/loaders/articlePageLoader";
 
 export default function ArticlePageContainer() {
   const { id } = useParams<ArticleParamsType>();
@@ -82,13 +82,6 @@ export default function ArticlePageContainer() {
       signOutHandler={signOutHandler}
     />
   ) : (
-    <div className="articleContent">
-      <Stack spacing={2}>
-        <Skeleton variant="rectangular" width={880} height={20} />
-        <Skeleton variant="rectangular" width={880} height={20} />
-        <Skeleton variant="rectangular" width={880} height={800} />
-        <Skeleton variant="rectangular" width={880} height={20} />
-      </Stack>
-    </div>
+    <ArticlePageLoader />
   );
 }

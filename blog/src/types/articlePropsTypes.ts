@@ -1,5 +1,10 @@
-import { Article, ArticleComments } from "./articleTypes";
+import { Article, ArticleComments, Articles } from "./articleTypes";
 import { User } from "./userTypes";
+
+export type FeedProps = {
+  articles: Articles;
+  signOutHandler: () => void;
+};
 
 export type ArticlePageProps = {
   article: Article;
@@ -10,6 +15,17 @@ export type ArticlePageProps = {
 };
 
 export type ArticlePageFooterProps = {
+  article: Article;
+  user: User;
+  open: boolean;
+  likeHandler: () => void;
+  addToBookmarksHandler: () => void;
+  saveCommentHandler: (comment: string) => void;
+  openHandler: () => void;
+  closeHandler: () => void;
+};
+
+export type ArticlePageFooterConteinerProps = {
   article: Article;
   user: User;
   likeHandler: () => void;
@@ -41,10 +57,17 @@ export type ArticleCommentsProps = {
 export type CommentFormProps = {
   open: boolean;
   closeHandler: () => void;
-  saveComment: (comment: string) => void;
+  changeCommentHandler: (text: string) => void;
+  saveCommentHandler: () => void;
 };
 
 export type CommentViewProps = {
   user: User;
   text: string;
+};
+
+export type CommentFormContainerProps = {
+  open: boolean;
+  saveComment: (comment: string) => void;
+  closeHandler: () => void;
 };

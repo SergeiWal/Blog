@@ -1,6 +1,5 @@
 import { SIGN_IN, SIGN_OUT } from "../constants/authorize";
-
-export type AuthorizeAction = { type: string };
+import { AuthorizeAction } from "../types/otherActionTypes";
 
 export const signInAction = (): AuthorizeAction => {
   return {
