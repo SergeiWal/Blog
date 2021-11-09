@@ -7,7 +7,9 @@ import {
 import {
   DELETE_LIKE,
   GET_ARTICLES,
-  SET_ARTICLES,
+  GET_ARTICLES_LOADED,
+  GET_ARTICLE_BY_ID,
+  GET_ARTICLE_BY_ID_LOADED,
   LIKE,
   SAVE_COMMENT,
 } from "../constants/article";
@@ -28,8 +30,12 @@ export default function articleReducer(
   switch (action.type) {
     case GET_ARTICLES:
       return state;
-    case SET_ARTICLES:
+    case GET_ARTICLES_LOADED:
       return [...action.payload];
+    case GET_ARTICLE_BY_ID:
+      return state;
+    case GET_ARTICLE_BY_ID_LOADED:
+      return [...state, action.payload];
     case LIKE:
       userID = (action as LikeArticle).payload.userId;
       articleID = (action as LikeArticle).payload.articleId;

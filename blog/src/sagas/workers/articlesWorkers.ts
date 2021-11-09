@@ -7,12 +7,23 @@ import {
   deleteLikeFromArticle,
   saveComment,
 } from "../../services/apiService";
-import { LikeArticle, SaveComment } from "../../types/articleActionsType";
-import { setArticleAction } from "../../actions/articleActions";
+import {
+  GetArticle,
+  LikeArticle,
+  SaveComment,
+} from "../../types/articleActionsType";
+import {
+  setArticleAction,
+  getArticleByIdLoadedAction,
+} from "../../actions/articleActions";
 
 export function* setArticleSagaWorker() {
   const data: Articles = yield call(getArticles);
   yield put(setArticleAction(data));
+}
+export function* getArticleByIdSagaWorker({ payload }: GetArticle) {
+  const article: Article = yield call(getArticlesById, payload);
+  yield put(getArticleByIdLoadedAction(article));
 }
 
 export function* likeArticleSagaWorker({ payload }: LikeArticle) {

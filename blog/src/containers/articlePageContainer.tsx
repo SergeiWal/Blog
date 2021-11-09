@@ -3,19 +3,32 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { DEFAULT_ARTICLE } from "../constants/article";
 import { useAppDispatch, useAppSelector } from "../store";
-import { likeArticleAction, deleteLikeAction } from "../actions/articleActions";
+import {
+  likeArticleAction,
+  deleteLikeAction,
+  getArticleByIdAction,
+} from "../actions/articleActions";
 import {
   addToBookmarksAction,
   deleteFromBookmarksAction,
 } from "../actions/userAction";
 import { findArticle } from "../services/articles";
 import ArticlePage from "../components/articlePage";
+import { Stack, Skeleton } from "@mui/material";
 
 export default function ArticlePageContainer() {
   const { id } = useParams<ArticleParamsType>();
   const [article, setArticle] = useState<Article>(DEFAULT_ARTICLE);
   const state = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (state.articles.length === 0) {
+      setTimeout(() => {
+        dispatch(getArticleByIdAction(Number.parseInt(id)));
+      }, 50);
+    }
+  }, []);
 
   useEffect(() => {
     setArticle(findArticle(state.articles, Number.parseInt(id)));
@@ -57,12 +70,21 @@ export default function ArticlePageContainer() {
     }
   };
 
-  return (
+  return article !== DEFAULT_ARTICLE ? (
     <ArticlePage
       article={article}
       user={state.user}
       likeHandler={likeHandler}
       addToBookmarksHandler={addToBookmarksHandler}
     />
+  ) : (
+    <div className="articleContent">
+      <Stack spacing={2}>
+        <Skeleton variant="rectangular" width={880} height={20} />
+        <Skeleton variant="rectangular" width={880} height={20} />
+        <Skeleton variant="rectangular" width={880} height={800} />
+        <Skeleton variant="rectangular" width={880} height={20} />
+      </Stack>
+    </div>
   );
 }

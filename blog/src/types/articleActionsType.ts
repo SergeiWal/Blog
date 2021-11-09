@@ -10,13 +10,23 @@ export type SaveCommentPayload = {
   comment: ArticleComment;
 };
 
-export interface GetArticle {
+export interface GetArticles {
   type: string;
 }
 
-export interface SetArticle {
+export interface SetArticles {
   type: string;
   payload: Array<Article>;
+}
+
+export interface GetArticle {
+  type: string;
+  payload: number;
+}
+
+export interface GetArticleLoaded {
+  type: string;
+  payload: Article;
 }
 
 export interface LikeArticle {
@@ -35,8 +45,8 @@ export interface SaveComment {
 }
 
 export type ArticleAction =
-  | GetArticle
-  | SetArticle
+  | GetArticles
+  | SetArticles
   | LikeArticle
   | SaveComment
   | any;

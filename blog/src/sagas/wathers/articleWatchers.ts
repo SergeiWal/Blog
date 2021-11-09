@@ -4,16 +4,22 @@ import {
   DELETE_LIKE,
   SAVE_COMMENT,
   GET_ARTICLES,
+  GET_ARTICLE_BY_ID,
 } from "../../constants/article";
 import {
   likeArticleSagaWorker,
   deleteLikeFromArticlesSagaWorker,
   saveCommentSagaWorker,
   setArticleSagaWorker,
+  getArticleByIdSagaWorker,
 } from "../workers/articlesWorkers";
 
 export function* getArticlesSagaWatcher() {
   yield takeEvery(GET_ARTICLES, setArticleSagaWorker);
+}
+
+export function* getArticleByIdSagaWatcher() {
+  yield takeEvery(GET_ARTICLE_BY_ID, getArticleByIdSagaWorker);
 }
 
 export function* likeArticlesSagaWatcher() {

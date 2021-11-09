@@ -5,6 +5,7 @@ import {
   likeArticlesSagaWatcher,
   deleteLikeFromArticlesSagaWatcher,
   saveCommentSagaWatcher,
+  getArticleByIdSagaWatcher,
 } from "./wathers/articleWatchers";
 import {
   addToBookmarksWatcher,
@@ -14,6 +15,7 @@ import {
 export function* rootSagaWatcher() {
   yield all([
     getArticlesSagaWatcher(),
+    getArticleByIdSagaWatcher(),
     likeArticlesSagaWatcher(),
     deleteLikeFromArticlesSagaWatcher(),
     addToBookmarksWatcher(),
