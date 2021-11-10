@@ -4,9 +4,9 @@ import { useParams } from "react-router";
 import { DEFAULT_ARTICLE } from "../constants/article";
 import { useAppDispatch, useAppSelector } from "../store";
 import {
-  likeArticleAction,
-  deleteLikeAction,
   getArticleByIdAction,
+  deleteLikeAction,
+  likeArticleAction,
 } from "../actions/articleActions";
 import {
   addToBookmarksAction,

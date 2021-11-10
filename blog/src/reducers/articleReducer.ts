@@ -9,6 +9,7 @@ import {
   LIKE,
   SAVE_COMMENT,
 } from "../constants/article";
+import {} from "../types/articleActionsType";
 
 const defaultArticles: Articles = [];
 

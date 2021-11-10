@@ -2,11 +2,7 @@ import { put, call } from "redux-saga/effects";
 import { User } from "../../types/userTypes";
 import { getCurrentUserLoadedAction } from "../../actions/userAction";
 import { AddToBookmarks, GetCurrentUser } from "../../types/userActionsTypes";
-import {
-  getUserById,
-  addToBookmarks,
-  deleteFromBookmarks,
-} from "../../services/apiService";
+import { getUserById, updateUser } from "../../services/apiService";
 import {
   fetchFinishedAction,
   fetchStartAction,
@@ -22,9 +18,14 @@ export function* getUserSagaWorker({ payload }: GetCurrentUser) {
 }
 
 export function* addToBookmarksWorker({ payload }: AddToBookmarks) {
-  yield call(addToBookmarks, payload.user, payload.articleId);
+  const { user, articleId } = payload;
+  user.bookmarks.push(articleId);
+  yield call(updateUser, user);
 }
 
 export function* deleteFromBookmarksWorker({ payload }: AddToBookmarks) {
-  yield call(deleteFromBookmarks, payload.user, payload.articleId);
+  const { user, articleId } = payload;
+  const index = user.bookmarks.indexOf(articleId);
+  user.bookmarks.splice(index, 1);
+  yield call(updateUser, user);
 }

@@ -3,9 +3,7 @@ import { Articles, Article } from "../../types/articleTypes";
 import {
   getArticles,
   getArticlesById,
-  likeArticle,
-  deleteLikeFromArticle,
-  saveComment,
+  updateArticle,
 } from "../../services/apiService";
 import {
   GetArticle,
@@ -36,13 +34,20 @@ export function* getArticleByIdSagaWorker({ payload }: GetArticle) {
 }
 
 export function* likeArticleSagaWorker({ payload }: LikeArticle) {
-  yield call(likeArticle, payload.article, payload.user.id);
+  const { article, user } = payload;
+  article.likes.push(user.id);
+  yield call(updateArticle, article);
 }
 
 export function* deleteLikeFromArticlesSagaWorker({ payload }: LikeArticle) {
-  yield call(deleteLikeFromArticle, payload.article, payload.user.id);
+  const { article, user } = payload;
+  const index: number = payload.article.likes.indexOf(user.id);
+  article.likes.splice(index, 1);
+  yield call(updateArticle, article);
 }
 
 export function* saveCommentSagaWorker({ payload }: SaveComment) {
-  yield call(saveComment, payload.article, payload.comment);
+  const { article, comment } = payload;
+  article.comments.push(comment);
+  yield call(updateArticle, article);
 }
