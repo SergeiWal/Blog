@@ -1,10 +1,9 @@
-import "./index.css";
 import App from "./App";
-import { useAppSelector } from "./store";
+import { useAppSelector } from "./store/store";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import ArticlePageContainer from "./containers/articlePageContainer";
-import SignInPageContainer from "./containers/signInPageContainer";
-import FeedConteiner from "./containers/feedContainer";
+import ArticlePageContainer from "./article/containers/articlePageContainer";
+import SignInPageContainer from "./authorization/signInPageContainer";
+import FeedConteiner from "./articleList/feedContainer";
 
 export default function AppRouter() {
   const isAuthorized = useAppSelector((state) => state.isAuthorized);
