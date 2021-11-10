@@ -1,9 +1,5 @@
 import { Articles } from "../types/articleTypes";
-import {
-  ArticleAction,
-  LikeArticle,
-  SaveComment,
-} from "../types/articleActionsType";
+import { ArticleAction } from "../types/articleActionsType";
 import {
   DELETE_LIKE,
   GET_ARTICLES,
@@ -13,15 +9,8 @@ import {
   LIKE,
   SAVE_COMMENT,
 } from "../constants/article";
-import saveCommentForArticle, {
-  deleteLikeFromArticles,
-  likeArticles,
-} from "../services/articleReducerService";
 
 const defaultArticles: Articles = [];
-
-let userID: number;
-let articleID: number;
 
 export default function articleReducer(
   state = defaultArticles,
@@ -37,18 +26,11 @@ export default function articleReducer(
     case GET_ARTICLE_BY_ID_LOADED:
       return [...state, action.payload];
     case LIKE:
-      userID = (action as LikeArticle).payload.userId;
-      articleID = (action as LikeArticle).payload.articleId;
-      return [...likeArticles(state, articleID, userID)];
+      return [...state];
     case DELETE_LIKE:
-      userID = (action as LikeArticle).payload.userId;
-      articleID = (action as LikeArticle).payload.articleId;
-      return [...deleteLikeFromArticles(state, articleID, userID)];
+      return [...state];
     case SAVE_COMMENT:
-      const payload = (action as SaveComment).payload;
-      return [
-        ...saveCommentForArticle(payload.articleId, state, payload.comment),
-      ];
+      return [...state];
     default:
       return state;
   }

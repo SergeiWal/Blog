@@ -30,7 +30,7 @@ export const setArticleAction = (items: Array<Article>): SetArticles => {
   };
 };
 
-export const getArticleByIdAction = (id: number): GetArticle => {
+export const getArticleByIdAction = (id: string): GetArticle => {
   return {
     type: GET_ARTICLE_BY_ID,
     payload: id,

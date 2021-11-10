@@ -11,11 +11,12 @@ export function tagsArrToStr(tags: string[]): string {
 }
 
 export const getButtonColorForCollection = (
-  collection: Array<number>,
-  id: number
+  collection: Array<string>,
+  id: string
 ) => {
   return collection.includes(id) ? "success" : "inherit";
 };
 
-export const findArticle = (articles: Articles, id: number): Article =>
-  articles.find((article) => article.id === id) || DEFAULT_ARTICLE;
+export const findArticle = (articles: Articles, id: string): Article => {
+  return articles.find((article) => article.id === id) || DEFAULT_ARTICLE;
+};

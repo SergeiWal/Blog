@@ -25,45 +25,45 @@ export default function ArticlePageContainer() {
 
   useEffect(() => {
     if (state.articles.length === 0) {
-      dispatch(getArticleByIdAction(Number.parseInt(id)));
+      dispatch(getArticleByIdAction(id));
     }
   }, []);
 
   useEffect(() => {
-    setArticle(findArticle(state.articles, Number.parseInt(id)));
+    setArticle(findArticle(state.articles, id));
   }, [state, id]);
 
   const likeHandler = () => {
     if (!article.likes.includes(state.user.id)) {
       dispatch(
         likeArticleAction({
-          articleId: Number.parseInt(id),
-          userId: state.user.id,
+          article: article,
+          user: state.user,
         })
       );
     } else {
       dispatch(
         deleteLikeAction({
-          articleId: Number.parseInt(id),
-          userId: state.user.id,
+          article: article,
+          user: state.user,
         })
       );
     }
   };
 
   const addToBookmarksHandler = () => {
-    if (!state.user.bookmarks.includes(Number.parseInt(id))) {
+    if (!state.user.bookmarks.includes(id)) {
       dispatch(
         addToBookmarksAction({
-          articleId: Number.parseInt(id),
-          userId: state.user.id,
+          articleId: id,
+          user: state.user,
         })
       );
     } else {
       dispatch(
         deleteFromBookmarksAction({
-          articleId: Number.parseInt(id),
-          userId: state.user.id,
+          articleId: id,
+          user: state.user,
         })
       );
     }

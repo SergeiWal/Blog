@@ -19,7 +19,7 @@ export default function ArticlePageFooterContainer({
     if (comment.length > 0) {
       dispatch(
         saveCommentAction({
-          articleId: article.id,
+          article: article,
           comment: { author: user, text: comment },
         })
       );

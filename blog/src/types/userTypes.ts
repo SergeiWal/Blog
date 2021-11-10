@@ -1,10 +1,10 @@
 import { Article } from "./articleTypes";
 
 export type User = {
-  id: number;
+  id: string;
   name: string;
   password: string;
   photo: string;
   posts: Array<Article>;
-  bookmarks: Array<number>;
+  bookmarks: Array<string>;
 };

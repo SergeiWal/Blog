@@ -36,16 +36,13 @@ export function* getArticleByIdSagaWorker({ payload }: GetArticle) {
 }
 
 export function* likeArticleSagaWorker({ payload }: LikeArticle) {
-  const article: Article = yield call(getArticlesById, payload.articleId);
-  yield call(likeArticle, article, payload.userId);
+  yield call(likeArticle, payload.article, payload.user.id);
 }
 
 export function* deleteLikeFromArticlesSagaWorker({ payload }: LikeArticle) {
-  const article: Article = yield call(getArticlesById, payload.articleId);
-  yield call(deleteLikeFromArticle, article, payload.userId);
+  yield call(deleteLikeFromArticle, payload.article, payload.user.id);
 }
 
 export function* saveCommentSagaWorker({ payload }: SaveComment) {
-  const article: Article = yield call(getArticlesById, payload.articleId);
-  yield call(saveComment, article, payload.comment);
+  yield call(saveComment, payload.article, payload.comment);
 }

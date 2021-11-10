@@ -13,7 +13,7 @@ import {
   DeleteFromBookmarks,
 } from "../types/userActionsTypes";
 
-export const getCurrentUserAction = (payload: number): GetCurrentUser => {
+export const getCurrentUserAction = (payload: string): GetCurrentUser => {
   return {
     type: GET_USER,
     payload,

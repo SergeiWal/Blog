@@ -1,38 +1,33 @@
 import { Article, ArticleComment } from "../types/articleTypes";
 import { User } from "../types/userTypes";
+import axios from "axios";
 
-export const getArticles = async (): Promise<Article[]> => {
-  const response = await fetch("http://localhost:3004/articles");
-  const data = await response.json();
-  return data;
+const instance = axios.create({
+  baseURL: "http://localhost:3004",
+});
+
+export const getArticles = async () => {
+  const response = await instance.get("/articles");
+  return response.data;
 };
 
-export const getArticlesById = async (id: number): Promise<Article> => {
-  const response = await fetch(`http://localhost:3004/articles/${id}`);
-  const data = await response.json();
-  return data;
+export const getArticlesById = async (id: string) => {
+  const response = await instance.get(`/articles/${id}`);
+  return response.data;
 };
 
-export const likeArticle = async (article: Article, userId: number) => {
+export const likeArticle = async (article: Article, userId: string) => {
   article.likes.push(userId);
-  await fetch(`http://localhost:3004/articles/${article.id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(article),
-  });
+  await instance.put(`/articles/${article.id}`, article);
 };
 
 export const deleteLikeFromArticle = async (
   article: Article,
-  userId: number
+  userId: string
 ) => {
   const index: number = article.likes.indexOf(userId);
   article.likes.splice(index, 1);
-  await fetch(`http://localhost:3004/articles/${article.id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(article),
-  });
+  await instance.put(`/articles/${article.id}`, article);
 };
 
 export const saveComment = async (
@@ -40,40 +35,25 @@ export const saveComment = async (
   comment: ArticleComment
 ) => {
   article.comments.push(comment);
-  await fetch(`http://localhost:3004/articles/${article.id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(article),
-  });
+  await instance.put(`/articles/${article.id}`, article);
 };
 
-export const getCurrentUser = async (id: number): Promise<User> => {
-  const response = await fetch(`http://localhost:3004/users/${id}`);
-  const data = await response.json();
-  return data;
+export const getUserById = async (id: string) => {
+  const response = await instance.get(`/users/${id}`);
+  return response.data;
 };
 
-export const getUserById = async (id: number): Promise<User> => {
-  const response = await fetch(`http://localhost:3004/users/${id}`);
-  const data = await response.json();
-  return data;
+export const updateUser = async (user: User) => {
+  await instance.put(`/users/${user.id}`, user);
 };
 
-export const addToBookmarks = async (user: User, articleId: number) => {
+export const addToBookmarks = async (user: User, articleId: string) => {
   user.bookmarks.push(articleId);
-  await fetch(`http://localhost:3004/users/${user.id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
-  });
+  await instance.put(`/users/${user.id}`, user);
 };
 
-export const deleteFromBookmarks = async (user: User, articleId: number) => {
+export const deleteFromBookmarks = async (user: User, articleId: string) => {
   const index = user.bookmarks.indexOf(articleId);
   user.bookmarks.splice(index, 1);
-  await fetch(`http://localhost:3004/users/${user.id}`, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(user),
-  });
+  await instance.put(`/users/${user.id}`, user);
 };

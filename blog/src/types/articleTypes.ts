@@ -1,7 +1,7 @@
 import { User } from "./userTypes";
 
 export type Article = {
-  id: number;
+  id: string;
   title: string;
   subtitle: string;
   text: string;
@@ -10,7 +10,7 @@ export type Article = {
   updatedate: string;
   name: string;
   tags: Array<string>;
-  likes: Array<number>;
+  likes: Array<string>;
   comments: ArticleComments;
 };
 

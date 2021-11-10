@@ -41,7 +41,7 @@ export type ArticlePafeHeaderProps = {
 };
 
 export type ArticlePageMainContentProps = {
-  id: number;
+  id: string;
   img: string;
   text: string;
 };

@@ -1,12 +1,13 @@
 import { Article, ArticleComment } from "../types/articleTypes";
+import { User } from "./userTypes";
 
 export type LikePayload = {
-  articleId: number;
-  userId: number;
+  article: Article;
+  user: User;
 };
 
 export type SaveCommentPayload = {
-  articleId: number;
+  article: Article;
   comment: ArticleComment;
 };
 
@@ -21,7 +22,7 @@ export interface SetArticles {
 
 export interface GetArticle {
   type: string;
-  payload: number;
+  payload: string;
 }
 
 export interface GetArticleLoaded {

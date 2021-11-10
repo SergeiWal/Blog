@@ -1,13 +1,13 @@
 import { User } from "./userTypes";
 
 export type BookmarksPayload = {
-  articleId: number;
-  userId: number;
+  articleId: string;
+  user: User;
 };
 
 export interface GetCurrentUser {
   type: string;
-  payload: number;
+  payload: string;
 }
 
 export interface GetCurrentUserLoaded {
