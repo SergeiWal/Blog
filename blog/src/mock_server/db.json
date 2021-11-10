@@ -14,12 +14,12 @@
         "#tag2"
       ],
       "likes": [
-        1
+        "1"
       ],
       "comments": [
         {
           "author": {
-            "id": 1,
+            "id": "1",
             "name": "Sergei",
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
@@ -46,7 +46,7 @@
         "#tag2"
       ],
       "likes": [
-        1
+        "1"
       ],
       "comments": []
     },
@@ -187,7 +187,8 @@
       "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "posts": [],
       "bookmarks": [
-        "1"
+        "1",
+        "2"
       ]
     },
     {

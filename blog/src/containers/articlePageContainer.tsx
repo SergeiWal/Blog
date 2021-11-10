@@ -34,46 +34,38 @@ export default function ArticlePageContainer() {
   }, [state, id]);
 
   const likeHandler = () => {
-    if (!article.likes.includes(state.user.id)) {
-      dispatch(
-        likeArticleAction({
-          article: article,
-          user: state.user,
-        })
-      );
-    } else {
-      dispatch(
-        deleteLikeAction({
-          article: article,
-          user: state.user,
-        })
-      );
-    }
+    const action = article.likes.includes(state.user.id)
+      ? deleteLikeAction
+      : likeArticleAction;
+
+    dispatch(
+      action({
+        article: article,
+        user: state.user,
+      })
+    );
   };
 
   const addToBookmarksHandler = () => {
-    if (!state.user.bookmarks.includes(id)) {
-      dispatch(
-        addToBookmarksAction({
-          articleId: id,
-          user: state.user,
-        })
-      );
-    } else {
-      dispatch(
-        deleteFromBookmarksAction({
-          articleId: id,
-          user: state.user,
-        })
-      );
-    }
+    const action = state.user.bookmarks.includes(id)
+      ? deleteFromBookmarksAction
+      : addToBookmarksAction;
+
+    dispatch(
+      action({
+        articleId: id,
+        user: state.user,
+      })
+    );
   };
 
   const signOutHandler = () => {
     dispatch(signOutAction());
   };
 
-  return !state.isFetching ? (
+  return state.isFetching ? (
+    <ArticlePageLoader />
+  ) : (
     <ArticlePage
       article={article}
       user={state.user}
@@ -81,7 +73,5 @@ export default function ArticlePageContainer() {
       addToBookmarksHandler={addToBookmarksHandler}
       signOutHandler={signOutHandler}
     />
-  ) : (
-    <ArticlePageLoader />
   );
 }

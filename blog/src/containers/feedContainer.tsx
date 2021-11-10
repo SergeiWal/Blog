@@ -31,9 +31,9 @@ export default function FeedConteiner() {
     dispatch(signOutAction());
   };
 
-  return !state.isFetching ? (
-    <Feed articles={articles} signOutHandler={signOutHandler} />
-  ) : (
+  return state.isFetching ? (
     <FeedLoader />
+  ) : (
+    <Feed articles={articles} signOutHandler={signOutHandler} />
   );
 }
