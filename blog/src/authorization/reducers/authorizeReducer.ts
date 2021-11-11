@@ -1,9 +1,9 @@
-import { AuthorizeAction } from "../../store/actionTypes";
+import { Action } from "../../store/actionTypes";
 import { SIGN_IN, SIGN_OUT } from "../constants/authorize";
 
 export default function AuthorizeReducer(
   state: boolean = false,
-  action: AuthorizeAction
+  action: Action<any>
 ) {
   switch (action.type) {
     case SIGN_IN:

@@ -1,7 +1,7 @@
 import { User } from "../types/userTypes";
 
-export const GET_USER: string = "GET_USER";
-export const GET_USER_lOADED: string = "GET_USER_lOADED";
+export const GET_USER_REQUEST: string = "GET_USER_REQUEST";
+export const GET_USER_SUCCESS: string = "GET_USER_SUCCESS";
 export const ADD_TO_BOOKMARKS: string = "ADD_TO_BOOKMARKS";
 export const DELETE_FROM_BOOKMARKS: string = "DELETE_FROM_BOOKMARKS";
 

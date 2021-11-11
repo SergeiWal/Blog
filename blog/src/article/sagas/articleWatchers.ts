@@ -3,8 +3,8 @@ import {
   LIKE,
   DELETE_LIKE,
   SAVE_COMMENT,
-  GET_ARTICLES,
-  GET_ARTICLE_BY_ID,
+  GET_ARTICLES_REQUEST,
+  GET_ARTICLE_BY_ID_REQUEST,
 } from "../constants/article";
 import {
   likeArticleSagaWorker,
@@ -15,11 +15,11 @@ import {
 } from "./articlesWorkers";
 
 export function* getArticlesSagaWatcher() {
-  yield takeEvery(GET_ARTICLES, setArticleSagaWorker);
+  yield takeEvery(GET_ARTICLES_REQUEST, setArticleSagaWorker);
 }
 
 export function* getArticleByIdSagaWatcher() {
-  yield takeEvery(GET_ARTICLE_BY_ID, getArticleByIdSagaWorker);
+  yield takeEvery(GET_ARTICLE_BY_ID_REQUEST, getArticleByIdSagaWorker);
 }
 
 export function* likeArticlesSagaWatcher() {

@@ -1,28 +1,27 @@
 import { Articles } from "./types/articleTypes";
-import { ArticleAction } from "./types/articleActionsType";
+import { Action } from "../store/actionTypes";
 import {
   DELETE_LIKE,
-  GET_ARTICLES,
-  GET_ARTICLES_LOADED,
-  GET_ARTICLE_BY_ID,
+  GET_ARTICLES_REQUEST,
+  GET_ARTICLES_SUCCESS,
+  GET_ARTICLE_BY_ID_REQUEST,
   GET_ARTICLE_BY_ID_LOADED,
   LIKE,
   SAVE_COMMENT,
 } from "./constants/article";
-import {} from "./types/articleActionsType";
 
 const defaultArticles: Articles = [];
 
 export default function articleReducer(
   state = defaultArticles,
-  action: ArticleAction
+  action: Action<any>
 ) {
   switch (action.type) {
-    case GET_ARTICLES:
+    case GET_ARTICLES_REQUEST:
       return state;
-    case GET_ARTICLES_LOADED:
+    case GET_ARTICLES_SUCCESS:
       return [...action.payload];
-    case GET_ARTICLE_BY_ID:
+    case GET_ARTICLE_BY_ID_REQUEST:
       return state;
     case GET_ARTICLE_BY_ID_LOADED:
       return [...state, action.payload];

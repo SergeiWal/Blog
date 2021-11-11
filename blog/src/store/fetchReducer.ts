@@ -3,11 +3,11 @@ import {
   FETCH_DATA_FINISHED,
   FETCH_DATA_STARTED,
 } from "./fetch";
-import { FetchAction } from "./actionTypes";
+import { Action } from "./actionTypes";
 
 export default function fetchReducer(
   state: boolean = false,
-  action: FetchAction
+  action: Action<any>
 ) {
   switch (action.type) {
     case FETCH_DATA_STARTED:

@@ -2,8 +2,8 @@ import { User } from "../types/userTypes";
 import {
   ADD_TO_BOOKMARKS,
   DELETE_FROM_BOOKMARKS,
-  GET_USER,
-  GET_USER_lOADED,
+  GET_USER_REQUEST,
+  GET_USER_SUCCESS,
 } from "../constants/user";
 import {
   GetCurrentUser,
@@ -15,7 +15,7 @@ import {
 
 export const getCurrentUserAction = (payload: string): GetCurrentUser => {
   return {
-    type: GET_USER,
+    type: GET_USER_REQUEST,
     payload,
   };
 };
@@ -24,7 +24,7 @@ export const getCurrentUserLoadedAction = (
   payload: User
 ): GetCurrentUserLoaded => {
   return {
-    type: GET_USER_lOADED,
+    type: GET_USER_SUCCESS,
     payload,
   };
 };

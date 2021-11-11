@@ -1,13 +1,13 @@
 import { SIGN_IN, SIGN_OUT } from "../constants/authorize";
-import { AuthorizeAction } from "../../store/actionTypes";
+import { Action } from "../../store/actionTypes";
 
-export const signInAction = (): AuthorizeAction => {
+export const signInAction = (): Action<any> => {
   return {
     type: SIGN_IN,
   };
 };
 
-export const signOutAction = (): AuthorizeAction => {
+export const signOutAction = (): Action<any> => {
   return {
     type: SIGN_OUT,
   };

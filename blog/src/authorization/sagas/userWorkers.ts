@@ -8,8 +8,9 @@ import {
   fetchStartAction,
 } from "../../store/fetchActions";
 import { signInAction } from "../actions/authorizeActions";
+import { Action } from "../../store/actionTypes";
 
-export function* getUserSagaWorker({ payload }: GetCurrentUser) {
+export function* getUserSagaWorker({ payload }: Action<any>) {
   yield put(fetchStartAction());
   const data: User = yield call(getUserById, payload);
   yield put(getCurrentUserLoadedAction(data));
@@ -17,13 +18,13 @@ export function* getUserSagaWorker({ payload }: GetCurrentUser) {
   yield put(fetchFinishedAction());
 }
 
-export function* addToBookmarksWorker({ payload }: AddToBookmarks) {
+export function* addToBookmarksWorker({ payload }: Action<any>) {
   const { user, articleId } = payload;
   user.bookmarks.push(articleId);
   yield call(updateUser, user);
 }
 
-export function* deleteFromBookmarksWorker({ payload }: AddToBookmarks) {
+export function* deleteFromBookmarksWorker({ payload }: Action<any>) {
   const { user, articleId } = payload;
   const index = user.bookmarks.indexOf(articleId);
   user.bookmarks.splice(index, 1);

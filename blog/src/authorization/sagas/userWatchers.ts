@@ -2,7 +2,7 @@ import { takeEvery } from "redux-saga/effects";
 import {
   ADD_TO_BOOKMARKS,
   DELETE_FROM_BOOKMARKS,
-  GET_USER,
+  GET_USER_REQUEST,
 } from "../constants/user";
 import {
   addToBookmarksWorker,
@@ -11,7 +11,7 @@ import {
 } from "./userWorkers";
 
 export function* getUserWatcher() {
-  yield takeEvery(GET_USER, getUserSagaWorker);
+  yield takeEvery(GET_USER_REQUEST, getUserSagaWorker);
 }
 
 export function* addToBookmarksWatcher() {

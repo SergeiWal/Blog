@@ -5,11 +5,7 @@ import {
   getArticlesById,
   updateArticle,
 } from "../../api/apiService";
-import {
-  GetArticle,
-  LikeArticle,
-  SaveComment,
-} from "../types/articleActionsType";
+import { Action } from "../../store/actionTypes";
 import {
   setArticleAction,
   getArticleByIdLoadedAction,
@@ -18,6 +14,13 @@ import {
   fetchFinishedAction,
   fetchStartAction,
 } from "../../store/fetchActions";
+import {
+  DELETE_LIKE,
+  GET_ARTICLES_REQUEST,
+  GET_ARTICLE_BY_ID_REQUEST,
+  LIKE,
+  SAVE_COMMENT,
+} from "../constants/article";
 
 export function* setArticleSagaWorker() {
   yield put(fetchStartAction());
@@ -26,27 +29,27 @@ export function* setArticleSagaWorker() {
   yield put(fetchFinishedAction());
 }
 
-export function* getArticleByIdSagaWorker({ payload }: GetArticle) {
+export function* getArticleByIdSagaWorker({ payload }: Action<any>) {
   yield put(fetchStartAction());
   const article: Article = yield call(getArticlesById, payload);
   yield put(getArticleByIdLoadedAction(article));
   yield put(fetchFinishedAction());
 }
 
-export function* likeArticleSagaWorker({ payload }: LikeArticle) {
+export function* likeArticleSagaWorker({ payload }: Action<any>) {
   const { article, user } = payload;
   article.likes.push(user.id);
   yield call(updateArticle, article);
 }
 
-export function* deleteLikeFromArticlesSagaWorker({ payload }: LikeArticle) {
+export function* deleteLikeFromArticlesSagaWorker({ payload }: Action<any>) {
   const { article, user } = payload;
   const index: number = payload.article.likes.indexOf(user.id);
   article.likes.splice(index, 1);
   yield call(updateArticle, article);
 }
 
-export function* saveCommentSagaWorker({ payload }: SaveComment) {
+export function* saveCommentSagaWorker({ payload }: Action<any>) {
   const { article, comment } = payload;
   article.comments.push(comment);
   yield call(updateArticle, article);

@@ -1,9 +1,9 @@
 import { Article } from "../types/articleTypes";
 
-export const GET_ARTICLES: string = "GET_ARTICLES";
-export const GET_ARTICLES_LOADED: string = "GET_ARTICLES_LOADED";
+export const GET_ARTICLES_REQUEST: string = "GET_ARTICLES_REQUEST";
+export const GET_ARTICLES_SUCCESS: string = "GET_ARTICLES_SUCCESS";
 export const GET_ARTICLES_FAILED: string = "GET_ARTICLES_FAILED";
-export const GET_ARTICLE_BY_ID: string = "GET_ARTICLE_BY_ID";
+export const GET_ARTICLE_BY_ID_REQUEST: string = "GET_ARTICLE_BY_ID_REQUEST";
 export const GET_ARTICLE_BY_ID_LOADED: string = "GET_ARTICLE_BY_ID_LOADED";
 export const GET_ARTICLE_BY_ID_FAILED: string = "GET_ARTICLE_BY_ID_FAILED";
 export const LIKE: string = "LIKE";
