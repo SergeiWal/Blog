@@ -8,3 +8,8 @@ export type User = {
   posts: Array<Article>;
   bookmarks: Array<string>;
 };
+
+export type BookmarksPayload = {
+  articleId: string;
+  user: User;
+};

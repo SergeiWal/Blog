@@ -1,24 +1,7 @@
-import {
-  FETCH_DATA_FAILED,
-  FETCH_DATA_FINISHED,
-  FETCH_DATA_STARTED,
-} from "./fetch";
-import { Action } from "./actionTypes";
+import { createAction } from "@reduxjs/toolkit";
 
-export const fetchStartAction = (): Action<any> => {
-  return {
-    type: FETCH_DATA_STARTED,
-  };
-};
+export const FETCH_DATA_STARTED: string = "FETCH_DATA_STARTED";
+export const FETCH_DATA_FINISHED: string = "FETCH_DATA_FINISHED";
 
-export const fetchFinishedAction = (): Action<any> => {
-  return {
-    type: FETCH_DATA_FINISHED,
-  };
-};
-
-export const fetchFailedAction = (): Action<any> => {
-  return {
-    type: FETCH_DATA_FAILED,
-  };
-};
+export const fetchStartAction = createAction(FETCH_DATA_STARTED);
+export const fetchFinishedAction = createAction(FETCH_DATA_FINISHED);

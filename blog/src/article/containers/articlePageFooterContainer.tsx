@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../store/store";
-import { saveCommentAction } from "../articleActions";
+import { saveCommentAction } from "../articlePageActions";
 import ArticlePageFooter from "../components/articlePageFooter";
 import { ArticlePageFooterConteinerProps } from "../types/articlePropsTypes";
 

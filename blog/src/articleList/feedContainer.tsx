@@ -1,7 +1,7 @@
 import { RootState, useAppDispatch, useAppSelector } from "../store/store";
 import { Article, ListGeneratorParams } from "../article/types/articleTypes";
 import { useEffect, useState } from "react";
-import { getArticleAction } from "../article/articleActions";
+import { getArticleAction } from "./articleListActions";
 import { signOutAction } from "../authorization/actions/authorizeActions";
 import Feed from "./feed";
 import FeedLoader from "./feedLoader";

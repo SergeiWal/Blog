@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { DEFAULT_ARTICLE } from "../constants/article";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { deleteLikeAction, likeArticleAction } from "../articleActions";
 import {
   addToBookmarksAction,
   deleteFromBookmarksAction,
-} from "../../authorization/actions/userAction";
+  deleteLikeAction,
+  likeArticleAction,
+} from "../articlePageActions";
 import { findArticle } from "../services/articles";
 import ArticlePage from "../components/articlePage";
 import { signOutAction } from "../../authorization/actions/authorizeActions";

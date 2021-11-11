@@ -1,11 +1,5 @@
 import { all, put, takeEvery } from "redux-saga/effects";
-import {
-  DELETE_LIKE,
-  GET_ARTICLES_REQUEST,
-  GET_ARTICLE_BY_ID_REQUEST,
-  LIKE,
-  SAVE_COMMENT,
-} from "../article/constants/article";
+import { DELETE_LIKE, LIKE, SAVE_COMMENT } from "../article/constants/article";
 import {
   deleteLikeFromArticlesSagaWorker,
   getArticleByIdSagaWorker,
@@ -13,18 +7,23 @@ import {
   saveCommentSagaWorker,
   setArticleSagaWorker,
 } from "../article/articlesWorkers";
-import {
-  ADD_TO_BOOKMARKS,
-  DELETE_FROM_BOOKMARKS,
-  GET_USER_REQUEST,
-} from "../authorization/constants/user";
+
 import {
   addToBookmarksWorker,
   deleteFromBookmarksWorker,
   getUserSagaWorker,
 } from "../authorization/userWorkers";
-import { Action } from "./actionTypes";
 import { fetchFinishedAction, fetchStartAction } from "./fetchActions";
+import { PayloadAction } from "@reduxjs/toolkit";
+import { GET_ARTICLES_REQUEST } from "../articleList/articleListActions";
+import {
+  GET_ARTICLE_BY_ID_REQUEST,
+  GET_USER_REQUEST,
+} from "../authorization/actions/authorizeActions";
+import {
+  ADD_TO_BOOKMARKS,
+  DELETE_FROM_BOOKMARKS,
+} from "../article/articlePageActions";
 
 const workers = {
   [GET_ARTICLES_REQUEST]: setArticleSagaWorker,
@@ -37,18 +36,18 @@ const workers = {
   [DELETE_FROM_BOOKMARKS]: deleteFromBookmarksWorker,
 };
 
-function* baseSagaWorker(action: Action<any>) {
+function* baseSagaWorker(action: PayloadAction<any>) {
   const worker = workers[action.type];
   yield worker(action);
 }
 
-function* requestSagaWorker(action: Action<any>) {
+function* requestSagaWorker(action: PayloadAction<any>) {
   yield put(fetchStartAction());
   yield baseSagaWorker(action);
   yield put(fetchFinishedAction());
 }
 
-function* dispatcherSagaWorker(action: Action<any>) {
+function* dispatcherSagaWorker(action: PayloadAction<any>) {
   const isRequest: boolean = action.type.toUpperCase().includes("REQUEST");
   const worker = isRequest ? requestSagaWorker : baseSagaWorker;
   yield worker(action);

@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
-import articleReducer from "../article/articleReducer";
-import userReducer from "../authorization/reducers/userReducer";
+import articleReducer from "./articleReducer";
+import userReducer from "./userReducer";
 import fetchReducer from "./fetchReducer";
-import authorizeReducer from "../authorization/reducers/authorizeReducer";
+import authorizeReducer from "./authorizeReducer";
 
 const rootReducer = combineReducers({
   articles: articleReducer,

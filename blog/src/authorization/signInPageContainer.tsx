@@ -1,5 +1,5 @@
 import { useAppDispatch } from "../store/store";
-import { getCurrentUserAction } from "./actions/userAction";
+import { getCurrentUserAction } from "./actions/authorizeActions";
 import SignInPage from "./signInPage";
 
 export default function SignInPageContainer() {

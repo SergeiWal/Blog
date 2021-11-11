@@ -1,20 +1,23 @@
-import { Articles } from "./types/articleTypes";
-import { Action } from "../store/actionTypes";
+import { Articles } from "../../article/types/articleTypes";
 import {
   DELETE_LIKE,
-  GET_ARTICLES_REQUEST,
-  GET_ARTICLES_SUCCESS,
-  GET_ARTICLE_BY_ID_REQUEST,
-  GET_ARTICLE_BY_ID_LOADED,
   LIKE,
   SAVE_COMMENT,
-} from "./constants/article";
-
+} from "../../article/constants/article";
+import { PayloadAction } from "@reduxjs/toolkit";
+import {
+  GET_ARTICLES_REQUEST,
+  GET_ARTICLES_SUCCESS,
+} from "../../articleList/articleListActions";
+import {
+  GET_ARTICLE_BY_ID_LOADED,
+  GET_ARTICLE_BY_ID_REQUEST,
+} from "../../authorization/actions/authorizeActions";
 const defaultArticles: Articles = [];
 
 export default function articleReducer(
   state = defaultArticles,
-  action: Action<any>
+  action: PayloadAction<any>
 ) {
   switch (action.type) {
     case GET_ARTICLES_REQUEST:
