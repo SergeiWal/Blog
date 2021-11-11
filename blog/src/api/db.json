@@ -137,7 +137,42 @@
       "likes": [
         "1"
       ],
-      "comments": []
+      "comments": [
+        {
+          "author": {
+            "id": "1",
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              "2",
+              "3",
+              "5",
+              "5",
+              "1"
+            ]
+          },
+          "text": "Hello\n"
+        },
+        {
+          "author": {
+            "id": "1",
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              "2",
+              "5",
+              "5",
+              "1",
+              "3"
+            ]
+          },
+          "text": "Hello2"
+        }
+      ]
     },
     {
       "id": "4",
@@ -168,8 +203,45 @@
         "#tag1",
         "#tag2"
       ],
-      "likes": [],
-      "comments": []
+      "likes": [
+        "1"
+      ],
+      "comments": [
+        {
+          "author": {
+            "id": "1",
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              "5",
+              "5",
+              "1",
+              "3",
+              "2"
+            ]
+          },
+          "text": "Hello"
+        },
+        {
+          "author": {
+            "id": "1",
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              "5",
+              "5",
+              "1",
+              "3",
+              "2"
+            ]
+          },
+          "text": "Hello2"
+        }
+      ]
     },
     {
       "id": "6",
@@ -260,9 +332,11 @@
       "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "posts": [],
       "bookmarks": [
-        "2",
+        "5",
+        "5",
+        "1",
         "3",
-        "1"
+        "2"
       ]
     },
     {

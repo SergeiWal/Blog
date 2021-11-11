@@ -1,39 +1,17 @@
 import { call, put } from "redux-saga/effects";
-import { Articles, Article } from "../types/articleTypes";
-import {
-  getArticles,
-  getArticlesById,
-  updateArticle,
-} from "../../api/apiService";
-import { Action } from "../../store/actionTypes";
-import {
-  setArticleAction,
-  getArticleByIdLoadedAction,
-} from "../articleActions";
-import {
-  fetchFinishedAction,
-  fetchStartAction,
-} from "../../store/fetchActions";
-import {
-  DELETE_LIKE,
-  GET_ARTICLES_REQUEST,
-  GET_ARTICLE_BY_ID_REQUEST,
-  LIKE,
-  SAVE_COMMENT,
-} from "../constants/article";
+import { Articles, Article } from "./types/articleTypes";
+import { getArticles, getArticlesById, updateArticle } from "../api/apiService";
+import { Action } from "../store/actionTypes";
+import { setArticleAction, getArticleByIdLoadedAction } from "./articleActions";
 
 export function* setArticleSagaWorker() {
-  yield put(fetchStartAction());
   const data: Articles = yield call(getArticles);
   yield put(setArticleAction(data));
-  yield put(fetchFinishedAction());
 }
 
 export function* getArticleByIdSagaWorker({ payload }: Action<any>) {
-  yield put(fetchStartAction());
   const article: Article = yield call(getArticlesById, payload);
   yield put(getArticleByIdLoadedAction(article));
-  yield put(fetchFinishedAction());
 }
 
 export function* likeArticleSagaWorker({ payload }: Action<any>) {

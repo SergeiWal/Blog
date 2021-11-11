@@ -3,11 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { DEFAULT_ARTICLE } from "../constants/article";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import {
-  getArticleByIdAction,
-  deleteLikeAction,
-  likeArticleAction,
-} from "../articleActions";
+import { deleteLikeAction, likeArticleAction } from "../articleActions";
 import {
   addToBookmarksAction,
   deleteFromBookmarksAction,
@@ -22,12 +18,6 @@ export default function ArticlePageContainer() {
   const [article, setArticle] = useState<Article>(DEFAULT_ARTICLE);
   const state = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (state.articles.length === 0) {
-      dispatch(getArticleByIdAction(id));
-    }
-  }, []);
 
   useEffect(() => {
     setArticle(findArticle(state.articles, id));

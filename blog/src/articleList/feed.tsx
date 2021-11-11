@@ -2,10 +2,10 @@ import { Article } from "../article/types/articleTypes";
 import ArticleCard from "./articleCard";
 import { FixedSizeList as List } from "react-window";
 import { cardHeight, cardMaxWidth } from "../styles/styles";
-import "../styles/feed.css";
 import { Button } from "@mui/material";
 import { generateArticleListRows } from "./feedContainer";
 import { FeedProps } from "../article/types/articlePropsTypes";
+import "../styles/feed.css";
 
 const WINDOW_HEIGHT: number = window.innerHeight;
 export default function Feed({ articles, signOutHandler }: FeedProps) {
