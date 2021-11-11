@@ -1,11 +1,14 @@
-import { ArticlePreviewProps } from "../article/types/articlePropsTypes";
+import { ArticlePreviewProps } from "../../article/types/articlePropsTypes";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
-import "../styles/feed.css";
-import { createTextPreview, tagsArrToStr } from "../article/services/articles";
-import { cardStyle } from "../styles/styles";
+import {
+  createTextPreview,
+  tagsArrToStr,
+} from "../../article/services/articles";
+import { cardStyle } from "../../styles/styles";
+import "../../styles/feed.css";
 
 export default function ArticleCard({ article }: ArticlePreviewProps) {
   return (

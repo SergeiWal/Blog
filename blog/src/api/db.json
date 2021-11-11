@@ -216,6 +216,24 @@
             ]
           },
           "text": "hihi\n"
+        },
+        {
+          "author": {
+            "id": "1",
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              "5",
+              "5",
+              "2",
+              "3",
+              "7",
+              "1"
+            ]
+          },
+          "text": "HHHH"
         }
       ]
     },
@@ -439,9 +457,9 @@
         "5",
         "5",
         "2",
-        "1",
         "3",
-        "7"
+        "7",
+        "1"
       ]
     },
     {

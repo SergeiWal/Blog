@@ -1,8 +1,11 @@
 import { Article, ArticleComments, Articles } from "./articleTypes";
 import { User } from "../../authorization/types/userTypes";
 
-export type FeedProps = {
+export type ArticleListProps = {
   articles: Articles;
+};
+
+export type FeedProps = {
   signOutHandler: () => void;
 };
 

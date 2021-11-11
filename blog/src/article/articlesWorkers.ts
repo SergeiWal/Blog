@@ -3,7 +3,7 @@ import { Articles, Article } from "./types/articleTypes";
 import { getArticles, getArticlesById, updateArticle } from "../api/apiService";
 import { PayloadAction } from "@reduxjs/toolkit";
 import { LikePayload, SaveCommentPayload } from "./types/articleActionsType";
-import { getArticleActionLoaded } from "../articleList/articleListActions";
+import { getArticleActionLoaded } from "../Feed/articleListActions";
 import { getArticleByIdLoadedAction } from "../authorization/actions/authorizeActions";
 
 export function* setArticleSagaWorker() {

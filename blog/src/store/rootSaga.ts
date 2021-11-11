@@ -15,7 +15,7 @@ import {
 } from "../authorization/userWorkers";
 import { fetchFinishedAction, fetchStartAction } from "./fetchActions";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { GET_ARTICLES_REQUEST } from "../articleList/articleListActions";
+import { GET_ARTICLES_REQUEST } from "../Feed/articleListActions";
 import {
   GET_ARTICLE_BY_ID_REQUEST,
   GET_USER_REQUEST,

@@ -2,9 +2,8 @@ import { RootState, useAppDispatch, useAppSelector } from "../store/store";
 import { Article, ListGeneratorParams } from "../article/types/articleTypes";
 import { useEffect, useState } from "react";
 import { getArticleAction } from "./articleListActions";
-import { signOutAction } from "../authorization/actions/authorizeActions";
-import Feed from "./feed";
-import FeedLoader from "./feedLoader";
+import ArticleList from "./Components/articleList";
+import ArticleListLoader from "./Components/articleListLoader";
 
 export const generateArticleListRows = ({
   data,
@@ -14,7 +13,7 @@ export const generateArticleListRows = ({
   return <div style={style}>{data[index]}</div>;
 };
 
-export default function FeedConteiner() {
+export default function ArticleListContainer() {
   const state = useAppSelector((state: RootState) => state);
   const [articles, setArticles] = useState<Array<Article>>([]);
   const dispatch = useAppDispatch();
@@ -27,13 +26,9 @@ export default function FeedConteiner() {
     setArticles(state.articles);
   }, [state.articles]);
 
-  const signOutHandler = () => {
-    dispatch(signOutAction());
-  };
-
   return state.isFetching ? (
-    <FeedLoader />
+    <ArticleListLoader />
   ) : (
-    <Feed articles={articles} signOutHandler={signOutHandler} />
+    <ArticleList articles={articles} />
   );
 }

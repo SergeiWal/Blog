@@ -8,7 +8,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import {
   GET_ARTICLES_REQUEST,
   GET_ARTICLES_SUCCESS,
-} from "../../articleList/articleListActions";
+} from "../../Feed/articleListActions";
 import {
   GET_ARTICLE_BY_ID_LOADED,
   GET_ARTICLE_BY_ID_REQUEST,
