@@ -15,14 +15,10 @@ export default function ArticlePageFooterContainer({
 
   const openHandler = () => setOpen(true);
   const closeHandler = () => setOpen(false);
-  const saveCommentHandler = (comment: string) => {
-    if (comment.length > 0) {
-      dispatch(
-        saveCommentAction({
-          article: article,
-          comment: { author: user, text: comment },
-        })
-      );
+  const saveCommentHandler = (text: string) => {
+    if (text.length > 0) {
+      article.comments.push({ author: user, text: text });
+      dispatch(saveCommentAction(article));
     }
   };
   return (

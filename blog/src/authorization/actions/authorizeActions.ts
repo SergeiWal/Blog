@@ -5,10 +5,11 @@ import { User } from "../types/userTypes";
 import { Article } from "../../article/types/articleTypes";
 
 export const GET_ARTICLE_BY_ID_REQUEST: string = "GET_ARTICLE_BY_ID_REQUEST";
-export const GET_ARTICLE_BY_ID_LOADED: string = "GET_ARTICLE_BY_ID_LOADED";
+export const GET_ARTICLE_BY_ID_SUCCESS: string = "GET_ARTICLE_BY_ID_SUCCESS";
 export const GET_ARTICLE_BY_ID_FAILED: string = "GET_ARTICLE_BY_ID_FAILED";
 export const GET_USER_REQUEST: string = "GET_USER_REQUEST";
-export const GET_USER_SUCCESS: string = "GET_USER_SUCCESS";
+export const GET_USER_REQUEST_SUCCESS: string = "GET_USER_REQUEST_SUCCESS";
+export const GET_USER_REQUEST_FAILED: string = "GET_USER_REQUEST_FAILED";
 
 export const signInAction = createAction(SIGN_IN);
 
@@ -19,7 +20,7 @@ export const getCurrentUserAction = createAction(
   withPayloadType<string>()
 );
 export const getCurrentUserLoadedAction = createAction(
-  GET_USER_SUCCESS,
+  GET_USER_REQUEST_SUCCESS,
   withPayloadType<User>()
 );
 
@@ -29,6 +30,6 @@ export const getArticleByIdAction = createAction(
 );
 
 export const getArticleByIdLoadedAction = createAction(
-  GET_ARTICLE_BY_ID_LOADED,
+  GET_ARTICLE_BY_ID_SUCCESS,
   withPayloadType<Article>()
 );

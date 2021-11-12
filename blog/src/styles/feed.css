@@ -50,6 +50,10 @@ body::-webkit-scrollbar {
 
 /* feed */
 
+.feedBody {
+  display: flex;
+}
+
 .articlesList {
   overflow: hidden;
   margin-top: 60px;
@@ -74,10 +78,31 @@ body::-webkit-scrollbar {
 
 .logo {
   justify-self: flex-start;
-  color: #fff;
   font-size: 24px;
+}
+
+.logo a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .headerButtons {
   margin: 0 10px;
+}
+
+/*filters*/
+.filters {
+  width: 500px;
+  margin: 70px 60px 0 60px;
+}
+
+.filters_header {
+  font-size: 20px;
+}
+
+.filter_list {
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+  display: flex;
+  flex-wrap: wrap;
 }
