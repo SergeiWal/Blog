@@ -6,7 +6,6 @@ import { useAppDispatch, useAppSelector } from "../../store/store";
 import { bookmarksAction, likeArticleAction } from "../articlePageActions";
 import { bookmark, findArticle, like } from "../services/articles";
 import ArticlePage from "../components/articlePage";
-import { signOutAction } from "../../authorization/actions/authorizeActions";
 import ArticlePageLoader from "../components/articlePageLoader";
 
 export default function ArticlePageContainer() {
@@ -27,10 +26,6 @@ export default function ArticlePageContainer() {
     dispatch(bookmarksAction(bookmark(state.user, id)));
   };
 
-  const signOutHandler = () => {
-    dispatch(signOutAction());
-  };
-
   return state.isFetching ? (
     <ArticlePageLoader />
   ) : (
@@ -39,7 +34,6 @@ export default function ArticlePageContainer() {
       user={state.user}
       likeHandler={likeHandler}
       addToBookmarksHandler={addToBookmarksHandler}
-      signOutHandler={signOutHandler}
     />
   );
 }

@@ -3,7 +3,6 @@ import ArticlePageHeader from "./articlePageHeader";
 import ArticlePageMainContent from "./articlePageMainContent";
 import ArticlePageFooterContainer from "../containers/articlePageFooterContainer";
 import TagList from "./tagList";
-import Header from "../../header/header";
 import "../../styles/articlePage.css";
 
 export default function ArticlePage({
@@ -11,11 +10,9 @@ export default function ArticlePage({
   user,
   likeHandler,
   addToBookmarksHandler,
-  signOutHandler,
 }: ArticlePageProps) {
   return (
     <div>
-      <Header signOutHandler={signOutHandler} />
       <div className="articleContent">
         <ArticlePageHeader
           title={article.title}

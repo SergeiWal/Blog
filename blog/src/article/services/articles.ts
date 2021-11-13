@@ -13,9 +13,9 @@ export function tagsArrToStr(tags: string[]): string {
 
 export const getButtonColorForCollection = (
   collection: Array<string>,
-  id: string
+  item: string
 ) => {
-  return collection.includes(id) ? "success" : "inherit";
+  return collection.includes(item) ? "success" : "inherit";
 };
 
 export const findArticle = (articles: Articles, id: string): Article => {

@@ -338,6 +338,22 @@
             ]
           },
           "text": "Hello2"
+        },
+        {
+          "author": {
+            "id": "1",
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              "3",
+              "1",
+              "2",
+              "5"
+            ]
+          },
+          "text": "huhu"
         }
       ]
     },
@@ -521,7 +537,8 @@
       "bookmarks": [
         "3",
         "1",
-        "2"
+        "2",
+        "5"
       ]
     },
     {

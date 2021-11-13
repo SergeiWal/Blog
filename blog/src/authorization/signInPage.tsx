@@ -6,9 +6,9 @@ export type SignInPageProps = {
 
 export default function SignInPage({ clickHandler }: SignInPageProps) {
   return (
-    <div>
+    <div className="signInForm">
       <Button variant="contained" onClick={clickHandler}>
-        SignIn
+        SIGN IN
       </Button>
     </div>
   );

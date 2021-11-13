@@ -1,8 +1,8 @@
 import { Articles } from "../../article/types/articleTypes";
 import { LIKE, SAVE_COMMENT } from "../../article/constants/article";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { GET_ARTICLES_REQUEST_SUCCESS } from "../../Feed/articleListActions";
 import { GET_ARTICLE_BY_ID_SUCCESS } from "../../authorization/actions/authorizeActions";
+import { GET_ARTICLES_REQUEST_SUCCESS } from "../../Feed/constants/feedConstants";
 
 const defaultArticles: Articles = [];
 

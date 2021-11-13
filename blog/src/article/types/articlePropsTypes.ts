@@ -5,16 +5,11 @@ export type ArticleListProps = {
   articles: Articles;
 };
 
-export type FeedProps = {
-  signOutHandler: () => void;
-};
-
 export type ArticlePageProps = {
   article: Article;
   user: User;
   likeHandler: () => void;
   addToBookmarksHandler: () => void;
-  signOutHandler: () => void;
 };
 
 export type ArticlePageFooterProps = {

@@ -12,12 +12,12 @@ import {
 } from "../authorization/userWorkers";
 import { fetchFinishedAction, fetchStartAction } from "./fetchActions";
 import { Action, PayloadAction } from "@reduxjs/toolkit";
-import { GET_ARTICLES_REQUEST } from "../Feed/articleListActions";
 import {
   GET_ARTICLE_BY_ID_REQUEST,
   GET_USER_REQUEST,
 } from "../authorization/actions/authorizeActions";
 import { BOOKMARK } from "../article/articlePageActions";
+import { GET_ARTICLES_REQUEST } from "../Feed/constants/feedConstants";
 
 const FAILED = "_FAILED";
 const requestWorkers = {

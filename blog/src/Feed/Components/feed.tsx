@@ -1,16 +1,14 @@
-import ArticleListContainer from "../articleListContainer";
-import Header from "../../header/header";
-import { FeedProps } from "../../article/types/articlePropsTypes";
+import ArticleListContainer from "../containers/articleListContainer";
 import FilterList from "./filterList";
+import { Fragment } from "react";
 
-export default function Feed({ signOutHandler }: FeedProps) {
+export default function Feed() {
   return (
-    <div>
-      <Header signOutHandler={signOutHandler} />
+    <Fragment>
       <div className="feedBody">
         <ArticleListContainer />
         <FilterList />
       </div>
-    </div>
+    </Fragment>
   );
 }
