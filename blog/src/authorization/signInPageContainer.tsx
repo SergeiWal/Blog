@@ -1,12 +1,12 @@
 import { useAppDispatch } from "../store/store";
-import { getCurrentUserAction } from "./actions/authorizeActions";
+import { signInAction } from "./actions/authorizeActions";
 import SignInPage from "./signInPage";
 
 export default function SignInPageContainer() {
   const dispatch = useAppDispatch();
 
   const clickHandler = () => {
-    dispatch(getCurrentUserAction("1"));
+    dispatch(signInAction());
   };
 
   return <SignInPage clickHandler={clickHandler} />;

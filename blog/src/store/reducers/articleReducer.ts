@@ -1,8 +1,11 @@
 import { Articles } from "../../article/types/articleTypes";
-import { LIKE, SAVE_COMMENT } from "../../article/constants/article";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { GET_ARTICLE_BY_ID_SUCCESS } from "../../authorization/actions/authorizeActions";
-import { GET_ARTICLES_REQUEST_SUCCESS } from "../../Feed/constants/feedConstants";
+import { getArticleActionSuccess } from "../../Feed/articleListActions";
+import {
+  likeArticleAction,
+  saveCommentAction,
+} from "../../article/articlePageActions";
+import { getArticleByIdActionSuccess } from "../../authorization/actions/authorizeActions";
 
 const defaultArticles: Articles = [];
 
@@ -11,13 +14,13 @@ export default function articleReducer(
   action: PayloadAction<any>
 ) {
   switch (action.type) {
-    case GET_ARTICLES_REQUEST_SUCCESS:
+    case getArticleActionSuccess.type:
       return [...action.payload];
-    case GET_ARTICLE_BY_ID_SUCCESS:
+    case getArticleByIdActionSuccess.type:
       return [...state, action.payload];
-    case LIKE:
+    case likeArticleAction.type:
       return [...state];
-    case SAVE_COMMENT:
+    case saveCommentAction.type:
       return [...state];
     default:
       return state;

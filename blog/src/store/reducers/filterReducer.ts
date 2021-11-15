@@ -1,5 +1,5 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { CHANGED_FILTER } from "../../Feed/constants/feedConstants";
+import { changeFilterAction } from "../../Feed/articleListActions";
 
 const defaultFilters: string[] = [];
 
@@ -8,7 +8,7 @@ export default function FilterReducer(
   action: PayloadAction<any>
 ) {
   switch (action.type) {
-    case CHANGED_FILTER:
+    case changeFilterAction.type:
       return [...state];
     default:
       return state;

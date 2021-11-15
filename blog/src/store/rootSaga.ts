@@ -1,37 +1,46 @@
-import { all, put, takeEvery } from "redux-saga/effects";
-import { LIKE, SAVE_COMMENT } from "../article/constants/article";
+import { all, put, takeEvery, call } from "redux-saga/effects";
 import {
-  getArticleByIdSagaWorker,
   likeArticleSagaWorker,
   commentsSagaWorker,
-  setArticleSagaWorker,
 } from "../article/articlesWorkers";
-import {
-  bookmarkWorker,
-  getUserSagaWorker,
-} from "../authorization/userWorkers";
+import { bookmarkWorker, signInSagaWorker } from "../authorization/userWorkers";
 import { fetchFinishedAction, fetchStartAction } from "./fetchActions";
 import { Action, PayloadAction } from "@reduxjs/toolkit";
+import { getArticles, getArticlesById, getUserById } from "../api/apiService";
+import { Article, Articles } from "../article/types/articleTypes";
+import { User } from "../authorization/types/userTypes";
+import { getArticleAction } from "../Feed/articleListActions";
 import {
-  GET_ARTICLE_BY_ID_REQUEST,
-  GET_USER_REQUEST,
+  bookmarksAction,
+  likeArticleAction,
+  saveCommentAction,
+} from "../article/articlePageActions";
+import {
+  getArticleByIdAction,
+  getCurrentUserAction,
+  signInAction,
 } from "../authorization/actions/authorizeActions";
-import { BOOKMARK } from "../article/articlePageActions";
-import { GET_ARTICLES_REQUEST } from "../Feed/constants/feedConstants";
 
 const FAILED = "_FAILED";
+const SUCCESS = "_SUCCESS";
 const requestWorkers = {
-  [GET_ARTICLES_REQUEST]: setArticleSagaWorker,
-  [GET_ARTICLE_BY_ID_REQUEST]: getArticleByIdSagaWorker,
-  [GET_USER_REQUEST]: getUserSagaWorker,
+  [`${getArticleAction.type}`]: getArticles,
+  [`${getArticleByIdAction.type}`]: getArticlesById,
+  [`${getCurrentUserAction.type}`]: getUserById,
 };
+
+export type ResultType = Articles | Article | User;
 
 function* requestSagaWorker(action: PayloadAction<any>) {
   try {
     yield put(fetchStartAction());
-    yield requestWorkers[action.type](action);
+    const result: ResultType = yield call(
+      requestWorkers[action.type],
+      action.payload
+    );
+    yield put({ type: action.type + SUCCESS, payload: result });
   } catch (err) {
-    yield put({ type: action.type + FAILED });
+    yield put({ type: action.type + FAILED, payload: err });
   } finally {
     yield put(fetchFinishedAction());
   }
@@ -43,9 +52,10 @@ export function* rootSagaWatcher() {
       (action: Action) => /REQUEST$/.test(action.type),
       requestSagaWorker
     ),
-    takeEvery(BOOKMARK, bookmarkWorker),
-    takeEvery(LIKE, likeArticleSagaWorker),
-    takeEvery(SAVE_COMMENT, commentsSagaWorker),
+    takeEvery(bookmarksAction.type, bookmarkWorker),
+    takeEvery(likeArticleAction.type, likeArticleSagaWorker),
+    takeEvery(saveCommentAction.type, commentsSagaWorker),
+    takeEvery(signInAction.type, signInSagaWorker),
   ]);
 }
 

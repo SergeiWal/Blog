@@ -1,14 +1,17 @@
 import { Action } from "redux";
-import { SIGN_IN, SIGN_OUT } from "../../authorization/constants/authorize";
+import {
+  signInAction,
+  signOutAction,
+} from "../../authorization/actions/authorizeActions";
 
 export default function AuthorizeReducer(
   state: boolean = false,
   action: Action
 ) {
   switch (action.type) {
-    case SIGN_IN:
+    case signInAction.type:
       return true;
-    case SIGN_OUT:
+    case signOutAction.type:
       return false;
     default:
       return state;

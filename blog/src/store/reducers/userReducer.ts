@@ -1,9 +1,9 @@
 import { PayloadAction } from "@reduxjs/toolkit";
+import { bookmarksAction } from "../../article/articlePageActions";
 import {
-  GET_ARTICLE_BY_ID_FAILED,
-  GET_USER_REQUEST_SUCCESS,
+  getArticlesByIdFailed,
+  getCurrentUserActionSuccess,
 } from "../../authorization/actions/authorizeActions";
-import { BOOKMARK } from "../../article/articlePageActions";
 import { User } from "../../authorization/types/userTypes";
 
 const DEFAULT_USER: User = {
@@ -20,11 +20,11 @@ export default function userReducer(
   action: PayloadAction<any>
 ) {
   switch (action.type) {
-    case GET_USER_REQUEST_SUCCESS:
+    case getCurrentUserActionSuccess.type:
       return action.payload;
-    case GET_ARTICLE_BY_ID_FAILED:
+    case getArticlesByIdFailed.type:
       return [];
-    case BOOKMARK:
+    case bookmarksAction.type:
       return { ...state };
     default:
       return state;
