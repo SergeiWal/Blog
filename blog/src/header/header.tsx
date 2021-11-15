@@ -14,13 +14,8 @@ export default function Header({ signOutHandler }: HeaderProps) {
         <Link to={"/"}>BLOG</Link>
       </div>
       <div className="headerButtons">
-        <Button
-          variant="contained"
-          style={headerButtonStyles}
-          color="inherit"
-          onClick={signOutHandler}
-        >
-          Create post
+        <Button variant="contained" style={headerButtonStyles} color="inherit">
+          <Link to={"/create"}>Create post</Link>
         </Button>
         <Button
           variant="contained"

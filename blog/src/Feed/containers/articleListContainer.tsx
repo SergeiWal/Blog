@@ -2,8 +2,8 @@ import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
 import { Article, ListGeneratorParams } from "../../article/types/articleTypes";
 import { useEffect, useState } from "react";
 import { getArticleAction } from "../articleListActions";
-import ArticleList from "../components/articleList";
-import ArticleListLoader from "../components/articleListLoader";
+import ArticleList from "../Components/articleList";
+import ArticleListLoader from "../Components/articleListLoader";
 import { selectArticlesByFilters } from "../services/feedServices";
 
 export const generateArticleListRows = ({

@@ -300,6 +300,24 @@
             ]
           },
           "text": "Hello\n"
+        },
+        {
+          "author": {
+            "id": "1",
+            "name": "Sergei",
+            "password": "12321432",
+            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+            "posts": [],
+            "bookmarks": [
+              "5",
+              "5",
+              "2",
+              "3",
+              "7",
+              "1"
+            ]
+          },
+          "text": "ufylkkdft"
         }
       ]
     },
@@ -551,10 +569,12 @@
       "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "posts": [],
       "bookmarks": [
-        "3",
-        "1",
         "5",
-        "2"
+        "5",
+        "2",
+        "3",
+        "7",
+        "1"
       ]
     },
     {

@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { changeFilterAction } from "../articleListActions";
-import FilterItem from "../components/filterItem";
+import FilterItem from "../Components/filterItem";
 import { FilterItemContainerProps } from "../types/feedTypes";
 
 export default function FilterItemContainer({ tag }: FilterItemContainerProps) {

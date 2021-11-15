@@ -3,7 +3,8 @@ import { useAppSelector } from "./store/store";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ArticlePageContainer from "./article/containers/articlePageContainer";
 import SignInPageContainer from "./authorization/signInPageContainer";
-import FeedContainer from "./Feed/containers/feedContainer";
+import Feed from "./Feed/Components/feed";
+import CreateArticleContainer from "./createArticle/containers/createArticleConteiner";
 
 export default function AppRouter() {
   const isAuthorized = useAppSelector((state) => state.isAuthorized);
@@ -14,12 +15,18 @@ export default function AppRouter() {
           <Route
             exact
             path="/"
-            component={isAuthorized ? FeedContainer : SignInPageContainer}
+            component={isAuthorized ? Feed : SignInPageContainer}
           />
           <Route
             path="/articles/:id"
             component={
               isAuthorized ? ArticlePageContainer : SignInPageContainer
+            }
+          />
+          <Route
+            path="/create"
+            component={
+              isAuthorized ? CreateArticleContainer : SignInPageContainer
             }
           />
         </Switch>

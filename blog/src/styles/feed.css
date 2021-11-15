@@ -86,8 +86,69 @@ body::-webkit-scrollbar {
   text-decoration: none;
 }
 
+/* create article */
+.createArticleForm {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.createArticleForm > * {
+  margin: 5px;
+}
+
+.articleTextInput {
+  width: 860px;
+  height: 400px;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.articleTitleInput,
+.articleImgSrcInput {
+  width: 860px;
+  font-size: 18px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.articleTitleInput input:focus {
+  outline-color: #000;
+}
+
+.articlePublishButton {
+  display: flex;
+  flex-direction: column;
+  width: 860px;
+}
+
+.articlePublishButton button {
+  font-size: 18px;
+  width: 120px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.articlePublishButton button:hover {
+  cursor: pointer;
+  background-color: #fff;
+}
+
+/* HEADER*/
+
 .headerButtons {
   margin: 0 10px;
+}
+
+.headerButtons a {
+  color: #000;
+  text-decoration: none;
 }
 
 /*filters*/
