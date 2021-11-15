@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ArticlePageContainer from "./article/containers/articlePageContainer";
 import SignInPageContainer from "./authorization/signInPageContainer";
 import Feed from "./Feed/Components/feed";
-import CreateArticleContainer from "./createArticle/containers/createArticleConteiner";
+import CreateArticleContainer from "./createArticle/containers/createArticleContainer";
 
 export default function AppRouter() {
   const isAuthorized = useAppSelector((state) => state.isAuthorized);

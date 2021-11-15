@@ -109,7 +109,8 @@ body::-webkit-scrollbar {
 }
 
 .articleTitleInput,
-.articleImgSrcInput {
+.articleImgSrcInput,
+.articleTagsInput {
   width: 860px;
   font-size: 18px;
   padding: 10px;
@@ -119,6 +120,14 @@ body::-webkit-scrollbar {
 
 .articleTitleInput input:focus {
   outline-color: #000;
+}
+
+.infoMessage {
+  display: flex;
+  flex-direction: column;
+  width: 860px;
+  font-size: 18px;
+  color: red;
 }
 
 .articlePublishButton {
