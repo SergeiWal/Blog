@@ -76,6 +76,10 @@ body::-webkit-scrollbar {
   z-index: 1000;
 }
 
+.headerButtons {
+  flex-wrap: nowrap;
+}
+
 .logo {
   justify-self: flex-start;
   font-size: 24px;
@@ -88,7 +92,7 @@ body::-webkit-scrollbar {
 
 /* create article */
 .createArticleForm {
-  margin-top: 120px;
+  margin: 120px 0 60px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -138,15 +142,17 @@ body::-webkit-scrollbar {
 
 .articlePublishButton button {
   font-size: 18px;
+  color: #fff;
+  background: #000;
   width: 120px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding: 5px;
+  padding: 10px;
 }
 
 .articlePublishButton button:hover {
   cursor: pointer;
-  background-color: #fff;
+  background: #2e3033;
 }
 
 /* HEADER*/

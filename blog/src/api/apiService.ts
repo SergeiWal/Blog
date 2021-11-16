@@ -17,8 +17,8 @@ export const getArticlesById = async (id: string) => {
   return response.data;
 };
 
-export const addArticles = async (article: NewArticle) => {
-  //await instance.post()
+export const addArticle = async (article: NewArticle) => {
+  await instance.post("/articles", article);
 };
 
 export const updateLikeArticle = async ({ id, likes }: Article) => {
@@ -35,10 +35,6 @@ export const getUser = async (id: string) => {
   const response = await instance.get(`/users/${id}`);
   return response.data;
 };
-
-// export const updateUser = async (user: User) => {
-//   await instance.put(`/users/${user.id}`, user);
-// };
 
 export const updateBookmarkForUser = async ({ id, bookmarks }: User) => {
   await instance.patch(`/users/${id}`, { bookmarks });

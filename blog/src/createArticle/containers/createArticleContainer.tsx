@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { ArticleComments } from "../../article/types/articleTypes";
 import { User } from "../../authorization/types/userTypes";
-import { useAppSelector } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../store/store";
+import { addArticleAction } from "../actions";
 import CreateArticle from "../components/createArticle";
 
 export type NewArticle = {
@@ -46,7 +47,9 @@ export default function CreateArticleContainer() {
   const [text, setText] = useState("");
   const [img, setImg] = useState("");
   const [tags, setTags] = useState("");
+
   const user: User = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
 
   const resetFields = () => {
     setTitle("");
@@ -72,7 +75,7 @@ export default function CreateArticleContainer() {
         likes: [],
         comments: [],
       };
-      console.log(article);
+      dispatch(addArticleAction(article));
     } else {
       setValidate(false);
     }

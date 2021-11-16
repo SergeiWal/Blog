@@ -8,9 +8,8 @@ type AppPropsType = {
 };
 
 function App({ children }: AppPropsType) {
-  console.log(process.env);
   const dispatch = useAppDispatch();
-  const isAuthorized = useAppSelector((state) => state.isAuthorized);
+  const { isAuthorized } = useAppSelector((state) => state);
 
   const signOutHandler = () => {
     dispatch(signOutAction());

@@ -12,6 +12,7 @@ import {
   getArticleByIdActionFailed,
   getArticleByIdActionSuccess,
 } from "../../authorization/actions/authorizeActions";
+import { addArticleSuccessAction } from "../../createArticle/actions";
 
 const defaultArticles: Articles = [];
 
@@ -27,6 +28,8 @@ export default function articleReducer(
     case getArticleByIdActionSuccess.type:
       return [...state, action.payload];
     case getArticleByIdActionFailed.type:
+      return [...state];
+    case addArticleSuccessAction.type:
       return [...state];
     case likeArticleAction.type:
       return [...state];
