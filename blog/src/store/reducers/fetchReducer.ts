@@ -1,12 +1,20 @@
-import { Action } from "redux";
+import { PayloadAction } from "@reduxjs/toolkit";
 import { fetchFinishedAction, fetchStartAction } from "../fetchActions";
 
-export default function fetchReducer(state: boolean = false, action: Action) {
+export type IsRequestType = { [key: string]: boolean };
+export type IsRequestPayload = string;
+
+export default function fetchReducer(
+  state: IsRequestType = {},
+  action: PayloadAction<IsRequestPayload>
+) {
   switch (action.type) {
     case fetchStartAction.type:
-      return true;
+      state[action.payload] = true;
+      return { ...state };
     case fetchFinishedAction.type:
-      return false;
+      state[action.payload] = false;
+      return { ...state };
     default:
       return state;
   }

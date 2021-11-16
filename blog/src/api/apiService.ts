@@ -31,7 +31,7 @@ export const updateCommentsArticle = async ({ id, comments }: Article) => {
   });
 };
 
-export const getUserById = async (id: string) => {
+export const getUser = async (id: string) => {
   const response = await instance.get(`/users/${id}`);
   return response.data;
 };

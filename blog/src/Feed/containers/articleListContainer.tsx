@@ -2,8 +2,8 @@ import { RootState, useAppDispatch, useAppSelector } from "../../store/store";
 import { Article, ListGeneratorParams } from "../../article/types/articleTypes";
 import { useEffect, useState } from "react";
 import { getArticleAction } from "../articleListActions";
-import ArticleList from "../Components/articleList";
-import ArticleListLoader from "../Components/articleListLoader";
+import ArticleList from "../components/articleList";
+import ArticleListLoader from "../components/articleListLoader";
 import { selectArticlesByFilters } from "../services/feedServices";
 
 export const generateArticleListRows = ({
@@ -33,7 +33,7 @@ export default function ArticleListContainer() {
     }
   }, [filters, articles]);
 
-  return isFetching ? (
+  return isFetching[getArticleAction.type] ? (
     <ArticleListLoader />
   ) : (
     <ArticleList articles={articleList} />

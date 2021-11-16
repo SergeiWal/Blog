@@ -7,6 +7,7 @@ import { bookmarksAction, likeArticleAction } from "../articlePageActions";
 import { bookmark, findArticle, like } from "../services/articles";
 import ArticlePage from "../components/articlePage";
 import ArticlePageLoader from "../components/articlePageLoader";
+import { getArticleByIdAction } from "../../authorization/actions/authorizeActions";
 
 export default function ArticlePageContainer() {
   const { id } = useParams<ArticleParamsType>();
@@ -26,7 +27,7 @@ export default function ArticlePageContainer() {
     dispatch(bookmarksAction(bookmark(state.user, id)));
   };
 
-  return state.isFetching ? (
+  return state.isFetching[getArticleByIdAction.type] ? (
     <ArticlePageLoader />
   ) : (
     <ArticlePage

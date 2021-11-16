@@ -12,12 +12,12 @@ export const getCurrentUserAction = createAction(
   withPayloadType<string>()
 );
 export const getCurrentUserActionSuccess = createAction(
-  "GET_USER_REQUEST_SUCCESS",
+  "GET_USER_SUCCESS",
   withPayloadType<User>()
 );
 
 export const getArticlesByIdFailed = createAction(
-  "GET_USER_REQUEST_FAILED",
+  "GET_USER_FAILED",
   withPayloadType<Error>()
 );
 
@@ -28,5 +28,9 @@ export const getArticleByIdAction = createAction(
 
 export const getArticleByIdActionSuccess = createAction(
   "GET_ARTICLE_BY_ID_SUCCESS",
+  withPayloadType<Article>()
+);
+export const getArticleByIdActionFailed = createAction(
+  "GET_ARTICLE_BY_ID_FAILED",
   withPayloadType<Article>()
 );
