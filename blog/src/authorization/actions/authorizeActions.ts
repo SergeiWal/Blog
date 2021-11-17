@@ -3,7 +3,7 @@ import { withPayloadType } from "../../store/store";
 import { User } from "../types/userTypes";
 import { Article } from "../../article/types/articleTypes";
 
-export const signInAction = createAction("SIGN_IN");
+export const signInAction = createAction("SIGN_IN", withPayloadType<string>());
 
 export const signOutAction = createAction("SIGN_OUT");
 

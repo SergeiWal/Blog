@@ -4,8 +4,8 @@ import { getCurrentUserAction } from "./actions/authorizeActions";
 import { updateBookmarkForUser } from "../api/apiService";
 import { PayloadAction } from "@reduxjs/toolkit";
 
-export function* signInSagaWorker() {
-  yield put(getCurrentUserAction("1"));
+export function* signInSagaWorker({ payload }: PayloadAction<string>) {
+  yield put(getCurrentUserAction(payload));
 }
 
 export function* bookmarkWorker({ payload }: PayloadAction<User>) {

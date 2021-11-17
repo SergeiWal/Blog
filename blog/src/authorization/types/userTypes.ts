@@ -4,6 +4,7 @@ export type User = {
   id: string;
   name: string;
   password: string;
+  isAdmin: boolean;
   photo: string;
   posts: Array<Article>;
   bookmarks: Array<string>;

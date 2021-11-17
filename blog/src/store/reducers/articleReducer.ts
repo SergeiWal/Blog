@@ -23,16 +23,12 @@ export default function articleReducer(
   switch (action.type) {
     case getArticleActionSuccess.type:
       return [...action.payload];
-    case getArticleActionFailed.type:
-      return [...state];
     case getArticleByIdActionSuccess.type:
       return [...state, action.payload];
+    case getArticleActionFailed.type:
     case getArticleByIdActionFailed.type:
-      return [...state];
     case addArticleSuccessAction.type:
-      return [...state];
     case likeArticleAction.type:
-      return [...state];
     case saveCommentAction.type:
       return [...state];
     default:

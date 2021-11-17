@@ -1,15 +1,33 @@
-import { Button } from "@mui/material";
-
 export type SignInPageProps = {
-  clickHandler: () => void;
+  user: string;
+  setUser: (id: string) => void;
+  clickHandler: (id: string) => void;
 };
 
-export default function SignInPage({ clickHandler }: SignInPageProps) {
+export default function SignInPage({
+  user,
+  setUser,
+  clickHandler,
+}: SignInPageProps) {
   return (
     <div className="signInForm">
-      <Button variant="contained" onClick={clickHandler}>
-        SIGN IN
-      </Button>
+      <form>
+        <div className="formInput">
+          <label>
+            Id:
+            <input
+              type="text"
+              placeholder="id"
+              value={user}
+              onChange={(e) => setUser(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <button className="signInButton" onClick={() => clickHandler(user)}>
+          SIGN IN
+        </button>
+      </form>
     </div>
   );
 }

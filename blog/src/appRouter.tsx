@@ -5,9 +5,10 @@ import ArticlePageContainer from "./article/containers/articlePageContainer";
 import SignInPageContainer from "./authorization/signInPageContainer";
 import Feed from "./Feed/components/feed";
 import CreateArticleContainer from "./createArticle/containers/createArticleContainer";
+import DashboardContainer from "./dashboard/containers/dashboardContainer";
 
 export default function AppRouter() {
-  const isAuthorized = useAppSelector((state) => state.isAuthorized);
+  const { isAuthorized, user } = useAppSelector((state) => state);
   return (
     <Router>
       <App>
@@ -27,6 +28,14 @@ export default function AppRouter() {
             path="/create"
             component={
               isAuthorized ? CreateArticleContainer : SignInPageContainer
+            }
+          />
+          <Route
+            path="/dashboard"
+            component={
+              isAuthorized && user.isAdmin
+                ? DashboardContainer
+                : SignInPageContainer
             }
           />
         </Switch>
