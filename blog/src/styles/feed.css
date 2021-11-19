@@ -21,6 +21,10 @@ body::-webkit-scrollbar {
 }
 
 .cardInfo {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
   font-size: 18px;
   margin-right: 20px;
 }
@@ -215,4 +219,24 @@ body::-webkit-scrollbar {
 .signInButton:hover {
   cursor: pointer;
   background: #2e3033;
+}
+
+/* dashboard*/
+
+.tabPanel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.articlesInfoList {
+}
+
+.articlesInfoList::-webkit-scrollbar {
+  display: none;
+}
+.showLinkButton {
+  color: #000;
+  margin: 0 5px;
+  text-decoration: none;
 }

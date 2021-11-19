@@ -31,6 +31,10 @@ export const updateCommentsArticle = async ({ id, comments }: Article) => {
   });
 };
 
+export const deleteArticle = async (id: string) => {
+  await instance.delete(`/articles/${id}`);
+};
+
 export const getUser = async (id: string) => {
   const response = await instance.get(`/users/${id}`);
   return response.data;
