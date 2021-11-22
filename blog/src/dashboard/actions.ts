@@ -14,6 +14,20 @@ export const getUsersFailedAction = createAction(
   withPayloadType<Error>()
 );
 
+export const deleteUserAction = createAction(
+  "DELETE_USER_REQUEST",
+  withPayloadType<string>()
+);
+
+export const blockUserAction = createAction(
+  "BLOCK_USER",
+  withPayloadType<User>()
+);
+
+export const deleteUserSuccessAction = createAction("DELETE_USER_SUCCESS");
+
+export const deleteUserFailedAction = createAction("DELETE_USER_FAILED");
+
 export const deleteArticleAction = createAction(
   "DELETE_ARTICLE_REQUEST",
   withPayloadType<string>()

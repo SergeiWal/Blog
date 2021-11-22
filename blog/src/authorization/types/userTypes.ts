@@ -5,6 +5,7 @@ export type User = {
   name: string;
   password: string;
   isAdmin: boolean;
+  isBlocked: boolean;
   photo: string;
   posts: Array<Article>;
   bookmarks: Array<string>;

@@ -1,5 +1,6 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import ArticlesInfoContainer from "../containers/articlesInfoContainer";
+import UsersInfoContainer from "../containers/usersInfoContainer";
 import TabPanel from "./tabPanel";
 
 export type DashboardProps = {
@@ -30,7 +31,7 @@ export default function Dashboard({ tabValue, handleChange }: DashboardProps) {
         <ArticlesInfoContainer />
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
-        Users
+        <UsersInfoContainer />
       </TabPanel>
     </Box>
   );

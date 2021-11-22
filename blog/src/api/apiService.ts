@@ -35,11 +35,24 @@ export const deleteArticle = async (id: string) => {
   await instance.delete(`/articles/${id}`);
 };
 
+export const getUsers = async () => {
+  const response = await instance.get(`/users`);
+  return response.data;
+};
+
 export const getUser = async (id: string) => {
   const response = await instance.get(`/users/${id}`);
   return response.data;
 };
 
+export const deleteUser = async (id: string) => {
+  await instance.delete(`/users/${id}`);
+};
+
 export const updateBookmarkForUser = async ({ id, bookmarks }: User) => {
   await instance.patch(`/users/${id}`, { bookmarks });
+};
+
+export const updateStatusForUser = async ({ id, isBlocked }: User) => {
+  await instance.patch(`/users/${id}`, { isBlocked });
 };

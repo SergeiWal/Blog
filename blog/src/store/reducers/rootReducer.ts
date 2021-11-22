@@ -4,6 +4,7 @@ import userReducer from "./userReducer";
 import fetchReducer from "./fetchReducer";
 import authorizeReducer from "./authorizeReducer";
 import filterREducer from "./filterReducer";
+import allUserREducer from "./allUsersReducer";
 
 const rootReducer = combineReducers({
   articles: articleReducer,
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   isFetching: fetchReducer,
   isAuthorized: authorizeReducer,
   filters: filterREducer,
+  users: allUserREducer,
 });
 
 export default rootReducer;

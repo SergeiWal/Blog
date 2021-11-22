@@ -16,6 +16,8 @@ import {
 } from "../article/articlePageActions";
 import { signInAction } from "../authorization/actions/authorizeActions";
 import * as api from "../api/apiService";
+import { blockUserAction } from "../dashboard/actions";
+import { blockUserSagaWorker } from "../dashboard/workers";
 
 type ResultType = Articles | Article | User;
 type ApiType = { [key: string]: any };
@@ -43,6 +45,7 @@ function* requestSagaWorker(action: PayloadAction<any>) {
     const successType: string = actionsTypeFixed(action.type, SUCCESS);
     yield put({ type: successType, payload: result });
   } catch (err) {
+    console.log("Error: ", (err as Error).message);
     const failedType: string = actionsTypeFixed(action.type, FAILED);
     yield put({ type: failedType, payload: err });
   } finally {
@@ -56,10 +59,11 @@ export function* rootSagaWatcher() {
       (action: Action) => /REQUEST$/.test(action.type),
       requestSagaWorker
     ),
+    takeEvery(signInAction.type, signInSagaWorker),
     takeEvery(bookmarksAction.type, bookmarkWorker),
     takeEvery(likeArticleAction.type, likeArticleSagaWorker),
     takeEvery(saveCommentAction.type, commentsSagaWorker),
-    takeEvery(signInAction.type, signInSagaWorker),
+    takeEvery(blockUserAction.type, blockUserSagaWorker),
   ]);
 }
 

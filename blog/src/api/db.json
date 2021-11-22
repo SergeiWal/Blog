@@ -9,8 +9,13 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Leon Zhang",
-      "tags": ["#wine", "#fruits"],
-      "likes": ["1"],
+      "tags": [
+        "#wine",
+        "#fruits"
+      ],
+      "likes": [
+        "1"
+      ],
       "comments": [
         {
           "author": {
@@ -19,7 +24,9 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["1"]
+            "bookmarks": [
+              "1"
+            ]
           },
           "text": "Hello"
         },
@@ -30,7 +37,10 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["2", "1"]
+            "bookmarks": [
+              "2",
+              "1"
+            ]
           },
           "text": "ho"
         },
@@ -41,7 +51,10 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["2", "1"]
+            "bookmarks": [
+              "2",
+              "1"
+            ]
           },
           "text": "Hello"
         },
@@ -52,7 +65,11 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "3"]
+            "bookmarks": [
+              "5",
+              "5",
+              "3"
+            ]
           },
           "text": "hihi"
         }
@@ -67,8 +84,13 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Taukasa",
-      "tags": ["#fish", "#development"],
-      "likes": ["1"],
+      "tags": [
+        "#fish",
+        "#development"
+      ],
+      "likes": [
+        "1"
+      ],
       "comments": [
         {
           "author": {
@@ -77,7 +99,10 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["2", "1"]
+            "bookmarks": [
+              "2",
+              "1"
+            ]
           },
           "text": "Hello\n"
         },
@@ -88,7 +113,10 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["1", "2"]
+            "bookmarks": [
+              "1",
+              "2"
+            ]
           },
           "text": "Hello2"
         },
@@ -99,7 +127,10 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["1", "2"]
+            "bookmarks": [
+              "1",
+              "2"
+            ]
           },
           "text": "TTT"
         },
@@ -110,7 +141,11 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "3"]
+            "bookmarks": [
+              "5",
+              "5",
+              "3"
+            ]
           },
           "text": "gggg"
         }
@@ -125,8 +160,13 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Gocage",
-      "tags": ["#bysiness", "#finance"],
-      "likes": ["1"],
+      "tags": [
+        "#bysiness",
+        "#finance"
+      ],
+      "likes": [
+        "1"
+      ],
       "comments": [
         {
           "author": {
@@ -135,7 +175,13 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["2", "3", "5", "5", "1"]
+            "bookmarks": [
+              "2",
+              "3",
+              "5",
+              "5",
+              "1"
+            ]
           },
           "text": "Hello\n"
         },
@@ -146,7 +192,13 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["2", "5", "5", "1", "3"]
+            "bookmarks": [
+              "2",
+              "5",
+              "5",
+              "1",
+              "3"
+            ]
           },
           "text": "Hello2"
         },
@@ -157,7 +209,11 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "3"]
+            "bookmarks": [
+              "5",
+              "5",
+              "3"
+            ]
           },
           "text": "hihi\n"
         },
@@ -168,7 +224,14 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "2", "3", "7", "1"]
+            "bookmarks": [
+              "5",
+              "5",
+              "2",
+              "3",
+              "7",
+              "1"
+            ]
           },
           "text": "HHHH"
         }
@@ -183,8 +246,13 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Darkcliff",
-      "tags": ["#lifestyle", "#interesting"],
-      "likes": ["1"],
+      "tags": [
+        "#lifestyle",
+        "#interesting"
+      ],
+      "likes": [
+        "1"
+      ],
       "comments": [
         {
           "author": {
@@ -193,7 +261,11 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["3", "1", "2"]
+            "bookmarks": [
+              "3",
+              "1",
+              "2"
+            ]
           },
           "text": "Hello"
         },
@@ -204,7 +276,12 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["2", "3", "1", "4"]
+            "bookmarks": [
+              "2",
+              "3",
+              "1",
+              "4"
+            ]
           },
           "text": "HIHI"
         },
@@ -215,7 +292,12 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["3", "1", "5", "2"]
+            "bookmarks": [
+              "3",
+              "1",
+              "5",
+              "2"
+            ]
           },
           "text": "Hello\n"
         },
@@ -226,7 +308,14 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "2", "3", "7", "1"]
+            "bookmarks": [
+              "5",
+              "5",
+              "2",
+              "3",
+              "7",
+              "1"
+            ]
           },
           "text": "ufylkkdft"
         }
@@ -241,8 +330,14 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Tasida",
-      "tags": ["#UX", "#interview", "#development"],
-      "likes": ["1"],
+      "tags": [
+        "#UX",
+        "#interview",
+        "#development"
+      ],
+      "likes": [
+        "1"
+      ],
       "comments": [
         {
           "author": {
@@ -251,7 +346,13 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "1", "3", "2"]
+            "bookmarks": [
+              "5",
+              "5",
+              "1",
+              "3",
+              "2"
+            ]
           },
           "text": "Hello"
         },
@@ -262,7 +363,13 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "1", "3", "2"]
+            "bookmarks": [
+              "5",
+              "5",
+              "1",
+              "3",
+              "2"
+            ]
           },
           "text": "Hello2"
         },
@@ -273,7 +380,12 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["3", "1", "2", "5"]
+            "bookmarks": [
+              "3",
+              "1",
+              "2",
+              "5"
+            ]
           },
           "text": "huhu"
         }
@@ -288,8 +400,13 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Zulkikasa",
-      "tags": ["#UX", "#development"],
-      "likes": ["1"],
+      "tags": [
+        "#UX",
+        "#development"
+      ],
+      "likes": [
+        "1"
+      ],
       "comments": [
         {
           "author": {
@@ -298,7 +415,13 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "3", "2", "1"]
+            "bookmarks": [
+              "5",
+              "5",
+              "3",
+              "2",
+              "1"
+            ]
           },
           "text": "Hi"
         },
@@ -309,7 +432,12 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "3", "2"]
+            "bookmarks": [
+              "5",
+              "5",
+              "3",
+              "2"
+            ]
           },
           "text": "Hihi"
         }
@@ -324,8 +452,13 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Mogas",
-      "tags": ["#interesting", "#lifestyle"],
-      "likes": ["1"],
+      "tags": [
+        "#interesting",
+        "#lifestyle"
+      ],
+      "likes": [
+        "1"
+      ],
       "comments": [
         {
           "author": {
@@ -334,7 +467,14 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["5", "5", "2", "1", "3", "7"]
+            "bookmarks": [
+              "5",
+              "5",
+              "2",
+              "1",
+              "3",
+              "7"
+            ]
           },
           "text": "Hello"
         }
@@ -349,7 +489,10 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Blackwalker",
-      "tags": ["#medicine", "#health"],
+      "tags": [
+        "#medicine",
+        "#health"
+      ],
       "likes": [],
       "comments": []
     },
@@ -362,7 +505,10 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Nikojas",
-      "tags": ["#fish", "#development"],
+      "tags": [
+        "#fish",
+        "#development"
+      ],
       "likes": [],
       "comments": [
         {
@@ -372,7 +518,11 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["3", "1", "2"]
+            "bookmarks": [
+              "3",
+              "1",
+              "2"
+            ]
           },
           "text": "Hello\n"
         }
@@ -387,7 +537,10 @@
       "date": "03-05-2002",
       "updatedate": "28-10-2021",
       "name": "Fordredor",
-      "tags": ["#UX", "#development"],
+      "tags": [
+        "#UX",
+        "#development"
+      ],
       "likes": [],
       "comments": [
         {
@@ -397,36 +550,15 @@
             "password": "12321432",
             "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             "posts": [],
-            "bookmarks": ["2", "3", "1"]
+            "bookmarks": [
+              "2",
+              "3",
+              "1"
+            ]
           },
           "text": "Hello"
         }
       ]
-    },
-    {
-      "name": "Sergei",
-      "title": "Looking for a new career?",
-      "subtitle": "Here are 30 high-paying, fast growing jobs that are set to boom over the next decade",
-      "text": "Gaming market cap reached $13B and growing insane. As from releasing Axie Infinity market cap doubled and AXS share 69% of gaming platform.\nToday I merged Top 10 Gaming platforms for you.",
-      "img": "https://images.pexels.com/photos/10012630/pexels-photo-10012630.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260",
-      "date": "16-11-2021",
-      "updatedate": "16-10-2021",
-      "tags": ["#lifestyle", "#business"],
-      "likes": ["1"],
-      "comments": [
-        {
-          "author": {
-            "id": "1",
-            "name": "Sergei",
-            "password": "12321432",
-            "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-            "posts": [],
-            "bookmarks": ["5", "5", "3", "7", "2", "1"]
-          },
-          "text": "Hello"
-        }
-      ],
-      "id": "JxBfbbL"
     }
   ],
   "users": [
@@ -435,16 +567,45 @@
       "name": "Sergei",
       "password": "12321432",
       "isAdmin": true,
+      "isBlocked": false,
       "photo": "https://images.pexels.com/photos/5262378/pexels-photo-5262378.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
       "posts": [],
-      "bookmarks": ["5", "5", "3", "7", "2", "1"]
+      "bookmarks": [
+        "5",
+        "5",
+        "3",
+        "7",
+        "2",
+        "1"
+      ]
     },
     {
       "id": "2",
       "name": "Maxim",
       "isAdmin": false,
+      "isBlocked": false,
       "password": "23142143",
-      "photo": "",
+      "photo": "https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "posts": [],
+      "bookmarks": []
+    },
+    {
+      "id": "3",
+      "name": "Ivan",
+      "isAdmin": false,
+      "isBlocked": false,
+      "password": "23142143",
+      "photo": "https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+      "posts": [],
+      "bookmarks": []
+    },
+    {
+      "id": "5",
+      "name": "Andry",
+      "isAdmin": true,
+      "isBlocked": false,
+      "password": "23142143",
+      "photo": "https://images.pexels.com/photos/9794542/pexels-photo-9794542.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
       "posts": [],
       "bookmarks": []
     }

@@ -11,6 +11,7 @@ const DEFAULT_USER: User = {
   name: "user",
   password: "11111111",
   isAdmin: false,
+  isBlocked: false,
   bookmarks: [],
   photo: "",
   posts: [],
