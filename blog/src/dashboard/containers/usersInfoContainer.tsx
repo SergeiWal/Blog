@@ -15,7 +15,7 @@ export default function UsersInfoContainers() {
 
   useEffect(() => {
     setUsersView(initUsersView(users, user));
-  }, [users]);
+  }, [users, user]);
 
   const deleteHandler = (userForDel: User) => {
     const index = users.indexOf(userForDel);

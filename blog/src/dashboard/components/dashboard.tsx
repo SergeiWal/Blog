@@ -3,6 +3,12 @@ import ArticlesInfoContainer from "../containers/articlesInfoContainer";
 import UsersInfoContainer from "../containers/usersInfoContainer";
 import TabPanel from "./tabPanel";
 
+export const DashboardNotAllowed = () => (
+  <div style={{ marginTop: 60, textAlign: "center" }}>
+    This page is allowed only to admin
+  </div>
+);
+
 export type DashboardProps = {
   tabValue: number;
   handleChange: (event: React.SyntheticEvent, newValue: number) => void;

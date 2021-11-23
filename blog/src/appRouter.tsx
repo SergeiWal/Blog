@@ -8,7 +8,7 @@ import CreateArticleContainer from "./createArticle/containers/createArticleCont
 import DashboardContainer from "./dashboard/containers/dashboardContainer";
 
 export default function AppRouter() {
-  const { isAuthorized, user } = useAppSelector((state) => state);
+  const { isAuthorized } = useAppSelector((state) => state);
   return (
     <Router>
       <App>
@@ -32,11 +32,7 @@ export default function AppRouter() {
           />
           <Route
             path="/dashboard"
-            component={
-              isAuthorized && user.isAdmin
-                ? DashboardContainer
-                : SignInPageContainer
-            }
+            component={isAuthorized ? DashboardContainer : SignInPageContainer}
           />
         </Switch>
       </App>

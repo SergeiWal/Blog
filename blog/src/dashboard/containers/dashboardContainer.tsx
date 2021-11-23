@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { getArticleAction } from "../../Feed/articleListActions";
-import { useAppDispatch } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 import { getUsersAction } from "../actions";
-import Dashboard from "../components/dashboard";
+import Dashboard, { DashboardNotAllowed } from "../components/dashboard";
 
 export default function DashboardContainer() {
   const dispatch = useAppDispatch();
+  const { user } = useAppSelector((state) => state);
   const [tabValue, setTabValue] = useState(0);
   useEffect(() => {
     dispatch(getArticleAction());
@@ -16,5 +17,9 @@ export default function DashboardContainer() {
     setTabValue(newValue);
   };
 
-  return <Dashboard tabValue={tabValue} handleChange={handleChange} />;
+  return user.isAdmin ? (
+    <Dashboard tabValue={tabValue} handleChange={handleChange} />
+  ) : (
+    <DashboardNotAllowed />
+  );
 }
