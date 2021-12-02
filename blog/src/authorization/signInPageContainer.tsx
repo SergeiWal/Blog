@@ -5,13 +5,19 @@ import SignInPage from "./signInPage";
 
 export default function SignInPageContainer() {
   const dispatch = useAppDispatch();
-  const [id, setId] = useState("");
+  const [username, setUsername] = useState("");
 
   const clickHandler = () => {
-    if (id.length > 0 && Number.parseInt(id)) {
-      dispatch(signInAction(id));
+    if (username.length > 0) {
+      dispatch(signInAction(username));
     }
   };
 
-  return <SignInPage user={id} setUser={setId} clickHandler={clickHandler} />;
+  return (
+    <SignInPage
+      user={username}
+      setUser={setUsername}
+      clickHandler={clickHandler}
+    />
+  );
 }

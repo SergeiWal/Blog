@@ -5,28 +5,30 @@ import ArticlePageFooterContainer from "../containers/articlePageFooterContainer
 import TagList from "./tagList";
 import "../../styles/articlePage.css";
 
+const dateToString = (date: Date): string => {
+  return `${date.getDate()}-${date.getMonth()}-${date.getFullYear}`;
+};
+
 export default function ArticlePage({
   article,
   user,
   likeHandler,
   addToBookmarksHandler,
 }: ArticlePageProps) {
+  const { id, title, subtitle, author, date, updatedate, img, text, tags } =
+    article;
   return (
     <div>
       <div className="articleContent">
         <ArticlePageHeader
-          title={article.title}
-          subtitle={article.subtitle}
-          name={article.name}
-          date={article.date}
-          updatedate={article.updatedate}
+          title={title}
+          subtitle={subtitle}
+          name={author.name}
+          date={dateToString(date)}
+          updatedate={dateToString(updatedate)}
         />
-        <ArticlePageMainContent
-          id={article.id}
-          img={article.img}
-          text={article.text}
-        />
-        <TagList list={article.tags} />
+        <ArticlePageMainContent id={id} img={img} text={text} />
+        <TagList list={tags} />
         <ArticlePageFooterContainer
           article={article}
           user={user}

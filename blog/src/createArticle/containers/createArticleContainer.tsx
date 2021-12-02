@@ -10,9 +10,9 @@ export type NewArticle = {
   subtitle: string;
   text: string;
   img: string;
-  date: string;
-  updatedate: string;
-  name: string;
+  date: Date;
+  updatedate: Date;
+  author: User;
   tags: Array<string>;
   likes: Array<string>;
   comments: ArticleComments;
@@ -64,13 +64,13 @@ export default function CreateArticleContainer() {
       setValidate(true);
       const date: Date = new Date();
       const article: NewArticle = {
-        name: user.name,
+        author: user,
         title: title,
         subtitle: subTitle,
         text: text,
         img: img,
-        date: `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`,
-        updatedate: `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`,
+        date: date,
+        updatedate: date,
         tags: convertTagsInputToArray(tags),
         likes: [],
         comments: [],

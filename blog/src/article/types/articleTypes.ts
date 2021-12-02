@@ -6,9 +6,9 @@ export type Article = {
   subtitle: string;
   text: string;
   img: string;
-  date: string;
-  updatedate: string;
-  name: string;
+  date: Date;
+  updatedate: Date;
+  author: User;
   tags: Array<string>;
   likes: Array<string>;
   comments: ArticleComments;
@@ -27,6 +27,12 @@ export type ListGeneratorParams = {
 };
 
 export type ArticleComment = {
+  id: string;
+  author: User;
+  text: string;
+};
+
+export type NewComment = {
   author: User;
   text: string;
 };

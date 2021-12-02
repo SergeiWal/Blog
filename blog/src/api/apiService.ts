@@ -40,8 +40,9 @@ export const getUsers = async () => {
   return response.data;
 };
 
-export const getUser = async (id: string) => {
-  const response = await instance.get(`/users/${id}`);
+export const getUser = async (name: string) => {
+  console.log("getUser");
+  const response = await instance.get(`/users/username/${name}`);
   return response.data;
 };
 
@@ -53,6 +54,6 @@ export const updateBookmarkForUser = async ({ id, bookmarks }: User) => {
   await instance.patch(`/users/${id}`, { bookmarks });
 };
 
-export const updateStatusForUser = async ({ id, isBlocked }: User) => {
-  await instance.patch(`/users/${id}`, { isBlocked });
+export const updateStatusForUser = async ({ id }: User) => {
+  await instance.patch(`/users/activate/${id}`);
 };

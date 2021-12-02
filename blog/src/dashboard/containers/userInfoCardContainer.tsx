@@ -18,15 +18,15 @@ export default function UserInfoCardContainer({
   deleteHandler,
 }: UserInfoCardContainerProps) {
   const dispatch = useAppDispatch();
-  const [buttonValue, setButtonValue] = useState(buttonMessage(user.isBlocked));
+  const [buttonValue, setButtonValue] = useState(buttonMessage(!user.activate));
 
   useEffect(() => {
-    setButtonValue(buttonMessage(user.isBlocked));
-  }, [user.isBlocked]);
+    setButtonValue(buttonMessage(!user.activate));
+  }, [user.activate]);
 
   const blockedHandler = () => {
     console.log("block");
-    user.isBlocked = !user.isBlocked;
+    user.activate = !user.activate;
     dispatch(blockUserAction(user));
   };
 

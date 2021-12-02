@@ -6,12 +6,12 @@ import {
 } from "../../authorization/actions/authorizeActions";
 import { User } from "../../authorization/types/userTypes";
 
-const DEFAULT_USER: User = {
+export const DEFAULT_USER: User = {
   id: "0",
   name: "user",
   password: "11111111",
-  isAdmin: false,
-  isBlocked: false,
+  role: "USER",
+  activate: false,
   bookmarks: [],
   photo: "",
   posts: [],

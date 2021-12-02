@@ -1,7 +1,7 @@
 export type SignInPageProps = {
   user: string;
   setUser: (id: string) => void;
-  clickHandler: (id: string) => void;
+  clickHandler: () => void;
 };
 
 export default function SignInPage({
@@ -14,17 +14,17 @@ export default function SignInPage({
       <form>
         <div className="formInput">
           <label>
-            Id:
+            Username:
             <input
               type="text"
-              placeholder="id"
+              placeholder="username"
               value={user}
               onChange={(e) => setUser(e.target.value)}
               required
             />
           </label>
         </div>
-        <button className="signInButton" onClick={() => clickHandler(user)}>
+        <button className="signInButton" onClick={clickHandler}>
           SIGN IN
         </button>
       </form>
