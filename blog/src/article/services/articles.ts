@@ -19,15 +19,15 @@ export const getButtonColorForCollection = (
 };
 
 export const findArticle = (articles: Articles, id: string): Article => {
-  return articles.find((article) => article.id === id) || DEFAULT_ARTICLE;
+  return articles.find((article) => article._id === id) || DEFAULT_ARTICLE;
 };
 
 export const like = (article: Article, user: User): Article => {
-  if (article.likes.includes(user.id)) {
-    const index = article.likes.indexOf(user.id);
+  if (article.likes.includes(user._id)) {
+    const index = article.likes.indexOf(user._id);
     article.likes.splice(index, 1);
   } else {
-    article.likes.push(user.id);
+    article.likes.push(user._id);
   }
   return article;
 };

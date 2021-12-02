@@ -1,17 +1,17 @@
 import { User } from "../../authorization/types/userTypes";
 
 export type Article = {
-  id: string;
+  _id: string;
   title: string;
   subtitle: string;
   text: string;
   img: string;
   date: Date;
-  updatedate: Date;
+  updateDate: Date;
   author: User;
   tags: Array<string>;
   likes: Array<string>;
-  comments: ArticleComments;
+  //comments: ArticleComments;
 };
 
 export type Articles = Array<Article>;

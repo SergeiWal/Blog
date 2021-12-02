@@ -5,7 +5,7 @@ import { deleteUserAction } from "../actions";
 import UsersInfo from "../components/usersInfo";
 
 const initUsersView = (users: User[], user: User): User[] =>
-  users.filter((item: User) => item.id !== user.id);
+  users.filter((item: User) => item._id !== user._id);
 
 export default function UsersInfoContainers() {
   const dispatch = useAppDispatch();
@@ -20,7 +20,7 @@ export default function UsersInfoContainers() {
   const deleteHandler = (userForDel: User) => {
     const index = users.indexOf(userForDel);
     users.splice(index, 1);
-    dispatch(deleteUserAction(userForDel.id));
+    dispatch(deleteUserAction(userForDel._id));
   };
   return <UsersInfo users={usersView} deleteHandler={deleteHandler} />;
 }

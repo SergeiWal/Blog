@@ -9,7 +9,7 @@ import { WINDOW_HEIGHT } from "../constants/feedConstants";
 
 export default function ArticleList({ articles }: ArticleListProps) {
   const listArticle = articles.map((item: Article) => (
-    <ArticleCard key={item.id} article={item}></ArticleCard>
+    <ArticleCard key={item._id} article={item}></ArticleCard>
   ));
 
   return (

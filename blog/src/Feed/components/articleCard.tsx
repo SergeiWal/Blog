@@ -9,27 +9,29 @@ import {
 } from "../../article/services/articles";
 import { cardStyle } from "../../styles/styles";
 import "../../styles/feed.css";
+import moment from "moment";
 
 export default function ArticleCard({ article }: ArticlePreviewProps) {
+  const { _id, author, title, subtitle, text, tags, date, updateDate, img } =
+    article;
   return (
     <Card sx={cardStyle}>
       <CardActionArea>
         <CardContent>
-          <Link to={`/articles/${article.id}`} className="cardContent">
+          <Link to={`/articles/${_id}`} className="cardContent">
             <div className="cardInfo">
-              <div className="blogName">{article.name}</div>
-              <div className="articleTitle">{article.title}</div>
-              <div>{article.subtitle}</div>
-              <div className="articleText">
-                {createTextPreview(article.text)}
-              </div>
-              <div className="tags">{tagsArrToStr(article.tags)}</div>
+              <div className="blogName">{author.name}</div>
+              <div className="articleTitle">{title}</div>
+              <div>{subtitle}</div>
+              <div className="articleText">{createTextPreview(text)}</div>
+              <div className="tags">{tagsArrToStr(tags)}</div>
               <div className="timeInfo">
-                {article.date} . {article.updatedate}
+                {moment(date).format("DD:MM:YY")} .
+                {moment(updateDate).format("DD:MM:YY")}
               </div>
             </div>
             <div className="cardImg">
-              <img src={article.img} alt={`Article ${article.id}`}></img>
+              <img src={img} alt={`Article ${_id}`}></img>
             </div>
           </Link>
         </CardContent>

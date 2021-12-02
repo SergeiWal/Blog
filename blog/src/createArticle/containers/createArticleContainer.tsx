@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ArticleComments } from "../../article/types/articleTypes";
 import { User } from "../../authorization/types/userTypes";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addArticleAction } from "../actions";
@@ -11,11 +10,8 @@ export type NewArticle = {
   text: string;
   img: string;
   date: Date;
-  updatedate: Date;
-  author: User;
-  tags: Array<string>;
-  likes: Array<string>;
-  comments: ArticleComments;
+  updateDate: Date;
+  author: string;
 };
 
 const formValidation = (
@@ -64,16 +60,13 @@ export default function CreateArticleContainer() {
       setValidate(true);
       const date: Date = new Date();
       const article: NewArticle = {
-        author: user,
+        author: user._id,
         title: title,
         subtitle: subTitle,
         text: text,
         img: img,
         date: date,
-        updatedate: date,
-        tags: convertTagsInputToArray(tags),
-        likes: [],
-        comments: [],
+        updateDate: date,
       };
       dispatch(addArticleAction(article));
     } else {

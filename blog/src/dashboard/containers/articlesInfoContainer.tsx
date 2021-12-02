@@ -10,7 +10,7 @@ export default function ArticlesInfoContainer() {
   const deleteHandler = (article: Article) => {
     const index = articles.indexOf(article);
     articles.splice(index, 1);
-    dispatch(deleteArticleAction(article.id));
+    dispatch(deleteArticleAction(article._id));
   };
   return (
     <ArticlesInfo articles={articles} deleteArticleHandler={deleteHandler} />

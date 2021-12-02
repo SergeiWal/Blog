@@ -16,7 +16,7 @@ export default function ArticlesInfo({
 }: ArticlesInfoProps) {
   const listArticle = articles.map((item: Article) => (
     <ArticleInfoCard
-      key={item.id}
+      key={item._id}
       article={item}
       deleteArticleHandler={deleteArticleHandler}
     ></ArticleInfoCard>

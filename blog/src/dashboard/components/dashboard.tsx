@@ -2,6 +2,7 @@ import { Box, Tab, Tabs } from "@mui/material";
 import ArticlesInfoContainer from "../containers/articlesInfoContainer";
 import UsersInfoContainer from "../containers/usersInfoContainer";
 import TabPanel from "./tabPanel";
+import TabsInfoConteiner from "../containers/tagsInfoContainer";
 
 export const DashboardNotAllowed = () => (
   <div style={{ marginTop: 60, textAlign: "center" }}>
@@ -31,6 +32,7 @@ export default function Dashboard({ tabValue, handleChange }: DashboardProps) {
         >
           <Tab label="Articles" />
           <Tab label="Users" />
+          <Tab label="Tags" />
         </Tabs>
       </Box>
       <TabPanel value={tabValue} index={0}>
@@ -38,6 +40,9 @@ export default function Dashboard({ tabValue, handleChange }: DashboardProps) {
       </TabPanel>
       <TabPanel value={tabValue} index={1}>
         <UsersInfoContainer />
+      </TabPanel>
+      <TabPanel value={tabValue} index={2}>
+        <TabsInfoConteiner />
       </TabPanel>
     </Box>
   );

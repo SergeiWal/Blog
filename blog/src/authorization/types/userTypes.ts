@@ -1,7 +1,7 @@
 import { Article } from "../../article/types/articleTypes";
 
 export type User = {
-  id: string;
+  _id: string;
   name: string;
   password: string;
   role: "ADMIN" | "USER";

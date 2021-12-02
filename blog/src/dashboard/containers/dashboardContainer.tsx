@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { User } from "../../authorization/types/userTypes";
 import { getArticleAction } from "../../Feed/articleListActions";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { getUsersAction } from "../actions";
@@ -17,7 +18,7 @@ export default function DashboardContainer() {
     setTabValue(newValue);
   };
 
-  return user.isAdmin ? (
+  return (user as User).role === "ADMIN" ? (
     <Dashboard tabValue={tabValue} handleChange={handleChange} />
   ) : (
     <DashboardNotAllowed />

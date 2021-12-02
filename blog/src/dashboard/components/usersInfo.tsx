@@ -13,7 +13,7 @@ export type UsersInfoProps = {
 export default function UsersInfo({ users, deleteHandler }: UsersInfoProps) {
   const listArticle = users.map((item: User) => (
     <UserInfoCardContainer
-      key={item.id}
+      key={item._id}
       user={item}
       deleteHandler={deleteHandler}
     />

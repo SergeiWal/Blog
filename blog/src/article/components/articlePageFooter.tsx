@@ -22,7 +22,7 @@ export default function ArticlePageFooter({
       <div className="articleFooter">
         <Button
           startIcon={<RecommendOutlinedIcon />}
-          color={getButtonColorForCollection(article.likes, user.id)}
+          color={getButtonColorForCollection(article.likes, user._id)}
           onClick={likeHandler}
           size="large"
         >
@@ -30,7 +30,7 @@ export default function ArticlePageFooter({
         </Button>
         <Button
           startIcon={<BookmarkAddOutlinedIcon />}
-          color={getButtonColorForCollection(user.bookmarks, article.id)}
+          color={getButtonColorForCollection(user.bookmarks, article._id)}
           onClick={addToBookmarksHandler}
           size="large"
         ></Button>
@@ -40,7 +40,7 @@ export default function ArticlePageFooter({
           onClick={openHandler}
           size="large"
         >
-          {article.comments.length}
+          {/* {article.comments.length} */}
         </Button>
       </div>
       <CommentFormContainer
@@ -48,7 +48,7 @@ export default function ArticlePageFooter({
         closeHandler={closeHandler}
         saveComment={saveCommentHandler}
       />
-      <ArticleCommentList comments={article.comments} />
+      {/* <ArticleCommentList comments={article.comments} /> */}
     </div>
   );
 }

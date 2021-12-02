@@ -17,8 +17,8 @@ export default function ArticlePageFooterContainer({
   const closeHandler = () => setOpen(false);
   const saveCommentHandler = (text: string) => {
     if (text.length > 0) {
-      article.comments.push({ author: user, text: text });
-      dispatch(saveCommentAction(article));
+      // article.comments.push({ author: user, text: text });
+      // dispatch(saveCommentAction(article));
     }
   };
   return (

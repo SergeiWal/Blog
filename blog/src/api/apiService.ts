@@ -21,15 +21,15 @@ export const addArticle = async (article: NewArticle) => {
   await instance.post("/articles", article);
 };
 
-export const updateLikeArticle = async ({ id, likes }: Article) => {
-  await instance.patch(`/articles/${id}`, { likes });
+export const updateLikeArticle = async ({ _id, likes }: Article) => {
+  await instance.patch(`/articles/${_id}`, { likes });
 };
 
-export const updateCommentsArticle = async ({ id, comments }: Article) => {
-  await instance.patch(`/articles/${id}`, {
-    comments,
-  });
-};
+// export const updateCommentsArticle = async ({ id, comments }: Article) => {
+//   await instance.patch(`/articles/${id}`, {
+//     comments,
+//   });
+// };
 
 export const deleteArticle = async (id: string) => {
   await instance.delete(`/articles/${id}`);
@@ -50,10 +50,10 @@ export const deleteUser = async (id: string) => {
   await instance.delete(`/users/${id}`);
 };
 
-export const updateBookmarkForUser = async ({ id, bookmarks }: User) => {
-  await instance.patch(`/users/${id}`, { bookmarks });
+export const updateBookmarkForUser = async ({ _id, bookmarks }: User) => {
+  await instance.patch(`/users/${_id}`, { bookmarks });
 };
 
-export const updateStatusForUser = async ({ id }: User) => {
-  await instance.patch(`/users/activate/${id}`);
+export const updateStatusForUser = async ({ _id }: User) => {
+  await instance.patch(`/users/activate/${_id}`);
 };
