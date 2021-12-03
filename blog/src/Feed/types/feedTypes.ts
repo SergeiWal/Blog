@@ -1,9 +1,11 @@
+import { Tag } from "../../dashboard/types";
+
 export type FilterItemProps = {
-  filters: string[];
-  content: string;
-  filterHandler: (filter: string) => void;
+  filters: Tag[];
+  tag: Tag;
+  filterHandler: (filter: Tag) => void;
 };
 
 export type FilterItemContainerProps = {
-  tag: string;
+  tag: Tag;
 };

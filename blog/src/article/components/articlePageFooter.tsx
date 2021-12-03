@@ -30,7 +30,7 @@ export default function ArticlePageFooter({
         </Button>
         <Button
           startIcon={<BookmarkAddOutlinedIcon />}
-          color={getButtonColorForCollection(user.bookmarks, article._id)}
+          // color={getButtonColorForCollection(user.bookmarks, article._id)}
           onClick={addToBookmarksHandler}
           size="large"
         ></Button>

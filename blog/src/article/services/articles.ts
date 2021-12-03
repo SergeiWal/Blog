@@ -2,13 +2,14 @@ import { MAX_WORDS_IN_CARD } from "../constants/article";
 import { Article, Articles } from "../types/articleTypes";
 import { DEFAULT_ARTICLE } from "../constants/article";
 import { User } from "../../authorization/types/userTypes";
+import { Tag } from "../../dashboard/types";
 
 export function createTextPreview(text: string): string {
   return text.slice(0, MAX_WORDS_IN_CARD) + "...";
 }
 
-export function tagsArrToStr(tags: string[]): string {
-  return tags.join(" , ");
+export function tagsArrToStr(tags: Tag[]): string {
+  return tags.map((tag) => tag.name).join(" , ");
 }
 
 export const getButtonColorForCollection = (

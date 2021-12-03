@@ -28,7 +28,7 @@ export default function ArticleInfoCard({
               <div>{subtitle}</div>
             </div>
             <div>
-              <div className="tags">{tagsArrToStr(tags)}</div>
+              {/* <div className="tags">{tagsArrToStr(tags)}</div> */}
               <div className="timeInfo">
                 {moment(date).format("DD:MM:YY")} .{" "}
                 {moment(updateDate).format("DD:MM:YY")}

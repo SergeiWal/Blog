@@ -1,6 +1,7 @@
 import { Article } from "../../article/types/articleTypes";
+import { Tag } from "../../dashboard/types";
 
-const findTagsAtArticle = (article: Article, filters: string[]): boolean => {
+const findTagsAtArticle = (article: Article, filters: Tag[]): boolean => {
   for (let filter of filters) {
     if (article.tags.indexOf(filter) !== -1) {
       return true;
@@ -11,7 +12,7 @@ const findTagsAtArticle = (article: Article, filters: string[]): boolean => {
 
 export const selectArticlesByFilters = (
   articles: Article[],
-  filters: string[]
+  filters: Tag[]
 ): Article[] => {
   const resultArticles = articles.filter((item) => {
     return findTagsAtArticle(item, filters);

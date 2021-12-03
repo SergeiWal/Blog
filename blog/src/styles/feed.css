@@ -260,10 +260,27 @@ body::-webkit-scrollbar {
   margin: 0 5px;
 }
 
+.button:hover {
+  cursor: pointer;
+  background: #2e3033;
+}
+
 .addTagInput {
   padding: 7px;
 }
 
 .inputLabel {
   font-size: 18px;
+}
+/*tags*/
+.tags {
+  width: 500px;
+  margin: 70px 0;
+}
+
+.tag_list {
+  padding-top: 10px;
+  border-top: 1px solid #000;
+  display: flex;
+  flex-wrap: wrap;
 }

@@ -1,7 +1,8 @@
 import { Button } from "@mui/material";
+import { Tag } from "../../dashboard/types";
 
 export type TagsListProps = {
-  list: string[];
+  list: Tag[];
 };
 
 const TagListStyle = {
@@ -13,8 +14,13 @@ export default function TagList({ list }: TagsListProps) {
     <div className="pageTagsList">
       {list.map((item) => {
         return (
-          <Button key={item} variant="contained" disabled style={TagListStyle}>
-            {item.replace("#", "")}
+          <Button
+            key={item._id}
+            variant="contained"
+            disabled
+            style={TagListStyle}
+          >
+            {item.name}
           </Button>
         );
       })}

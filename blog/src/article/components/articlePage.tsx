@@ -6,10 +6,6 @@ import moment from "moment";
 import TagList from "./tagList";
 import "../../styles/articlePage.css";
 
-const dateToString = (date: Date): string => {
-  return `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`;
-};
-
 export default function ArticlePage({
   article,
   user,

@@ -1,7 +1,8 @@
 import { PayloadAction } from "@reduxjs/toolkit";
+import { Tag } from "../../dashboard/types";
 import { changeFilterAction } from "../../Feed/articleListActions";
 
-const defaultFilters: string[] = [];
+const defaultFilters: Tag[] = [];
 
 export default function FilterReducer(
   state = defaultFilters,

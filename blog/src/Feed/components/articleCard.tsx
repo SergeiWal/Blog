@@ -24,7 +24,7 @@ export default function ArticleCard({ article }: ArticlePreviewProps) {
               <div className="articleTitle">{title}</div>
               <div>{subtitle}</div>
               <div className="articleText">{createTextPreview(text)}</div>
-              <div className="tags">{tagsArrToStr(tags)}</div>
+              {/* <div className="tags">{tagsArrToStr(tags)}</div> */}
               <div className="timeInfo">
                 {moment(date).format("DD:MM:YY")} .
                 {moment(updateDate).format("DD:MM:YY")}

@@ -1,24 +1,29 @@
 import { Button } from "@mui/material";
 import { getButtonColorForCollection } from "../../article/services/articles";
+import { Tag } from "../../dashboard/types";
 import { FilterItemProps } from "../types/feedTypes";
 
 const filterItemStyle = {
   margin: 3,
 };
 
+export const getButtonColorForFilter = (collection: Array<Tag>, item: Tag) => {
+  return collection.includes(item) ? "success" : "inherit";
+};
+
 export default function FilterItem({
   filters,
-  content,
+  tag,
   filterHandler,
 }: FilterItemProps) {
   return (
     <Button
       variant="contained"
       style={filterItemStyle}
-      color={getButtonColorForCollection(filters, content)}
-      onClick={() => filterHandler(content)}
+      color={getButtonColorForFilter(filters, tag)}
+      onClick={() => filterHandler(tag)}
     >
-      {content.replace("#", "")}
+      {tag.name}
     </Button>
   );
 }

@@ -1,4 +1,5 @@
 import { User } from "../../authorization/types/userTypes";
+import { Tag } from "../../dashboard/types";
 
 export type Article = {
   _id: string;
@@ -9,7 +10,7 @@ export type Article = {
   date: Date;
   updateDate: Date;
   author: User;
-  tags: Array<string>;
+  tags: Tag[];
   likes: Array<string>;
   //comments: ArticleComments;
 };

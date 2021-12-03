@@ -41,7 +41,6 @@ export const getUsers = async () => {
 };
 
 export const getUser = async (name: string) => {
-  console.log("getUser");
   const response = await instance.get(`/users/username/${name}`);
   return response.data;
 };
@@ -56,4 +55,18 @@ export const updateBookmarkForUser = async ({ _id, bookmarks }: User) => {
 
 export const updateStatusForUser = async ({ _id }: User) => {
   await instance.patch(`/users/activate/${_id}`);
+};
+
+export const getTags = async () => {
+  const response = await instance.get("/tags");
+  return response.data;
+};
+
+export const addTag = async (tag: string) => {
+  const response = await instance.post(`/tags/${tag}`);
+  return response.data;
+};
+
+export const deleteTag = async (id: string) => {
+  await instance.delete(`/tags/${id}`);
 };
