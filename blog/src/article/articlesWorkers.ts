@@ -6,7 +6,3 @@ import { PayloadAction } from "@reduxjs/toolkit";
 export function* likeArticleSagaWorker({ payload }: PayloadAction<Article>) {
   yield call(updateLikeArticle, payload);
 }
-
-// export function* commentsSagaWorker({ payload }: PayloadAction<Article>) {
-//   yield call(updateCommentsArticle, payload);
-// }

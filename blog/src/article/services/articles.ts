@@ -24,11 +24,19 @@ export const findArticle = (articles: Articles, id: string): Article => {
 };
 
 export const like = (article: Article, user: User): Article => {
-  if (article.likes.includes(user._id)) {
-    const index = article.likes.indexOf(user._id);
-    article.likes.splice(index, 1);
+  let arrIndex = -1;
+  const likeUser = article.likes.find((item, index) => {
+    if (item._id === user._id) {
+      arrIndex = index;
+      return true;
+    }
+    return false;
+  });
+
+  if (likeUser) {
+    article.likes.splice(arrIndex, 1);
   } else {
-    article.likes.push(user._id);
+    article.likes.push(user);
   }
   return article;
 };

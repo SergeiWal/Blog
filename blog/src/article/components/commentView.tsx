@@ -6,7 +6,9 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import { CommentViewProps } from "../types/articlePropsTypes";
 
-export default function CommentView({ user, text }: CommentViewProps) {
+export default function CommentView({
+  comment: { text, author },
+}: CommentViewProps) {
   return (
     <Card>
       <CardHeader
@@ -14,11 +16,11 @@ export default function CommentView({ user, text }: CommentViewProps) {
           <Avatar
             sx={{ bgcolor: red[500] }}
             aria-label="recipe"
-            src={user.photo}
-            alt={user.name}
+            src={author.photo}
+            alt={author.name}
           />
         }
-        title={user.name}
+        title={author.name}
         subheader=""
       />
       <CardContent>

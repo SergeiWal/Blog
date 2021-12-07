@@ -11,8 +11,7 @@ export type Article = {
   updateDate: Date;
   author: User;
   tags: Tag[];
-  likes: Array<string>;
-  //comments: ArticleComments;
+  likes: User[];
 };
 
 export type Articles = Array<Article>;
@@ -28,7 +27,8 @@ export type ListGeneratorParams = {
 };
 
 export type ArticleComment = {
-  id: string;
+  _id?: string;
+  article: Article;
   author: User;
   text: string;
 };

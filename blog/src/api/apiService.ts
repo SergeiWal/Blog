@@ -1,4 +1,4 @@
-import { Article } from "../article/types/articleTypes";
+import { Article, ArticleComment } from "../article/types/articleTypes";
 import { User } from "../authorization/types/userTypes";
 import axios from "axios";
 import { NewArticle } from "../createArticle/containers/createArticleContainer";
@@ -22,17 +22,23 @@ export const addArticle = async (article: NewArticle) => {
 };
 
 export const updateLikeArticle = async ({ _id, likes }: Article) => {
-  await instance.patch(`/articles/${_id}`, { likes });
+  await instance.patch(`/articles`, { id: _id, likes });
 };
-
-// export const updateCommentsArticle = async ({ id, comments }: Article) => {
-//   await instance.patch(`/articles/${id}`, {
-//     comments,
-//   });
-// };
 
 export const deleteArticle = async (id: string) => {
   await instance.delete(`/articles/${id}`);
+};
+
+export const getComments = async (article_id: string) => {
+  console.log(article_id);
+  const response = await instance.get(`/comments/${article_id}`);
+  return response.data;
+};
+
+export const saveComment = async (comment: ArticleComment) => {
+  const response = await instance.post("/comments", comment);
+  console.log(response.data);
+  return response.data;
 };
 
 export const getUsers = async () => {

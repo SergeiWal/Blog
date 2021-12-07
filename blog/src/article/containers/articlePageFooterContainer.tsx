@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useAppDispatch } from "../../store/store";
+import { User } from "../../authorization/types/userTypes";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 import { saveCommentAction } from "../articlePageActions";
 import ArticlePageFooter from "../components/articlePageFooter";
 import { ArticlePageFooterConteinerProps } from "../types/articlePropsTypes";
+import { Article } from "../types/articleTypes";
 
 export default function ArticlePageFooterContainer({
   article,
@@ -10,6 +12,8 @@ export default function ArticlePageFooterContainer({
   likeHandler,
   addToBookmarksHandler,
 }: ArticlePageFooterConteinerProps) {
+  const { comments } = useAppSelector((state) => state);
+
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
 
@@ -17,8 +21,9 @@ export default function ArticlePageFooterContainer({
   const closeHandler = () => setOpen(false);
   const saveCommentHandler = (text: string) => {
     if (text.length > 0) {
-      // article.comments.push({ author: user, text: text });
-      // dispatch(saveCommentAction(article));
+      dispatch(
+        saveCommentAction({ article: article, author: user, text: text })
+      );
     }
   };
   return (
@@ -26,6 +31,7 @@ export default function ArticlePageFooterContainer({
       article={article}
       user={user}
       open={open}
+      comments={comments}
       likeHandler={likeHandler}
       addToBookmarksHandler={addToBookmarksHandler}
       openHandler={openHandler}

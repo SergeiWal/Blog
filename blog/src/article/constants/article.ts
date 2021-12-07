@@ -15,4 +15,3 @@ export const DEFAULT_ARTICLE: Article = {
   tags: [],
   likes: [],
 };
-//comments: [],

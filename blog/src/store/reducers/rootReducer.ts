@@ -6,6 +6,7 @@ import authorizeReducer from "./authorizeReducer";
 import filterREducer from "./filterReducer";
 import allUserREducer from "./allUsersReducer";
 import tagsReducer from "./tagsReducer";
+import { commentsReducer } from "./commentsReducer";
 
 const rootReducer = combineReducers({
   articles: articleReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   filters: filterREducer,
   users: allUserREducer,
   tags: tagsReducer,
+  comments: commentsReducer,
 });
 
 export default rootReducer;

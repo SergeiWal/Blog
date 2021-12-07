@@ -1,7 +1,7 @@
 import { ArticlePreviewProps } from "../../article/types/articlePropsTypes";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { CardActionArea } from "@mui/material";
+import { Button, CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
 import {
   createTextPreview,
@@ -24,7 +24,11 @@ export default function ArticleCard({ article }: ArticlePreviewProps) {
               <div className="articleTitle">{title}</div>
               <div>{subtitle}</div>
               <div className="articleText">{createTextPreview(text)}</div>
-              {/* <div className="tags">{tagsArrToStr(tags)}</div> */}
+              <div className="articleCardTagsList">
+                {tags.map((tag) => {
+                  return <div key={tag._id}>{tag.name}</div>;
+                })}
+              </div>
               <div className="timeInfo">
                 {moment(date).format("DD:MM:YY")} .
                 {moment(updateDate).format("DD:MM:YY")}

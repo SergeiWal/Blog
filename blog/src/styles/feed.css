@@ -29,6 +29,15 @@ body::-webkit-scrollbar {
   margin-right: 20px;
 }
 
+.articleCardTagsList {
+  display: flex;
+}
+
+.articleCardTagsList div {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
 .blogName {
   font-weight: normal;
 }

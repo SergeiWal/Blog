@@ -3,7 +3,11 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { DEFAULT_ARTICLE } from "../constants/article";
 import { useAppDispatch, useAppSelector } from "../../store/store";
-import { bookmarksAction, likeArticleAction } from "../articlePageActions";
+import {
+  bookmarksAction,
+  getCommentsAction,
+  likeArticleAction,
+} from "../articlePageActions";
 import { bookmark, findArticle, like } from "../services/articles";
 import ArticlePage from "../components/articlePage";
 import ArticlePageLoader from "../components/articlePageLoader";
@@ -14,6 +18,10 @@ export default function ArticlePageContainer() {
   const [article, setArticle] = useState<Article>(DEFAULT_ARTICLE);
   const state = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getCommentsAction(id));
+  }, []);
 
   useEffect(() => {
     setArticle(findArticle(state.articles, id));

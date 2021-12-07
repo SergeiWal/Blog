@@ -9,7 +9,6 @@ import { User } from "../authorization/types/userTypes";
 import {
   bookmarksAction,
   likeArticleAction,
-  saveCommentAction,
 } from "../article/articlePageActions";
 import { signInAction } from "../authorization/actions/authorizeActions";
 import * as api from "../api/apiService";
@@ -59,7 +58,6 @@ export function* rootSagaWatcher() {
     takeEvery(signInAction.type, signInSagaWorker),
     takeEvery(bookmarksAction.type, bookmarkWorker),
     takeEvery(likeArticleAction.type, likeArticleSagaWorker),
-    //takeEvery(saveCommentAction.type, commentsSagaWorker),
     takeEvery(blockUserAction.type, blockUserSagaWorker),
   ]);
 }

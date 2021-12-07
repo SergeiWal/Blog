@@ -3,7 +3,7 @@ import { Tag } from "../../dashboard/types";
 
 const findTagsAtArticle = (article: Article, filters: Tag[]): boolean => {
   for (let filter of filters) {
-    if (article.tags.indexOf(filter) !== -1) {
+    if (article.tags.find((tag) => tag._id === filter._id)) {
       return true;
     }
   }

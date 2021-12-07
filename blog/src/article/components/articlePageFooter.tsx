@@ -11,6 +11,7 @@ export default function ArticlePageFooter({
   article,
   user,
   open,
+  comments,
   likeHandler,
   addToBookmarksHandler,
   openHandler,
@@ -22,7 +23,7 @@ export default function ArticlePageFooter({
       <div className="articleFooter">
         <Button
           startIcon={<RecommendOutlinedIcon />}
-          color={getButtonColorForCollection(article.likes, user._id)}
+          // color={getButtonColorForCollection(article.likes, user._id)}
           onClick={likeHandler}
           size="large"
         >
@@ -40,7 +41,7 @@ export default function ArticlePageFooter({
           onClick={openHandler}
           size="large"
         >
-          {/* {article.comments.length} */}
+          {comments.length}
         </Button>
       </div>
       <CommentFormContainer
@@ -48,7 +49,7 @@ export default function ArticlePageFooter({
         closeHandler={closeHandler}
         saveComment={saveCommentHandler}
       />
-      {/* <ArticleCommentList comments={article.comments} /> */}
+      <ArticleCommentList comments={comments} />
     </div>
   );
 }
