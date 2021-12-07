@@ -1,3 +1,13 @@
+import {
+  FormControl,
+  InputLabel,
+  MenuItem,
+  OutlinedInput,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
+import { Tag } from "../../dashboard/types";
+
 const ERROR_MESSAGE: string = "Please, fill all members";
 
 export type CreateArticleProps = {
@@ -6,13 +16,14 @@ export type CreateArticleProps = {
   subTitle: string;
   text: string;
   img: string;
-  tags: string;
+  tags: Tag[];
+  selectedTags: string[];
   setTitle: (title: string) => void;
   setSubTitle: (subtitle: string) => void;
   setText: (text: string) => void;
   setImg: (img: string) => void;
   clickPublishHandler: () => void;
-  setTags: (tags: string) => void;
+  onChangeHandler: (event: SelectChangeEvent<string[]>) => void;
 };
 
 export default function CreateArticle({
@@ -22,12 +33,13 @@ export default function CreateArticle({
   text,
   img,
   tags,
+  selectedTags,
   setImg,
   setText,
   setTitle,
   setSubTitle,
   clickPublishHandler,
-  setTags,
+  onChangeHandler,
 }: CreateArticleProps) {
   return (
     <div className="createArticleForm">
@@ -58,13 +70,25 @@ export default function CreateArticle({
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
-      <input
-        type="text"
-        className="articleTagsInput"
-        placeholder="Write tags separated by commas"
-        onChange={(e) => setTags(e.target.value)}
-        value={tags}
-      />
+      <div>
+        <FormControl sx={{ m: 1, width: 300 }}>
+          <InputLabel id="select_tags">Tags</InputLabel>
+          <Select
+            labelId="select_tags"
+            id="select"
+            multiple
+            value={selectedTags}
+            input={<OutlinedInput label="Name" />}
+            onChange={onChangeHandler}
+          >
+            {tags.map((tag) => (
+              <MenuItem key={tag._id} value={tag.name}>
+                {tag.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </div>
       <div className="infoMessage">{isValidate ? "" : ERROR_MESSAGE}</div>
       <div className="articlePublishButton">
         <button type="button" onClick={clickPublishHandler}>

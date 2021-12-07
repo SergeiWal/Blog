@@ -1,5 +1,6 @@
+import { SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
-import { User } from "../../authorization/types/userTypes";
+import { Tag } from "../../dashboard/types";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addArticleAction } from "../actions";
 import CreateArticle from "../components/createArticle";
@@ -12,13 +13,14 @@ export type NewArticle = {
   date: Date;
   updateDate: Date;
   author: string;
+  tags: Tag[];
 };
 
 const formValidation = (
   title: string,
   text: string,
   img: string,
-  tags: string,
+  tags: Tag[],
   subtitle: string
 ) => {
   return (
@@ -30,10 +32,8 @@ const formValidation = (
   );
 };
 
-const convertTagsInputToArray = (inputStr: string) => {
-  return inputStr
-    .split(",")
-    .map((item) => "#" + item.trim().toLowerCase().replace(" ", "_"));
+const getSelectedTagsFromStrArr = (strArr: string[], tags: Tag[]): Tag[] => {
+  return tags.filter((tag) => strArr.includes(tag.name));
 };
 
 export default function CreateArticleContainer() {
@@ -42,9 +42,9 @@ export default function CreateArticleContainer() {
   const [subTitle, setSubTitle] = useState("");
   const [text, setText] = useState("");
   const [img, setImg] = useState("");
-  const [tags, setTags] = useState("");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
-  const user: User = useAppSelector((state) => state.user);
+  const { user, tags } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   const resetFields = () => {
@@ -52,13 +52,14 @@ export default function CreateArticleContainer() {
     setSubTitle("");
     setText("");
     setImg("");
-    setTags("");
+    setSelectedTags([]);
   };
 
   const clickPubliahHandler = () => {
     if (formValidation(title, text, img, tags, subTitle)) {
       setValidate(true);
       const date: Date = new Date();
+      const newTags: Tag[] = getSelectedTagsFromStrArr(selectedTags, tags);
       const article: NewArticle = {
         author: user._id,
         title: title,
@@ -67,12 +68,20 @@ export default function CreateArticleContainer() {
         img: img,
         date: date,
         updateDate: date,
+        tags: newTags,
       };
       dispatch(addArticleAction(article));
     } else {
       setValidate(false);
     }
     resetFields();
+  };
+
+  const onChangeHandler = (event: SelectChangeEvent<typeof selectedTags>) => {
+    const {
+      target: { value },
+    } = event;
+    setSelectedTags(typeof value === "string" ? value.split(",") : value);
   };
 
   return (
@@ -83,12 +92,13 @@ export default function CreateArticleContainer() {
       text={text}
       img={img}
       tags={tags}
+      selectedTags={selectedTags}
       setImg={setImg}
       setText={setText}
       setTitle={setTitle}
       setSubTitle={setSubTitle}
       clickPublishHandler={clickPubliahHandler}
-      setTags={setTags}
+      onChangeHandler={onChangeHandler}
     />
   );
 }

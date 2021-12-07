@@ -7,6 +7,7 @@ import { Tag } from "../types";
 
 export default function TabsInfoContainer() {
   const [value, setValue] = useState("");
+  const [isValidate, setValidate] = useState(true);
   const dispatch = useAppDispatch();
   const { tags } = useAppSelector((state) => state);
 
@@ -18,9 +19,14 @@ export default function TabsInfoContainer() {
     setValue("");
   };
 
-  const clickHandler = () => {
-    dispatch(addTagsAction(value));
-    clearForm();
+  const addTagHandler = () => {
+    if (value.length > 0) {
+      dispatch(addTagsAction(value));
+      setValidate(true);
+      clearForm();
+    } else {
+      setValidate(false);
+    }
   };
 
   const deleteHandler = (tag: Tag) => {
@@ -33,8 +39,9 @@ export default function TabsInfoContainer() {
     <div>
       <AddTabsForm
         value={value}
+        isValidate={isValidate}
         setValue={setValue}
-        clickHandler={clickHandler}
+        clickHandler={addTagHandler}
       />
       <TagsList items={tags} deleteHandler={deleteHandler} />
     </div>
