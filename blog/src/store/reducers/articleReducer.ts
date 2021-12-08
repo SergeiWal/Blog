@@ -4,10 +4,7 @@ import {
   getArticleActionFailed,
   getArticleActionSuccess,
 } from "../../Feed/articleListActions";
-import {
-  likeArticleAction,
-  saveCommentAction,
-} from "../../article/articlePageActions";
+import { saveCommentAction } from "../../article/articlePageActions";
 import {
   getArticleByIdActionFailed,
   getArticleByIdActionSuccess,
@@ -34,7 +31,6 @@ export default function articleReducer(
     case getArticleActionFailed.type:
     case getArticleByIdActionFailed.type:
     case addArticleSuccessAction.type:
-    case likeArticleAction.type:
     case saveCommentAction.type:
       return [...state];
     default:

@@ -1,15 +1,11 @@
 import { all, put, takeEvery, call } from "redux-saga/effects";
 import { camelCase } from "lodash";
-import { likeArticleSagaWorker } from "../article/articlesWorkers";
 import { bookmarkWorker, signInSagaWorker } from "../authorization/userWorkers";
 import { fetchFinishedAction, fetchStartAction } from "./fetchActions";
 import { Action, PayloadAction } from "@reduxjs/toolkit";
 import { Article, Articles } from "../article/types/articleTypes";
 import { User } from "../authorization/types/userTypes";
-import {
-  bookmarksAction,
-  likeArticleAction,
-} from "../article/articlePageActions";
+import { bookmarksAction } from "../article/articlePageActions";
 import { signInAction } from "../authorization/actions/authorizeActions";
 import * as api from "../api/apiService";
 import { blockUserAction } from "../dashboard/actions";
@@ -57,7 +53,6 @@ export function* rootSagaWatcher() {
     ),
     takeEvery(signInAction.type, signInSagaWorker),
     takeEvery(bookmarksAction.type, bookmarkWorker),
-    takeEvery(likeArticleAction.type, likeArticleSagaWorker),
     takeEvery(blockUserAction.type, blockUserSagaWorker),
   ]);
 }

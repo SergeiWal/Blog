@@ -1,7 +1,12 @@
 import { Article, ArticleComment } from "./articleTypes";
 import { User } from "../../authorization/types/userTypes";
 
-export type LikePayload = {
+export type Like = {
+  article: string;
+  user: string;
+};
+
+export type NewLike = {
   article: Article;
   user: User;
 };

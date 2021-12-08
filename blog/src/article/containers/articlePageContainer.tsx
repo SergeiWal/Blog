@@ -5,10 +5,13 @@ import { DEFAULT_ARTICLE } from "../constants/article";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import {
   bookmarksAction,
+  deleteLikeAction,
   getCommentsAction,
-  likeArticleAction,
+  getLikeCountAction,
+  isLikeExistAction,
+  saveLikeAction,
 } from "../articlePageActions";
-import { bookmark, findArticle, like } from "../services/articles";
+import { bookmark, findArticle } from "../services/articles";
 import ArticlePage from "../components/articlePage";
 import ArticlePageLoader from "../components/articlePageLoader";
 import { getArticleByIdAction } from "../../authorization/actions/authorizeActions";
@@ -21,6 +24,8 @@ export default function ArticlePageContainer() {
 
   useEffect(() => {
     dispatch(getCommentsAction(id));
+    dispatch(getLikeCountAction(id));
+    dispatch(isLikeExistAction({ article: id, user: state.user._id }));
   }, []);
 
   useEffect(() => {
@@ -28,7 +33,11 @@ export default function ArticlePageContainer() {
   }, [state, id]);
 
   const likeHandler = () => {
-    dispatch(likeArticleAction(like(article, state.user)));
+    if (state.like.isLiked) {
+      dispatch(deleteLikeAction({ article: id, user: state.user._id }));
+    } else {
+      dispatch(saveLikeAction({ article, user: state.user }));
+    }
   };
 
   const addToBookmarksHandler = () => {

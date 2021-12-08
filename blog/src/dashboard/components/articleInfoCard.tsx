@@ -16,7 +16,7 @@ export default function ArticleInfoCard({
   article,
   deleteArticleHandler,
 }: ArticleInfoCardProps) {
-  const { title, author, subtitle, tags, date, updateDate, likes } = article;
+  const { title, author, subtitle, date, updateDate } = article;
   return (
     <Card sx={cardStyle}>
       <CardContent>
@@ -35,7 +35,7 @@ export default function ArticleInfoCard({
               </div>
               <div>
                 <RecommendOutlinedIcon />
-                {likes.length}
+                {/* {likes.length} */}
                 <InsertCommentOutlinedIcon />
                 {/* {article.comments.length} */}
               </div>

@@ -23,23 +23,23 @@ export const findArticle = (articles: Articles, id: string): Article => {
   return articles.find((article) => article._id === id) || DEFAULT_ARTICLE;
 };
 
-export const like = (article: Article, user: User): Article => {
-  let arrIndex = -1;
-  const likeUser = article.likes.find((item, index) => {
-    if (item._id === user._id) {
-      arrIndex = index;
-      return true;
-    }
-    return false;
-  });
+// export const like = (article: Article, user: User): Article => {
+//   let arrIndex = -1;
+//   const likeUser = article.likes.find((item, index) => {
+//     if (item._id === user._id) {
+//       arrIndex = index;
+//       return true;
+//     }
+//     return false;
+//   });
 
-  if (likeUser) {
-    article.likes.splice(arrIndex, 1);
-  } else {
-    article.likes.push(user);
-  }
-  return article;
-};
+//   if (likeUser) {
+//     article.likes.splice(arrIndex, 1);
+//   } else {
+//     article.likes.push(user);
+//   }
+//   return article;
+// };
 
 export const bookmark = (user: User, articleId: string): User => {
   if (user.bookmarks.includes(articleId)) {

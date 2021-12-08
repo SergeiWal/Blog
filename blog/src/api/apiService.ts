@@ -2,6 +2,7 @@ import { Article, ArticleComment } from "../article/types/articleTypes";
 import { User } from "../authorization/types/userTypes";
 import axios from "axios";
 import { NewArticle } from "../createArticle/containers/createArticleContainer";
+import { Like } from "../article/types/articleActionsType";
 
 const instance = axios.create({
   baseURL: "http://localhost:3004",
@@ -21,23 +22,17 @@ export const addArticle = async (article: NewArticle) => {
   await instance.post("/articles", article);
 };
 
-export const updateLikeArticle = async ({ _id, likes }: Article) => {
-  await instance.patch(`/articles`, { id: _id, likes });
-};
-
 export const deleteArticle = async (id: string) => {
   await instance.delete(`/articles/${id}`);
 };
 
 export const getComments = async (article_id: string) => {
-  console.log(article_id);
   const response = await instance.get(`/comments/${article_id}`);
   return response.data;
 };
 
 export const saveComment = async (comment: ArticleComment) => {
   const response = await instance.post("/comments", comment);
-  console.log(response.data);
   return response.data;
 };
 
@@ -75,4 +70,22 @@ export const addTag = async (tag: string) => {
 
 export const deleteTag = async (id: string) => {
   await instance.delete(`/tags/${id}`);
+};
+
+export const isLikeExist = async ({ user, article }: Like) => {
+  const response = await instance.get(`/likes/${article}/user/${user}`);
+  return response.data;
+};
+
+export const getLikeCount = async (id: number) => {
+  const response = await instance.get(`/likes/${id}`);
+  return response.data;
+};
+
+export const saveLike = async (like: Like) => {
+  await instance.post("/likes", like);
+};
+
+export const deleteLike = async ({ user, article }: Like) => {
+  await instance.delete(`/likes/${article}/user/${user}`);
 };

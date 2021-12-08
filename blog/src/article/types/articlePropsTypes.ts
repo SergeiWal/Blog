@@ -18,8 +18,8 @@ export type ArticlePageProps = {
 };
 
 export type ArticlePageFooterProps = {
-  article: Article;
-  user: User;
+  likeCount: number;
+  isLiked: boolean;
   open: boolean;
   comments: ArticleComment[];
   likeHandler: () => void;

@@ -8,8 +8,8 @@ import ArticleCommentList from "./articleComments";
 import CommentFormContainer from "../containers/commentFormContainer";
 
 export default function ArticlePageFooter({
-  article,
-  user,
+  likeCount,
+  isLiked,
   open,
   comments,
   likeHandler,
@@ -23,11 +23,11 @@ export default function ArticlePageFooter({
       <div className="articleFooter">
         <Button
           startIcon={<RecommendOutlinedIcon />}
-          // color={getButtonColorForCollection(article.likes, user._id)}
+          color={isLiked ? "success" : "inherit"}
           onClick={likeHandler}
           size="large"
         >
-          {article.likes.length}
+          {likeCount}
         </Button>
         <Button
           startIcon={<BookmarkAddOutlinedIcon />}

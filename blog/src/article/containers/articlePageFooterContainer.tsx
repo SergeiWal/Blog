@@ -12,7 +12,7 @@ export default function ArticlePageFooterContainer({
   likeHandler,
   addToBookmarksHandler,
 }: ArticlePageFooterConteinerProps) {
-  const { comments } = useAppSelector((state) => state);
+  const { comments, like } = useAppSelector((state) => state);
 
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
@@ -28,9 +28,9 @@ export default function ArticlePageFooterContainer({
   };
   return (
     <ArticlePageFooter
-      article={article}
-      user={user}
       open={open}
+      isLiked={like.isLiked}
+      likeCount={like.count}
       comments={comments}
       likeHandler={likeHandler}
       addToBookmarksHandler={addToBookmarksHandler}

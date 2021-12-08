@@ -7,6 +7,7 @@ import filterREducer from "./filterReducer";
 import allUserREducer from "./allUsersReducer";
 import tagsReducer from "./tagsReducer";
 import { commentsReducer } from "./commentsReducer";
+import likesReducer from "./likesReducer";
 
 const rootReducer = combineReducers({
   articles: articleReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   users: allUserREducer,
   tags: tagsReducer,
   comments: commentsReducer,
+  like: likesReducer,
 });
 
 export default rootReducer;

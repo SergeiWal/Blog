@@ -13,5 +13,4 @@ export const DEFAULT_ARTICLE: Article = {
   date: new Date(),
   updateDate: new Date(),
   tags: [],
-  likes: [],
 };

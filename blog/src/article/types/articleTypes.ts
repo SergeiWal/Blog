@@ -11,7 +11,6 @@ export type Article = {
   updateDate: Date;
   author: User;
   tags: Tag[];
-  likes: User[];
 };
 
 export type Articles = Array<Article>;
