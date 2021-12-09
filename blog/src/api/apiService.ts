@@ -2,7 +2,11 @@ import { Article, ArticleComment } from "../article/types/articleTypes";
 import { User } from "../authorization/types/userTypes";
 import axios from "axios";
 import { NewArticle } from "../createArticle/containers/createArticleContainer";
-import { Like } from "../article/types/articleActionsType";
+import {
+  Bookmark,
+  Like,
+  NewBookmark,
+} from "../article/types/articleActionsType";
 
 const instance = axios.create({
   baseURL: "http://localhost:3004",
@@ -88,4 +92,17 @@ export const saveLike = async (like: Like) => {
 
 export const deleteLike = async ({ user, article }: Like) => {
   await instance.delete(`/likes/${article}/user/${user}`);
+};
+
+export const isBookmark = async ({ user, article }: Bookmark) => {
+  const response = await instance.get(`/bookmarks/${article}/user/${user}`);
+  return response.data;
+};
+
+export const saveBookmark = async (bookmark: NewBookmark) => {
+  await instance.post("/bookmarks", bookmark);
+};
+
+export const deleteBookmark = async ({ user, article }: Bookmark) => {
+  await instance.delete(`/bookmarks/${article}/user/${user}`);
 };

@@ -2,7 +2,12 @@ import { createAction } from "@reduxjs/toolkit";
 import { withPayloadType } from "../store/store";
 import { Article, ArticleComment } from "./types/articleTypes";
 import { User } from "../authorization/types/userTypes";
-import { Like, NewLike } from "./types/articleActionsType";
+import {
+  Bookmark,
+  Like,
+  NewBookmark,
+  NewLike,
+} from "./types/articleActionsType";
 
 export const getCommentsAction = createAction(
   "GET_COMMENTS_REQUEST",
@@ -83,8 +88,38 @@ export const deleteLikeFailedAction = createAction(
 );
 
 //----
+export const isBookmarkAction = createAction(
+  "IS_BOOKMARK_REQUEST",
+  withPayloadType<Bookmark>()
+);
+export const isBookmarkSuccessAction = createAction(
+  "IS_BOOKMARK_SUCCESS",
+  withPayloadType<boolean>()
+);
+export const isBookmarkFailedkAction = createAction(
+  "IS_BOOKMARK_FAILED",
+  withPayloadType<Error>()
+);
 
-export const bookmarksAction = createAction(
-  "BOOKMARK",
-  withPayloadType<User>()
+export const saveBookmarkAction = createAction(
+  "SAVE_BOOKMARK_REQUEST",
+  withPayloadType<NewBookmark>()
+);
+export const saveBookmarkSuccessAction = createAction("SAVE_BOOKMARK_SUCCESS");
+
+export const saveBookmarkFailedAction = createAction(
+  "SAVE_BOOKMARK_FAILED",
+  withPayloadType<Error>()
+);
+
+export const deleteBookmarkAction = createAction(
+  "DELETE_BOOKMARK_REQUEST",
+  withPayloadType<Bookmark>()
+);
+export const deleteBookmarkSuccessAction = createAction(
+  "DELETE_BOOKMARK_SUCCESS"
+);
+export const deleteBookmarkFailedAction = createAction(
+  "DELETE_BOOKMARK_FAILED",
+  withPayloadType<Error>()
 );

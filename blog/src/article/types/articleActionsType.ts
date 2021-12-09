@@ -11,6 +11,16 @@ export type NewLike = {
   user: User;
 };
 
+export type Bookmark = {
+  article: string;
+  user: string;
+};
+
+export type NewBookmark = {
+  article: Article;
+  user: User;
+};
+
 export type SaveCommentPayload = {
   article: Article;
   comment: ArticleComment;

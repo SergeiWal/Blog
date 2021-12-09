@@ -1,5 +1,4 @@
 import { PayloadAction } from "@reduxjs/toolkit";
-import { bookmarksAction } from "../../article/articlePageActions";
 import {
   getArticlesByIdFailed,
   getCurrentUserActionSuccess,
@@ -26,8 +25,6 @@ export default function userReducer(
       return action.payload;
     case getArticlesByIdFailed.type:
       return [];
-    case bookmarksAction.type:
-      return { ...state };
     default:
       return state;
   }

@@ -4,11 +4,13 @@ import { useParams } from "react-router";
 import { DEFAULT_ARTICLE } from "../constants/article";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import {
-  bookmarksAction,
+  deleteBookmarkAction,
   deleteLikeAction,
   getCommentsAction,
   getLikeCountAction,
+  isBookmarkAction,
   isLikeExistAction,
+  saveBookmarkAction,
   saveLikeAction,
 } from "../articlePageActions";
 import { bookmark, findArticle } from "../services/articles";
@@ -26,6 +28,7 @@ export default function ArticlePageContainer() {
     dispatch(getCommentsAction(id));
     dispatch(getLikeCountAction(id));
     dispatch(isLikeExistAction({ article: id, user: state.user._id }));
+    dispatch(isBookmarkAction({ article: id, user: state.user._id }));
   }, []);
 
   useEffect(() => {
@@ -40,8 +43,12 @@ export default function ArticlePageContainer() {
     }
   };
 
-  const addToBookmarksHandler = () => {
-    dispatch(bookmarksAction(bookmark(state.user, id)));
+  const bookmarksHandler = () => {
+    if (state.bookmark.isBookmarked) {
+      dispatch(deleteBookmarkAction({ article: id, user: state.user._id }));
+    } else {
+      dispatch(saveBookmarkAction({ article, user: state.user }));
+    }
   };
 
   return state.isFetching[getArticleByIdAction.type] ? (
@@ -51,7 +58,7 @@ export default function ArticlePageContainer() {
       article={article}
       user={state.user}
       likeHandler={likeHandler}
-      addToBookmarksHandler={addToBookmarksHandler}
+      addToBookmarksHandler={bookmarksHandler}
     />
   );
 }

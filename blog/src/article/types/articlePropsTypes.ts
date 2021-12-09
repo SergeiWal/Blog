@@ -20,6 +20,7 @@ export type ArticlePageProps = {
 export type ArticlePageFooterProps = {
   likeCount: number;
   isLiked: boolean;
+  isBookmark: boolean;
   open: boolean;
   comments: ArticleComment[];
   likeHandler: () => void;

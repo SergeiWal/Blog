@@ -5,7 +5,6 @@ import { fetchFinishedAction, fetchStartAction } from "./fetchActions";
 import { Action, PayloadAction } from "@reduxjs/toolkit";
 import { Article, Articles } from "../article/types/articleTypes";
 import { User } from "../authorization/types/userTypes";
-import { bookmarksAction } from "../article/articlePageActions";
 import { signInAction } from "../authorization/actions/authorizeActions";
 import * as api from "../api/apiService";
 import { blockUserAction } from "../dashboard/actions";
@@ -52,7 +51,6 @@ export function* rootSagaWatcher() {
       requestSagaWorker
     ),
     takeEvery(signInAction.type, signInSagaWorker),
-    takeEvery(bookmarksAction.type, bookmarkWorker),
     takeEvery(blockUserAction.type, blockUserSagaWorker),
   ]);
 }

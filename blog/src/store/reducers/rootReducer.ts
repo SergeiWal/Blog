@@ -8,6 +8,7 @@ import allUserREducer from "./allUsersReducer";
 import tagsReducer from "./tagsReducer";
 import { commentsReducer } from "./commentsReducer";
 import likesReducer from "./likesReducer";
+import bookmarkReducer from "./bookmarksReducer";
 
 const rootReducer = combineReducers({
   articles: articleReducer,
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   tags: tagsReducer,
   comments: commentsReducer,
   like: likesReducer,
+  bookmark: bookmarkReducer,
 });
 
 export default rootReducer;

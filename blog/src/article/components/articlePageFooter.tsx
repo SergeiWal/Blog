@@ -10,6 +10,7 @@ import CommentFormContainer from "../containers/commentFormContainer";
 export default function ArticlePageFooter({
   likeCount,
   isLiked,
+  isBookmark,
   open,
   comments,
   likeHandler,
@@ -31,7 +32,7 @@ export default function ArticlePageFooter({
         </Button>
         <Button
           startIcon={<BookmarkAddOutlinedIcon />}
-          // color={getButtonColorForCollection(user.bookmarks, article._id)}
+          color={isBookmark ? "success" : "inherit"}
           onClick={addToBookmarksHandler}
           size="large"
         ></Button>
