@@ -1,11 +1,11 @@
 import { all, put, takeEvery, call } from "redux-saga/effects";
 import { camelCase } from "lodash";
-import { bookmarkWorker, signInSagaWorker } from "../authorization/userWorkers";
+import { signInSagaWorker } from "../authorization/userWorkers";
 import { fetchFinishedAction, fetchStartAction } from "./fetchActions";
 import { Action, PayloadAction } from "@reduxjs/toolkit";
 import { Article, Articles } from "../article/types/articleTypes";
 import { User } from "../authorization/types/userTypes";
-import { signInAction } from "../authorization/actions/authorizeActions";
+import { signInSuccessAction } from "../authorization/actions/authorizeActions";
 import * as api from "../api/apiService";
 import { blockUserAction } from "../dashboard/actions";
 import { blockUserSagaWorker } from "../dashboard/workers";
@@ -50,7 +50,7 @@ export function* rootSagaWatcher() {
       (action: Action) => /REQUEST$/.test(action.type),
       requestSagaWorker
     ),
-    takeEvery(signInAction.type, signInSagaWorker),
+    takeEvery(signInSuccessAction.type, signInSagaWorker),
     takeEvery(blockUserAction.type, blockUserSagaWorker),
   ]);
 }

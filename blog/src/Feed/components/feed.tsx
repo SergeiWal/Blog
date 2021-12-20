@@ -1,5 +1,4 @@
 import ArticleListContainer from "../containers/articleListContainer";
-import FilterList from "./filterList";
 import { Fragment } from "react";
 import FilterListContainer from "../containers/filterListContainer";
 

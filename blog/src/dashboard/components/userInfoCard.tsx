@@ -23,13 +23,13 @@ export default function UserInfoCard({
           <div className="cardInfo ">
             <div>
               <div>{user.name}</div>
-              <div>Role: {user.role}</div>
+              <div>Roles: {user.roles.join(", ")}</div>
               <div>Status: {user.activate ? "Active" : "Blocked"}</div>
               {/* <div>Articles: {user.posts.length}</div> */}
             </div>
             <div>
               <div>
-                {user.role !== "ADMIN" && (
+                {!user.roles.includes("ADMIN") && (
                   <Fragment>
                     <Button
                       sx={cardButtonStyle}

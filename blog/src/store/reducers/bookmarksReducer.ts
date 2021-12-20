@@ -7,8 +7,6 @@ import {
   saveBookmarkFailedAction,
   saveBookmarkSuccessAction,
 } from "../../article/articlePageActions";
-import { Bookmark } from "../../article/types/articleActionsType";
-import { bookmarkWorker } from "../../authorization/userWorkers";
 
 export type BookmarkState = {
   isBookmarked: boolean;

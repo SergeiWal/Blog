@@ -18,7 +18,7 @@ export default function DashboardContainer() {
     setTabValue(newValue);
   };
 
-  return (user as User).role === "ADMIN" ? (
+  return (user as User).roles.includes("ADMIN") ? (
     <Dashboard tabValue={tabValue} handleChange={handleChange} />
   ) : (
     <DashboardNotAllowed />

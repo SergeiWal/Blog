@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 const ERROR_MESSAGE: string = "Please, enter tags name";
 
 export type AddTagsFormProps = {

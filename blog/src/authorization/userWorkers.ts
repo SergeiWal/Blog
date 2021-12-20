@@ -5,7 +5,7 @@ import { updateBookmarkForUser } from "../api/apiService";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 export function* signInSagaWorker({ payload }: PayloadAction<string>) {
-  yield put(getCurrentUserAction(payload));
+  yield put(getCurrentUserAction(localStorage.getItem("username")));
 }
 
 export function* bookmarkWorker({ payload }: PayloadAction<User>) {

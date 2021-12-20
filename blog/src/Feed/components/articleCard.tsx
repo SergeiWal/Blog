@@ -1,12 +1,9 @@
 import { ArticlePreviewProps } from "../../article/types/articlePropsTypes";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import { Button, CardActionArea } from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import { Link } from "react-router-dom";
-import {
-  createTextPreview,
-  tagsArrToStr,
-} from "../../article/services/articles";
+import { createTextPreview } from "../../article/services/articles";
 import { cardStyle } from "../../styles/styles";
 import "../../styles/feed.css";
 import moment from "moment";

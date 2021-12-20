@@ -1,9 +1,6 @@
-import { type } from "os";
 import { useState } from "react";
-import { User } from "../../authorization/types/userTypes";
 import CommentForm from "../components/commentForm";
 import { CommentFormContainerProps } from "../types/articlePropsTypes";
-import { Article } from "../types/articleTypes";
 
 export default function CommentFormContainer({
   open,

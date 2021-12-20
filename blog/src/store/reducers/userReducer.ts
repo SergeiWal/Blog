@@ -9,7 +9,7 @@ export const DEFAULT_USER: User = {
   _id: "0",
   name: "user",
   password: "11111111",
-  role: "USER",
+  roles: ["USER"],
   activate: false,
   bookmarks: [],
   photo: "",

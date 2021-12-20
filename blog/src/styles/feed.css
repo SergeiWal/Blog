@@ -204,6 +204,12 @@ body::-webkit-scrollbar {
   align-items: center;
 }
 
+.signInForm form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .formInput {
   margin-top: 20px;
   font-size: 18px;
@@ -224,11 +230,29 @@ body::-webkit-scrollbar {
   border: 1px solid #ccc;
   border-radius: 5px;
   padding: 10px;
+  align-self: center;
 }
 
 .signInButton:hover {
   cursor: pointer;
   background: #2e3033;
+}
+
+.formLink {
+  align-self: center;
+}
+
+.formLink a {
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+}
+
+.ErrorMessage {
+  text-align: start;
+  align-self: flex-start;
+  margin: 0 100px;
+  color: red;
 }
 
 /* dashboard*/

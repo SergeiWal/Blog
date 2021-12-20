@@ -1,9 +1,10 @@
 import { FormikErrors } from "formik";
 import { Link } from "react-router-dom";
 
-export type SignInPageProps = {
+export type SignUpPageProps = {
   username: string;
   password: string;
+  password_repeated: string;
   errors: FormikErrors<any>;
   handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
   handleChange: {
@@ -16,13 +17,14 @@ export type SignInPageProps = {
   };
 };
 
-export default function SignInPage({
+export default function SignUp({
   username,
   password,
+  password_repeated,
   errors,
   handleChange,
   handleSubmit,
-}: SignInPageProps) {
+}: SignUpPageProps) {
   return (
     <div className="signInForm">
       <form onSubmit={handleSubmit}>
@@ -54,11 +56,27 @@ export default function SignInPage({
           </label>
           {errors.password ? <div>{errors.password}</div> : null}
         </div>
+        <div className="formInput">
+          <label>
+            Repeat password:
+            <br />
+            <input
+              type="password"
+              name="password_repeated"
+              placeholder="password"
+              value={password_repeated}
+              onChange={handleChange}
+            />
+          </label>
+          {errors.password_repeated ? (
+            <div>{errors.password_repeated}</div>
+          ) : null}
+        </div>
         <button className="signInButton" type="submit">
-          SIGN IN
+          SIGN UP
         </button>
         <div className="formLink">
-          <Link to={"/sign-up"}>SIGN UP</Link>
+          <Link to={"/"}>SIGN IN</Link>
         </div>
       </form>
     </div>

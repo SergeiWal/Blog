@@ -1,9 +1,7 @@
-import { SatelliteSharp } from "@mui/icons-material";
 import { PayloadAction } from "@reduxjs/toolkit";
 import {
   deleteLikeFailedAction,
   deleteLikeSuccessAction,
-  getLikeCountAction,
   getLikeCountFailedAction,
   getLikeCountSuccessAction,
   isLikeExistFailedAction,

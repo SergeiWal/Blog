@@ -1,7 +1,6 @@
 import { createAction } from "@reduxjs/toolkit";
 import { withPayloadType } from "../store/store";
-import { Article, ArticleComment } from "./types/articleTypes";
-import { User } from "../authorization/types/userTypes";
+import { ArticleComment } from "./types/articleTypes";
 import {
   Bookmark,
   Like,

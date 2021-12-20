@@ -1,18 +1,29 @@
-import { Action } from "redux";
+import { PayloadAction } from "@reduxjs/toolkit";
 import {
-  signInAction,
+  signInSuccessAction,
   signOutAction,
 } from "../../authorization/actions/authorizeActions";
 
+export type SignInUpPayload = {
+  username: string;
+  password: string;
+};
+
+export type SignInResponsePayload = {
+  access_token: string;
+};
+
 export default function AuthorizeReducer(
-  state: boolean = false,
-  action: Action
+  state: string = "",
+  action: PayloadAction<any>
 ) {
   switch (action.type) {
-    case signInAction.type:
-      return true;
+    case signInSuccessAction.type:
+      localStorage.setItem("token", action.payload.access_token);
+      return action.payload.access_token;
     case signOutAction.type:
-      return false;
+      localStorage.removeItem("token");
+      return "";
     default:
       return state;
   }

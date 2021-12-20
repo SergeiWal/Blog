@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import { getButtonColorForCollection } from "../../article/services/articles";
 import { Tag } from "../../dashboard/types";
 import { FilterItemProps } from "../types/feedTypes";
 

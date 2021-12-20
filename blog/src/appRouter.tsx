@@ -2,37 +2,34 @@ import App from "./App";
 import { useAppSelector } from "./store/store";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ArticlePageContainer from "./article/containers/articlePageContainer";
-import SignInPageContainer from "./authorization/signInPageContainer";
 import Feed from "./Feed/components/feed";
 import CreateArticleContainer from "./createArticle/containers/createArticleContainer";
 import DashboardContainer from "./dashboard/containers/dashboardContainer";
+import SignUpContainer from "./authorization/signUpContainer";
+import AppRoute from "./appRoute";
 
 export default function AppRouter() {
-  const { isAuthorized } = useAppSelector((state) => state);
+  const { isAuthorized, signUp } = useAppSelector((state) => state);
   return (
     <Router>
       <App>
         <Switch>
-          <Route
-            exact
-            path="/"
-            component={isAuthorized ? Feed : SignInPageContainer}
-          />
-          <Route
+          <AppRoute exact={true} path="/" element={Feed} />
+          <Route path="/sign-up" component={SignUpContainer} />
+          <AppRoute
+            exact={false}
             path="/articles/:id"
-            component={
-              isAuthorized ? ArticlePageContainer : SignInPageContainer
-            }
+            element={ArticlePageContainer}
           />
-          <Route
+          <AppRoute
+            exact={false}
             path="/create"
-            component={
-              isAuthorized ? CreateArticleContainer : SignInPageContainer
-            }
+            element={CreateArticleContainer}
           />
-          <Route
+          <AppRoute
+            exact={false}
             path="/dashboard"
-            component={isAuthorized ? DashboardContainer : SignInPageContainer}
+            element={DashboardContainer}
           />
         </Switch>
       </App>

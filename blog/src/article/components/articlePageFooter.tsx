@@ -2,7 +2,6 @@ import RecommendOutlinedIcon from "@mui/icons-material/RecommendOutlined";
 import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
 import BookmarkAddOutlinedIcon from "@mui/icons-material/BookmarkAddOutlined";
 import { Button } from "@mui/material";
-import { getButtonColorForCollection } from "../services/articles";
 import { ArticlePageFooterProps } from "../types/articlePropsTypes";
 import ArticleCommentList from "./articleComments";
 import CommentFormContainer from "../containers/commentFormContainer";

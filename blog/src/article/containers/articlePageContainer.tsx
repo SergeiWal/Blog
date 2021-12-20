@@ -13,7 +13,7 @@ import {
   saveBookmarkAction,
   saveLikeAction,
 } from "../articlePageActions";
-import { bookmark, findArticle } from "../services/articles";
+import { findArticle } from "../services/articles";
 import ArticlePage from "../components/articlePage";
 import ArticlePageLoader from "../components/articlePageLoader";
 import { getArticleByIdAction } from "../../authorization/actions/authorizeActions";

@@ -4,7 +4,6 @@ import RecommendOutlinedIcon from "@mui/icons-material/RecommendOutlined";
 import InsertCommentOutlinedIcon from "@mui/icons-material/InsertCommentOutlined";
 import { Button, Card, CardContent } from "@mui/material";
 import { cardStyle } from "../../styles/styles";
-import { tagsArrToStr } from "../../article/services/articles";
 import moment from "moment";
 
 export type ArticleInfoCardProps = {
