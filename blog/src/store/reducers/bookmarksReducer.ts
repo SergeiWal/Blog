@@ -1,10 +1,7 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import {
   deleteBookmarkAction,
-  deleteBookmarkFailedAction,
-  isBookmarkFailedkAction,
   isBookmarkSuccessAction,
-  saveBookmarkFailedAction,
   saveBookmarkSuccessAction,
 } from "../../article/articlePageActions";
 import { Bookmark, NewBookmark } from "../../article/types/articleActionsType";
@@ -38,10 +35,6 @@ export default function bookmarkReducer(
       return { isBookmarked: true };
     case deleteBookmarkAction.type:
       return { isBookmarked: false };
-    case isBookmarkFailedkAction.type:
-    case saveBookmarkFailedAction.type:
-    case deleteBookmarkFailedAction.type:
-      return state;
     default:
       return state;
   }

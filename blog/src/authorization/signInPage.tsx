@@ -53,6 +53,7 @@ export default function SignInPage({
             />
           </label>
           {errors.password ? <div>{errors.password}</div> : null}
+          {errors.sign_up_error ? <div>{errors.sign_up_error}</div> : null}
         </div>
         <button className="signInButton" type="submit">
           SIGN IN

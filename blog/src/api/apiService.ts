@@ -1,4 +1,3 @@
-import { User } from "../authorization/types/userTypes";
 import axios from "axios";
 import { SignInUpPayload } from "../store/reducers/authorizeReducer";
 import { SignUpPayload } from "../store/reducers/signUpReducer";

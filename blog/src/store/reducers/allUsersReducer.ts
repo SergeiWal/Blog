@@ -2,9 +2,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { User } from "../../authorization/types/userTypes";
 import {
   blockUserAction,
-  deleteUserFailedAction,
   deleteUserSuccessAction,
-  getUsersFailedAction,
   getUsersSuccessAction,
 } from "../../dashboard/actions";
 
@@ -29,8 +27,6 @@ export default function allUserREducer(
       return [...action.payload];
     case blockUserAction.type:
     case deleteUserSuccessAction.type:
-    case deleteUserFailedAction.type:
-    case getUsersFailedAction.type:
       return [...state];
     default:
       return state;

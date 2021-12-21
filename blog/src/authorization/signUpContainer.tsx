@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
-import { useAppDispatch } from "../store/store";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../store/store";
 import { signUpAction } from "./actions/authorizeActions";
 import SignUp from "./signUpPage";
 
@@ -7,6 +8,7 @@ export type SignUpErrors = {
   username?: string;
   password?: string;
   password_repeated?: string;
+  sign_up_error?: string;
 };
 
 const validate = (values) => {
@@ -38,12 +40,13 @@ const validate = (values) => {
 };
 
 export default function SignUpContainer() {
+  const { requests } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   const formik = useFormik({
     initialValues: { username: "", password: "", password_repeated: "" },
     validate,
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: (values) => {
       dispatch(
         signUpAction({
           name: values.username,
@@ -51,9 +54,15 @@ export default function SignUpContainer() {
           photo: "",
         })
       );
-      resetForm();
     },
   });
+
+  useEffect(() => {
+    const key = signUpAction.type.replace("_REQUEST", "");
+    requests[key]
+      ? formik.resetForm()
+      : (formik.errors.sign_up_error = "Sign Up failed");
+  }, [requests]);
 
   return (
     <SignUp

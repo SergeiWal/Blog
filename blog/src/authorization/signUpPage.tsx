@@ -71,6 +71,7 @@ export default function SignUp({
           {errors.password_repeated ? (
             <div>{errors.password_repeated}</div>
           ) : null}
+          {errors.sign_up_error ? <div>{errors.sign_up_error}</div> : null}
         </div>
         <button className="signInButton" type="submit">
           SIGN UP

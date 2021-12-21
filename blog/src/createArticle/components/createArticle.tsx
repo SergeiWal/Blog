@@ -102,6 +102,9 @@ export default function CreateArticle({
           {errors.selectedTags ? (
             <div className="ErrorMessage">{errors.selectedTags}</div>
           ) : null}
+          {errors.add_article ? (
+            <div className="ErrorMessage">{errors.add_article}</div>
+          ) : null}
         </div>
         <div className="articlePublishButton">
           <button type="submit">Publish</button>

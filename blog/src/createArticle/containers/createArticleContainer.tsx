@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { useEffect } from "react";
 import { Tag } from "../../dashboard/types";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addArticleAction } from "../actions";
@@ -21,6 +22,7 @@ export type CreateArticleErrors = {
   img?: string;
   text?: string;
   selectedTags?: string;
+  add_article?: string;
 };
 
 const validate = (values) => {
@@ -53,7 +55,7 @@ const getSelectedTagsFromStrArr = (strArr: string[], tags: Tag[]): Tag[] => {
 };
 
 export default function CreateArticleContainer() {
-  const { user, tags, token } = useAppSelector((state) => state);
+  const { user, tags, token, requests } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   const formik = useFormik({
@@ -85,6 +87,13 @@ export default function CreateArticleContainer() {
       resetForm();
     },
   });
+
+  useEffect(() => {
+    const key = addArticleAction.type.replace("_REQUEST", "");
+    if (!requests[key]) {
+      formik.errors.add_article = "Add article failed";
+    }
+  }, [requests]);
 
   return (
     <CreateArticle

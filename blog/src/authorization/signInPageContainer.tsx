@@ -1,11 +1,13 @@
 import { useFormik } from "formik";
-import { useAppDispatch } from "../store/store";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../store/store";
 import { signInAction } from "./actions/authorizeActions";
 import SignInPage from "./signInPage";
 
 export type SignInErrors = {
   username?: string;
   password?: string;
+  sign_in_error?: string;
 };
 
 const validate = (values) => {
@@ -27,6 +29,7 @@ const validate = (values) => {
 
 export default function SignInPageContainer() {
   const dispatch = useAppDispatch();
+  const { requests } = useAppSelector((state) => state);
 
   const formik = useFormik({
     initialValues: { username: "", password: "" },
@@ -40,6 +43,13 @@ export default function SignInPageContainer() {
       );
     },
   });
+
+  useEffect(() => {
+    const key = signInAction.type.replace("_REQUEST", "");
+    if (!requests[key]) {
+      formik.errors.sign_up_error = "Sign In failed";
+    }
+  }, [requests]);
 
   return (
     <SignInPage
