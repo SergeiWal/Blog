@@ -1,3 +1,4 @@
+import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addTagsAction, deleteTagAction, getTagsAction } from "../actions";
@@ -5,9 +6,22 @@ import AddTabsForm from "../components/addTagsForm";
 import TagsList from "../components/tagsList";
 import { Tag } from "../types";
 
+type AddTagErrors = {
+  value?: string;
+};
+
+const validate = (values) => {
+  const errors: AddTagErrors = {};
+  if (!values.value) {
+    errors.value = "Required";
+  } else if (values.value.length > 10 && values.value.length < 4) {
+    errors.value = "Must be from 4 to 10 characters ";
+  }
+
+  return errors;
+};
+
 export default function TabsInfoContainer() {
-  const [value, setValue] = useState("");
-  const [isValidate, setValidate] = useState(true);
   const dispatch = useAppDispatch();
   const { tags } = useAppSelector((state) => state);
 
@@ -15,19 +29,14 @@ export default function TabsInfoContainer() {
     dispatch(getTagsAction());
   }, [dispatch]);
 
-  const clearForm = () => {
-    setValue("");
-  };
-
-  const addTagHandler = () => {
-    if (value.length > 0) {
-      dispatch(addTagsAction(value));
-      setValidate(true);
-      clearForm();
-    } else {
-      setValidate(false);
-    }
-  };
+  const formik = useFormik({
+    initialValues: { value: "" },
+    validate,
+    onSubmit: (values, { resetForm }) => {
+      dispatch(addTagsAction(values.value));
+      resetForm();
+    },
+  });
 
   const deleteHandler = (tag: Tag) => {
     const index = tags.indexOf(tag);
@@ -38,10 +47,10 @@ export default function TabsInfoContainer() {
   return (
     <div>
       <AddTabsForm
-        value={value}
-        isValidate={isValidate}
-        setValue={setValue}
-        clickHandler={addTagHandler}
+        value={formik.values.value}
+        errors={formik.errors}
+        handleChange={formik.handleChange}
+        handleSubmit={formik.handleSubmit}
       />
       <TagsList items={tags} deleteHandler={deleteHandler} />
     </div>

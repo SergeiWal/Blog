@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useAppDispatch, useAppSelector } from "../store/store";
+import { useAppDispatch } from "../store/store";
 import { signUpAction } from "./actions/authorizeActions";
 import SignUp from "./signUpPage";
 

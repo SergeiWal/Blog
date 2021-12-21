@@ -8,8 +8,6 @@ import {
 import { FormikErrors } from "formik";
 import { Tag } from "../../dashboard/types";
 
-const ERROR_MESSAGE: string = "Please, fill all members";
-
 export type CreateArticleProps = {
   title: string;
   subTitle: string;
