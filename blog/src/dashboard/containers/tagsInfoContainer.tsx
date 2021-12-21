@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addTagsAction, deleteTagAction, getTagsAction } from "../actions";
 import AddTabsForm from "../components/addTagsForm";
@@ -23,17 +23,17 @@ const validate = (values) => {
 
 export default function TabsInfoContainer() {
   const dispatch = useAppDispatch();
-  const { tags } = useAppSelector((state) => state);
+  const { tags, token } = useAppSelector((state) => state);
 
   useEffect(() => {
-    dispatch(getTagsAction());
+    dispatch(getTagsAction({ token }));
   }, [dispatch]);
 
   const formik = useFormik({
     initialValues: { value: "" },
     validate,
     onSubmit: (values, { resetForm }) => {
-      dispatch(addTagsAction(values.value));
+      dispatch(addTagsAction({ tag: values.value, token }));
       resetForm();
     },
   });
@@ -41,7 +41,7 @@ export default function TabsInfoContainer() {
   const deleteHandler = (tag: Tag) => {
     const index = tags.indexOf(tag);
     tags.splice(index, 1);
-    dispatch(deleteTagAction(tag._id));
+    dispatch(deleteTagAction({ id: tag._id, token }));
   };
 
   return (

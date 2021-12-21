@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   articles: articleReducer,
   user: userReducer,
   isFetching: fetchReducer,
-  isAuthorized: authorizeReducer,
+  token: authorizeReducer,
   filters: filterREducer,
   users: allUserREducer,
   tags: tagsReducer,

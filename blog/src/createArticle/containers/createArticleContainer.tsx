@@ -53,7 +53,7 @@ const getSelectedTagsFromStrArr = (strArr: string[], tags: Tag[]): Tag[] => {
 };
 
 export default function CreateArticleContainer() {
-  const { user, tags } = useAppSelector((state) => state);
+  const { user, tags, token } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   const formik = useFormik({
@@ -81,7 +81,7 @@ export default function CreateArticleContainer() {
         updateDate: date,
         tags: newTags,
       };
-      dispatch(addArticleAction(article));
+      dispatch(addArticleAction({ article, token }));
       resetForm();
     },
   });

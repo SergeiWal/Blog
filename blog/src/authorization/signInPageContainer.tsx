@@ -32,7 +32,6 @@ export default function SignInPageContainer() {
     initialValues: { username: "", password: "" },
     validate,
     onSubmit: (values) => {
-      localStorage.setItem("username", values.username);
       dispatch(
         signInAction({
           username: values.username,

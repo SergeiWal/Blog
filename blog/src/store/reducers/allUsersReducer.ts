@@ -10,6 +10,16 @@ import {
 
 const defaultValue: User[] = [];
 
+export type DeleteUSerPayload = {
+  id: string;
+  token: string;
+};
+
+export type UpdateUserStatus = {
+  user: User;
+  token: string;
+};
+
 export default function allUserREducer(
   state = defaultValue,
   action: PayloadAction<any>

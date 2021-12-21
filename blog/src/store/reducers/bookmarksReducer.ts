@@ -7,6 +7,7 @@ import {
   saveBookmarkFailedAction,
   saveBookmarkSuccessAction,
 } from "../../article/articlePageActions";
+import { Bookmark, NewBookmark } from "../../article/types/articleActionsType";
 
 export type BookmarkState = {
   isBookmarked: boolean;
@@ -14,6 +15,16 @@ export type BookmarkState = {
 
 const DEFAULT_BOOKMARK_STATE: BookmarkState = {
   isBookmarked: false,
+};
+
+export type BookmarkPayload = {
+  bookmark: Bookmark;
+  token: string;
+};
+
+export type SaveBookmarkPayload = {
+  bookmark: NewBookmark;
+  token: string;
 };
 
 export default function bookmarkReducer(

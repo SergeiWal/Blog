@@ -19,10 +19,8 @@ export default function AuthorizeReducer(
 ) {
   switch (action.type) {
     case signInSuccessAction.type:
-      localStorage.setItem("token", action.payload.access_token);
       return action.payload.access_token;
     case signOutAction.type:
-      localStorage.removeItem("token");
       return "";
     default:
       return state;

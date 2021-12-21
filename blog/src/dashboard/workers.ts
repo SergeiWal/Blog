@@ -1,8 +1,10 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { call } from "redux-saga/effects";
 import { updateStatusForUser } from "../api/apiService";
-import { User } from "../authorization/types/userTypes";
+import { UpdateUserStatus } from "../store/reducers/allUsersReducer";
 
-export function* blockUserSagaWorker({ payload }: PayloadAction<User>) {
+export function* blockUserSagaWorker({
+  payload,
+}: PayloadAction<UpdateUserStatus>) {
   yield call(updateStatusForUser, payload);
 }

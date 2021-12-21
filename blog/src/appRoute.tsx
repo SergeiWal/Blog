@@ -9,18 +9,15 @@ export type RouteProps = {
 };
 
 export default function AppRoute({ element, path, exact }: RouteProps) {
-  const { isAuthorized } = useAppSelector((state) => state);
+  const { token } = useAppSelector((state) => state);
 
   return exact ? (
     <Route
       exact
       path={path}
-      component={isAuthorized ? element : SignInPageContainer}
+      component={token ? element : SignInPageContainer}
     />
   ) : (
-    <Route
-      path={path}
-      component={isAuthorized ? element : SignInPageContainer}
-    />
+    <Route path={path} component={token ? element : SignInPageContainer} />
   );
 }

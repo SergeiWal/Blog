@@ -9,7 +9,7 @@ const initUsersView = (users: User[], user: User): User[] =>
 
 export default function UsersInfoContainers() {
   const dispatch = useAppDispatch();
-  const { user, users } = useAppSelector((state) => state);
+  const { user, users, token } = useAppSelector((state) => state);
 
   const [usersView, setUsersView] = useState(initUsersView(users, user));
 
@@ -20,7 +20,7 @@ export default function UsersInfoContainers() {
   const deleteHandler = (userForDel: User) => {
     const index = users.indexOf(userForDel);
     users.splice(index, 1);
-    dispatch(deleteUserAction(userForDel._id));
+    dispatch(deleteUserAction({ id: userForDel._id, token }));
   };
   return <UsersInfo users={usersView} deleteHandler={deleteHandler} />;
 }

@@ -4,13 +4,13 @@ import { deleteArticleAction } from "../actions";
 import ArticlesInfo from "../components/articlesInfo";
 
 export default function ArticlesInfoContainer() {
-  const { articles } = useAppSelector((state) => state);
+  const { articles, token } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   const deleteHandler = (article: Article) => {
     const index = articles.indexOf(article);
     articles.splice(index, 1);
-    dispatch(deleteArticleAction(article._id));
+    dispatch(deleteArticleAction({ id: article._id, token }));
   };
   return (
     <ArticlesInfo articles={articles} deleteArticleHandler={deleteHandler} />

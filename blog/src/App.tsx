@@ -9,7 +9,7 @@ type AppPropsType = {
 
 function App({ children }: AppPropsType) {
   const dispatch = useAppDispatch();
-  const { isAuthorized } = useAppSelector((state) => state);
+  const { token } = useAppSelector((state) => state);
 
   const signOutHandler = () => {
     dispatch(signOutAction());
@@ -17,7 +17,7 @@ function App({ children }: AppPropsType) {
 
   return (
     <Fragment>
-      {isAuthorized && <Header signOutHandler={signOutHandler} />}
+      {token && <Header signOutHandler={signOutHandler} />}
       <div className="App">{children}</div>
     </Fragment>
   );

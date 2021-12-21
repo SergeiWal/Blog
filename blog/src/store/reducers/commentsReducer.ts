@@ -5,7 +5,21 @@ import {
   saveCommentFailedAction,
   saveCommentSuccessAction,
 } from "../../article/articlePageActions";
-import { ArticleComment } from "../../article/types/articleTypes";
+import { Article, ArticleComment } from "../../article/types/articleTypes";
+import { User } from "../../authorization/types/userTypes";
+
+export type GetCommentsPayload = {
+  token: string;
+  id: string;
+};
+
+export type SaveCommentPayload = {
+  token: string;
+  _id?: string;
+  article: Article;
+  author: User;
+  text: string;
+};
 
 export function commentsReducer(
   state: ArticleComment[] = [],

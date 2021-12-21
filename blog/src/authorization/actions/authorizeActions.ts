@@ -7,6 +7,7 @@ import {
   SignInResponsePayload,
 } from "../../store/reducers/authorizeReducer";
 import { SignUpPayload } from "../../store/reducers/signUpReducer";
+import { ArticlePayload } from "../../store/reducers/articleReducer";
 
 export const signInAction = createAction(
   "SIGN_IN_REQUEST",
@@ -41,7 +42,7 @@ export const getArticlesByIdFailed = createAction(
 
 export const getArticleByIdAction = createAction(
   "GET_ARTICLE_BY_ID_REQUEST",
-  withPayloadType<string>()
+  withPayloadType<ArticlePayload>()
 );
 
 export const getArticleByIdActionSuccess = createAction(

@@ -7,11 +7,11 @@ import Dashboard, { DashboardNotAllowed } from "../components/dashboard";
 
 export default function DashboardContainer() {
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector((state) => state);
+  const { user, token } = useAppSelector((state) => state);
   const [tabValue, setTabValue] = useState(0);
   useEffect(() => {
-    dispatch(getArticleAction());
-    dispatch(getUsersAction());
+    dispatch(getArticleAction({ token }));
+    dispatch(getUsersAction({ token }));
   }, [dispatch]);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {

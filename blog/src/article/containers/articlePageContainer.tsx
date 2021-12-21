@@ -25,10 +25,20 @@ export default function ArticlePageContainer() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getCommentsAction(id));
-    dispatch(getLikeCountAction(id));
-    dispatch(isLikeExistAction({ article: id, user: state.user._id }));
-    dispatch(isBookmarkAction({ article: id, user: state.user._id }));
+    dispatch(getCommentsAction({ id, token: state.token }));
+    dispatch(getLikeCountAction({ id, token: state.token }));
+    dispatch(
+      isLikeExistAction({
+        like: { article: id, user: state.user._id },
+        token: state.token,
+      })
+    );
+    dispatch(
+      isBookmarkAction({
+        bookmark: { article: id, user: state.user._id },
+        token: state.token,
+      })
+    );
   }, []);
 
   useEffect(() => {
@@ -37,17 +47,37 @@ export default function ArticlePageContainer() {
 
   const likeHandler = () => {
     if (state.like.isLiked) {
-      dispatch(deleteLikeAction({ article: id, user: state.user._id }));
+      dispatch(
+        deleteLikeAction({
+          like: { article: id, user: state.user._id },
+          token: state.token,
+        })
+      );
     } else {
-      dispatch(saveLikeAction({ article, user: state.user }));
+      dispatch(
+        saveLikeAction({
+          like: { article, user: state.user },
+          token: state.token,
+        })
+      );
     }
   };
 
   const bookmarksHandler = () => {
     if (state.bookmark.isBookmarked) {
-      dispatch(deleteBookmarkAction({ article: id, user: state.user._id }));
+      dispatch(
+        deleteBookmarkAction({
+          bookmark: { article: id, user: state.user._id },
+          token: state.token,
+        })
+      );
     } else {
-      dispatch(saveBookmarkAction({ article, user: state.user }));
+      dispatch(
+        saveBookmarkAction({
+          bookmark: { article, user: state.user },
+          token: state.token,
+        })
+      );
     }
   };
 

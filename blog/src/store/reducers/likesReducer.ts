@@ -9,6 +9,7 @@ import {
   saveLikeAction,
   saveLikeFailedAction,
 } from "../../article/articlePageActions";
+import { Like, NewLike } from "../../article/types/articleActionsType";
 
 export type LikeState = {
   isLiked: boolean;
@@ -18,6 +19,26 @@ export type LikeState = {
 const DEFAULT_LIKE_STATE: LikeState = {
   isLiked: false,
   count: 0,
+};
+
+export type isExistPayload = {
+  like: Like;
+  token: string;
+};
+
+export type getLikeCountPayload = {
+  id: string;
+  token: string;
+};
+
+export type saveLikePayload = {
+  like: NewLike;
+  token: string;
+};
+
+export type DeleteLikePayload = {
+  like: Like;
+  token: string;
 };
 
 export default function likesReducer(

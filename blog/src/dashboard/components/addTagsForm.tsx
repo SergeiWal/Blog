@@ -1,7 +1,5 @@
 import { FormikErrors } from "formik";
 
-const ERROR_MESSAGE: string = "Please, enter tags name";
-
 export type AddTagsFormProps = {
   value: string;
   errors: FormikErrors<any>;

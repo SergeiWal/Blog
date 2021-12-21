@@ -15,14 +15,14 @@ export const generateArticleListRows = ({
 };
 
 export default function ArticleListContainer() {
-  const { articles, filters, isFetching } = useAppSelector(
+  const { articles, filters, isFetching, token } = useAppSelector(
     (state: RootState) => state
   );
   const [articleList, setArticleList] = useState<Array<Article>>([]);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getArticleAction());
+    dispatch(getArticleAction({ token }));
   }, [dispatch]);
 
   useEffect(() => {

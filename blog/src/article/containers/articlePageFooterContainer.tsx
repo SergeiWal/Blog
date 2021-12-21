@@ -10,7 +10,7 @@ export default function ArticlePageFooterContainer({
   likeHandler,
   addToBookmarksHandler,
 }: ArticlePageFooterConteinerProps) {
-  const { comments, like, bookmark } = useAppSelector((state) => state);
+  const { comments, like, bookmark, token } = useAppSelector((state) => state);
 
   const [open, setOpen] = useState(false);
   const dispatch = useAppDispatch();
@@ -20,7 +20,12 @@ export default function ArticlePageFooterContainer({
   const saveCommentHandler = (text: string) => {
     if (text.length > 0) {
       dispatch(
-        saveCommentAction({ article: article, author: user, text: text })
+        saveCommentAction({
+          article: article,
+          author: user,
+          text: text,
+          token: token,
+        })
       );
     }
   };

@@ -250,7 +250,6 @@ body::-webkit-scrollbar {
 
 .ErrorMessage {
   text-align: start;
-  align-self: flex-start;
   margin: 0 100px;
   color: red;
 }

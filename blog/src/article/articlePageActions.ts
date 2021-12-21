@@ -2,15 +2,23 @@ import { createAction } from "@reduxjs/toolkit";
 import { withPayloadType } from "../store/store";
 import { ArticleComment } from "./types/articleTypes";
 import {
-  Bookmark,
-  Like,
-  NewBookmark,
-  NewLike,
-} from "./types/articleActionsType";
+  GetCommentsPayload,
+  SaveCommentPayload,
+} from "../store/reducers/commentsReducer";
+import {
+  DeleteLikePayload,
+  getLikeCountPayload,
+  isExistPayload,
+  saveLikePayload,
+} from "../store/reducers/likesReducer";
+import {
+  BookmarkPayload,
+  SaveBookmarkPayload,
+} from "../store/reducers/bookmarksReducer";
 
 export const getCommentsAction = createAction(
   "GET_COMMENTS_REQUEST",
-  withPayloadType<string>()
+  withPayloadType<GetCommentsPayload>()
 );
 
 export const getCommentsSuccessAction = createAction(
@@ -25,7 +33,7 @@ export const getCommentsFailedAction = createAction(
 
 export const saveCommentAction = createAction(
   "SAVE_COMMENT_REQUEST",
-  withPayloadType<ArticleComment>()
+  withPayloadType<SaveCommentPayload>()
 );
 
 export const saveCommentSuccessAction = createAction(
@@ -42,7 +50,7 @@ export const saveCommentFailedAction = createAction(
 
 export const isLikeExistAction = createAction(
   "IS_LIKE_EXIST_REQUEST",
-  withPayloadType<Like>()
+  withPayloadType<isExistPayload>()
 );
 export const isLikeExistSuccessAction = createAction(
   "IS_LIKE_EXIST_SUCCESS",
@@ -55,7 +63,7 @@ export const isLikeExistFailedAction = createAction(
 
 export const getLikeCountAction = createAction(
   "GET_LIKE_COUNT_REQUEST",
-  withPayloadType<string>()
+  withPayloadType<getLikeCountPayload>()
 );
 export const getLikeCountSuccessAction = createAction(
   "GET_LIKE_COUNT_SUCCESS",
@@ -68,7 +76,7 @@ export const getLikeCountFailedAction = createAction(
 
 export const saveLikeAction = createAction(
   "SAVE_LIKE_REQUEST",
-  withPayloadType<NewLike>()
+  withPayloadType<saveLikePayload>()
 );
 export const saveLikeSuccessAction = createAction("SAVE_LIKE_SUCCESS");
 export const saveLikeFailedAction = createAction(
@@ -78,7 +86,7 @@ export const saveLikeFailedAction = createAction(
 
 export const deleteLikeAction = createAction(
   "DELETE_LIKE_REQUEST",
-  withPayloadType<Like>()
+  withPayloadType<DeleteLikePayload>()
 );
 export const deleteLikeSuccessAction = createAction("DELETE_LIKE_SUCCESS");
 export const deleteLikeFailedAction = createAction(
@@ -89,7 +97,7 @@ export const deleteLikeFailedAction = createAction(
 //----
 export const isBookmarkAction = createAction(
   "IS_BOOKMARK_REQUEST",
-  withPayloadType<Bookmark>()
+  withPayloadType<BookmarkPayload>()
 );
 export const isBookmarkSuccessAction = createAction(
   "IS_BOOKMARK_SUCCESS",
@@ -102,7 +110,7 @@ export const isBookmarkFailedkAction = createAction(
 
 export const saveBookmarkAction = createAction(
   "SAVE_BOOKMARK_REQUEST",
-  withPayloadType<NewBookmark>()
+  withPayloadType<SaveBookmarkPayload>()
 );
 export const saveBookmarkSuccessAction = createAction("SAVE_BOOKMARK_SUCCESS");
 
@@ -113,7 +121,7 @@ export const saveBookmarkFailedAction = createAction(
 
 export const deleteBookmarkAction = createAction(
   "DELETE_BOOKMARK_REQUEST",
-  withPayloadType<Bookmark>()
+  withPayloadType<BookmarkPayload>()
 );
 export const deleteBookmarkSuccessAction = createAction(
   "DELETE_BOOKMARK_SUCCESS"

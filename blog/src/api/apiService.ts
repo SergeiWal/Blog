@@ -1,14 +1,31 @@
-import { ArticleComment } from "../article/types/articleTypes";
 import { User } from "../authorization/types/userTypes";
 import axios from "axios";
-import { NewArticle } from "../createArticle/containers/createArticleContainer";
-import {
-  Bookmark,
-  Like,
-  NewBookmark,
-} from "../article/types/articleActionsType";
 import { SignInUpPayload } from "../store/reducers/authorizeReducer";
 import { SignUpPayload } from "../store/reducers/signUpReducer";
+import {
+  GetCommentsPayload,
+  SaveCommentPayload,
+} from "../store/reducers/commentsReducer";
+import {
+  DeleteLikePayload,
+  getLikeCountPayload,
+  isExistPayload,
+  saveLikePayload,
+} from "../store/reducers/likesReducer";
+import {
+  BookmarkPayload,
+  SaveBookmarkPayload,
+} from "../store/reducers/bookmarksReducer";
+import {
+  AddArticlePayload,
+  ArticlePayload,
+} from "../store/reducers/articleReducer";
+import { getRequestPayload } from "../globalTypes";
+import {
+  DeleteUSerPayload,
+  UpdateUserStatus,
+} from "../store/reducers/allUsersReducer";
+import { DeleteTagPayload, TagPayload } from "../store/reducers/tagsReducer";
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_HOST,
@@ -16,138 +33,149 @@ const instance = axios.create({
 
 instance.interceptors.response.use((response) => response.data);
 
-export const getArticles = async () => {
+export const getArticles = async ({ token }: getRequestPayload) => {
   return await instance.get("/articles", {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const getArticlesById = async (id: string) => {
+export const getArticlesById = async ({ id, token }: ArticlePayload) => {
   return await instance.get(`/articles/${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const addArticle = async (article: NewArticle) => {
+export const addArticle = async ({ article, token }: AddArticlePayload) => {
   await instance.post("/articles", article, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const deleteArticle = async (id: string) => {
+export const deleteArticle = async ({ id, token }: ArticlePayload) => {
   await instance.delete(`/articles/${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const getComments = async (article_id: string) => {
-  return await instance.get(`/comments/${article_id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+export const getComments = async ({ id, token }: GetCommentsPayload) => {
+  return await instance.get(`/comments/${id}`, {
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const saveComment = async (comment: ArticleComment) => {
+export const saveComment = async ({
+  token,
+  ...comment
+}: SaveCommentPayload) => {
   return await instance.post("/comments", comment, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const getUsers = async () => {
+export const getUsers = async ({ token }: getRequestPayload) => {
   return await instance.get(`/users`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const getUser = async (name: string) => {
-  return await instance.get(`/users/username/${name}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+export const getUser = async (token: string) => {
+  return await instance.get(`/auth`, {
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const deleteUser = async (id: string) => {
+export const deleteUser = async ({ id, token }: DeleteUSerPayload) => {
   await instance.delete(`/users/${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const updateBookmarkForUser = async ({ _id, bookmarks }: User) => {
-  await instance.patch(
-    `/users/${_id}`,
-    { bookmarks },
-    {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
-    }
-  );
-};
-
-export const updateStatusForUser = async ({ _id }: User) => {
+export const updateStatusForUser = async ({
+  user: { _id },
+  token,
+}: UpdateUserStatus) => {
   await instance.patch(`/users/activate/${_id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const getTags = async () => {
+export const getTags = async ({ token }: getRequestPayload) => {
   return await instance.get("/tags", {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const addTag = async (tag: string) => {
+export const addTag = async ({ token, tag }: TagPayload) => {
   return await instance.post(
     `/tags/${tag}`,
     {},
     {
-      headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+      headers: { Authorization: `Bearer ${token}` },
     }
   );
 };
 
-export const deleteTag = async (id: string) => {
+export const deleteTag = async ({ id, token }: DeleteTagPayload) => {
   console.log("delete");
   await instance.delete(`/tags/${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const isLikeExist = async ({ user, article }: Like) => {
+export const isLikeExist = async ({
+  like: { user, article },
+  token,
+}: isExistPayload) => {
   return await instance.get(`/likes/${article}/user/${user}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const getLikeCount = async (id: number) => {
+export const getLikeCount = async ({ id, token }: getLikeCountPayload) => {
   return await instance.get(`/likes/${id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const saveLike = async (like: Like) => {
+export const saveLike = async ({ like, token }: saveLikePayload) => {
   await instance.post("/likes", like, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const deleteLike = async ({ user, article }: Like) => {
+export const deleteLike = async ({
+  like: { user, article },
+  token,
+}: DeleteLikePayload) => {
   await instance.delete(`/likes/${article}/user/${user}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const isBookmark = async ({ user, article }: Bookmark) => {
+export const isBookmark = async ({
+  bookmark: { user, article },
+  token,
+}: BookmarkPayload) => {
   return await instance.get(`/bookmarks/${article}/user/${user}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const saveBookmark = async (bookmark: NewBookmark) => {
+export const saveBookmark = async ({
+  bookmark,
+  token,
+}: SaveBookmarkPayload) => {
   await instance.post("/bookmarks", bookmark, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 
-export const deleteBookmark = async ({ user, article }: Bookmark) => {
+export const deleteBookmark = async ({
+  bookmark: { user, article },
+  token,
+}: BookmarkPayload) => {
   await instance.delete(`/bookmarks/${article}/user/${user}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+    headers: { Authorization: `Bearer ${token}` },
   });
 };
 

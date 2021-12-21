@@ -4,11 +4,11 @@ import { useAppDispatch, useAppSelector } from "../../store/store";
 import FilterList from "../components/filterList";
 
 export default function FilterListContainer() {
-  const { tags } = useAppSelector((state) => state);
+  const { tags, token } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getTagsAction());
+    dispatch(getTagsAction({ token }));
   }, [dispatch]);
 
   return <FilterList tags={tags} />;

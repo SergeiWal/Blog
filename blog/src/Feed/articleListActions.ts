@@ -1,8 +1,12 @@
 import { createAction } from "@reduxjs/toolkit";
 import { Article } from "../article/types/articleTypes";
 import { withPayloadType } from "../store/store";
+import { getRequestPayload } from "../globalTypes";
 
-export const getArticleAction = createAction("GET_ARTICLES_REQUEST");
+export const getArticleAction = createAction(
+  "GET_ARTICLES_REQUEST",
+  withPayloadType<getRequestPayload>()
+);
 
 export const getArticleActionSuccess = createAction(
   "GET_ARTICLES_SUCCESS",
