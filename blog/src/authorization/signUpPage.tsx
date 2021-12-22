@@ -5,6 +5,7 @@ export type SignUpPageProps = {
   username: string;
   password: string;
   password_repeated: string;
+  server_error: string;
   errors: FormikErrors<any>;
   handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
   handleChange: {
@@ -22,6 +23,7 @@ export default function SignUp({
   password,
   password_repeated,
   errors,
+  server_error,
   handleChange,
   handleSubmit,
 }: SignUpPageProps) {
@@ -71,7 +73,7 @@ export default function SignUp({
           {errors.password_repeated ? (
             <div>{errors.password_repeated}</div>
           ) : null}
-          {errors.sign_up_error ? <div>{errors.sign_up_error}</div> : null}
+          {server_error ? <div>{server_error}</div> : null}
         </div>
         <button className="signInButton" type="submit">
           SIGN UP

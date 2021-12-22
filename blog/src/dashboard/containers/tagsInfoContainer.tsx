@@ -8,6 +8,7 @@ import { Tag } from "../types";
 
 type AddTagErrors = {
   value?: string;
+  add_tag?: string;
 };
 
 const validate = (values) => {
@@ -23,7 +24,7 @@ const validate = (values) => {
 
 export default function TabsInfoContainer() {
   const dispatch = useAppDispatch();
-  const { tags, token } = useAppSelector((state) => state);
+  const { tags, token, requests } = useAppSelector((state) => state);
 
   useEffect(() => {
     dispatch(getTagsAction({ token }));
@@ -37,6 +38,13 @@ export default function TabsInfoContainer() {
       resetForm();
     },
   });
+
+  useEffect(() => {
+    const key = addTagsAction.type.replace("_REQUEST", "");
+    if (!requests[key]) {
+      formik.errors.add_tag = "Add tag failed";
+    }
+  }, [requests]);
 
   const deleteHandler = (tag: Tag) => {
     const index = tags.indexOf(tag);

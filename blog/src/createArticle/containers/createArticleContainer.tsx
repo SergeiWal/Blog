@@ -1,9 +1,10 @@
 import { useFormik } from "formik";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Tag } from "../../dashboard/types";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addArticleAction } from "../actions";
 import CreateArticle from "../components/createArticle";
+import * as Yup from "yup";
 
 export type NewArticle = {
   title: string;
@@ -16,39 +17,13 @@ export type NewArticle = {
   tags: Tag[];
 };
 
-export type CreateArticleErrors = {
-  title?: string;
-  subTitle?: string;
-  img?: string;
-  text?: string;
-  selectedTags?: string;
-  add_article?: string;
-};
-
-const validate = (values) => {
-  const errors: CreateArticleErrors = {};
-  if (!values.title) {
-    errors.title = "Required";
-  }
-
-  if (!values.subTitle) {
-    errors.subTitle = "Required";
-  }
-
-  if (!values.text) {
-    errors.subTitle = "Required";
-  }
-
-  if (!values.img) {
-    errors.img = "Required";
-  }
-
-  if (!values.selectedTags || values.selectedTags.length < 1) {
-    errors.selectedTags = "Required";
-  }
-
-  return errors;
-};
+const CreateArticleSchema = Yup.object({
+  title: Yup.string().required("Required"),
+  subTitle: Yup.string().required("Required"),
+  text: Yup.string().required("Required"),
+  img: Yup.string().required("Required"),
+  selectedTags: Yup.array().min(1, "Required").required("Required"),
+});
 
 const getSelectedTagsFromStrArr = (strArr: string[], tags: Tag[]): Tag[] => {
   return tags.filter((tag) => strArr.includes(tag.name));
@@ -57,6 +32,7 @@ const getSelectedTagsFromStrArr = (strArr: string[], tags: Tag[]): Tag[] => {
 export default function CreateArticleContainer() {
   const { user, tags, token, requests } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
+  const [server_error, setError] = useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -66,7 +42,7 @@ export default function CreateArticleContainer() {
       img: "",
       selectedTags: [],
     },
-    validate,
+    validationSchema: CreateArticleSchema,
     onSubmit: (values, { resetForm }) => {
       const date: Date = new Date();
       const newTags: Tag[] = getSelectedTagsFromStrArr(
@@ -90,13 +66,16 @@ export default function CreateArticleContainer() {
 
   useEffect(() => {
     const key = addArticleAction.type.replace("_REQUEST", "");
-    if (!requests[key]) {
-      formik.errors.add_article = "Add article failed";
+    if (requests[key] !== undefined && !requests[key]) {
+      setError("Add article failed");
+    } else {
+      setError("");
     }
   }, [requests]);
 
   return (
     <CreateArticle
+      server_error={server_error}
       errors={formik.errors}
       title={formik.values.title}
       subTitle={formik.values.subTitle}

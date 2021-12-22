@@ -39,6 +39,7 @@ export default function AddTagsForm({
         </button>
       </form>
       {errors.value ? <div>{errors.value}</div> : null}
+      {errors.add_tag ? <div>{errors.add_tag}</div> : null}
     </div>
   );
 }

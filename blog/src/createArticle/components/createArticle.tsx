@@ -15,6 +15,7 @@ export type CreateArticleProps = {
   img: string;
   tags: Tag[];
   selectedTags: string[];
+  server_error: string;
   errors: FormikErrors<any>;
   handleSubmit: (e?: React.FormEvent<HTMLFormElement> | undefined) => void;
   handleChange: {
@@ -28,6 +29,7 @@ export type CreateArticleProps = {
 };
 
 export default function CreateArticle({
+  server_error,
   errors,
   title,
   subTitle,
@@ -102,8 +104,8 @@ export default function CreateArticle({
           {errors.selectedTags ? (
             <div className="ErrorMessage">{errors.selectedTags}</div>
           ) : null}
-          {errors.add_article ? (
-            <div className="ErrorMessage">{errors.add_article}</div>
+          {server_error ? (
+            <div className="ErrorMessage">{server_error}</div>
           ) : null}
         </div>
         <div className="articlePublishButton">

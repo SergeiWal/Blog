@@ -1,51 +1,19 @@
 import { useFormik } from "formik";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { signUpAction } from "./actions/authorizeActions";
 import SignUp from "./signUpPage";
-
-export type SignUpErrors = {
-  username?: string;
-  password?: string;
-  password_repeated?: string;
-  sign_up_error?: string;
-};
-
-const validate = (values) => {
-  const errors: SignUpErrors = {};
-  if (!values.username) {
-    errors.username = "Required";
-  } else if (values.username.length > 10 && values.username.length < 4) {
-    errors.username = "Must be from 4 to 10 characters ";
-  }
-
-  if (!values.password) {
-    errors.password = "Required";
-  } else if (values.password.length > 10 && values.password.length < 4) {
-    errors.username = "Must be from 4 to 10 characters ";
-  }
-
-  if (!values.password_repeated) {
-    errors.password_repeated = "Required";
-  } else if (
-    values.password_repeated.length > 10 &&
-    values.password_repeated.length < 4
-  ) {
-    errors.password_repeated = "Must be from 4 to 10 characters ";
-  } else if (values.password_repeated !== values.password) {
-    errors.password_repeated = "Passwords don't equels";
-  }
-
-  return errors;
-};
+import * as Yup from "yup";
+import { SignUpSchema } from "./validationShemas";
 
 export default function SignUpContainer() {
   const { requests } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
+  const [server_error, setError] = useState("");
 
   const formik = useFormik({
     initialValues: { username: "", password: "", password_repeated: "" },
-    validate,
+    validationSchema: SignUpSchema,
     onSubmit: (values) => {
       dispatch(
         signUpAction({
@@ -59,13 +27,17 @@ export default function SignUpContainer() {
 
   useEffect(() => {
     const key = signUpAction.type.replace("_REQUEST", "");
-    requests[key]
-      ? formik.resetForm()
-      : (formik.errors.sign_up_error = "Sign Up failed");
+    if (requests[key] !== undefined && requests[key]) {
+      setError("");
+      formik.resetForm();
+    } else {
+      setError("Sign Up failed");
+    }
   }, [requests]);
 
   return (
     <SignUp
+      server_error={server_error}
       errors={formik.errors}
       username={formik.values.username}
       password={formik.values.password}
