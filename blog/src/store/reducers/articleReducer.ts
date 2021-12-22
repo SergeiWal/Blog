@@ -5,19 +5,8 @@ import { saveCommentAction } from "../../article/articlePageActions";
 import { getArticleByIdActionSuccess } from "../../authorization/actions/authorizeActions";
 import { addArticleSuccessAction } from "../../createArticle/actions";
 import { deleteArticleSuccessAction } from "../../dashboard/actions";
-import { NewArticle } from "../../createArticle/containers/createArticleContainer";
 
 const defaultArticles: Articles = [];
-
-export type AddArticlePayload = {
-  article: NewArticle;
-  token: string;
-};
-
-export type ArticlePayload = {
-  id: string;
-  token: string;
-};
 
 export default function articleReducer(
   state = defaultArticles,

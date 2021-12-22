@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { signInAction } from "./actions/authorizeActions";
 import SignInPage from "./signInPage";
-import * as Yup from "yup";
 import { SignInSchema } from "./validationShemas";
 
 export default function SignInPageContainer() {

@@ -1,30 +1,23 @@
 import axios from "axios";
-import { SignInUpPayload } from "../store/reducers/authorizeReducer";
 import { SignUpPayload } from "../store/reducers/signUpReducer";
-import {
-  GetCommentsPayload,
-  SaveCommentPayload,
-} from "../store/reducers/commentsReducer";
-import {
-  DeleteLikePayload,
-  getLikeCountPayload,
-  isExistPayload,
-  saveLikePayload,
-} from "../store/reducers/likesReducer";
-import {
-  BookmarkPayload,
-  SaveBookmarkPayload,
-} from "../store/reducers/bookmarksReducer";
+import { getRequestPayload } from "../globalTypes";
 import {
   AddArticlePayload,
   ArticlePayload,
-} from "../store/reducers/articleReducer";
-import { getRequestPayload } from "../globalTypes";
-import {
+  BookmarkPayload,
+  DeleteLikePayload,
+  DeleteTagPayload,
   DeleteUSerPayload,
+  GetCommentsPayload,
+  getLikeCountPayload,
+  isExistPayload,
+  SaveBookmarkPayload,
+  SaveCommentPayload,
+  saveLikePayload,
+  SignInUpPayload,
+  TagPayload,
   UpdateUserStatus,
-} from "../store/reducers/allUsersReducer";
-import { DeleteTagPayload, TagPayload } from "../store/reducers/tagsReducer";
+} from "../store/requestsPayloads";
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_HOST,

@@ -4,15 +4,6 @@ import {
   signOutAction,
 } from "../../authorization/actions/authorizeActions";
 
-export type SignInUpPayload = {
-  username: string;
-  password: string;
-};
-
-export type SignInResponsePayload = {
-  access_token: string;
-};
-
 export default function AuthorizeReducer(
   state: string = "",
   action: PayloadAction<any>

@@ -2,12 +2,12 @@ import { createAction } from "@reduxjs/toolkit";
 import { withPayloadType } from "../../store/store";
 import { User } from "../types/userTypes";
 import { Article } from "../../article/types/articleTypes";
-import {
-  SignInUpPayload,
-  SignInResponsePayload,
-} from "../../store/reducers/authorizeReducer";
 import { SignUpPayload } from "../../store/reducers/signUpReducer";
-import { ArticlePayload } from "../../store/reducers/articleReducer";
+import {
+  ArticlePayload,
+  SignInResponsePayload,
+  SignInUpPayload,
+} from "../../store/requestsPayloads";
 
 export const signInAction = createAction(
   "SIGN_IN_REQUEST",

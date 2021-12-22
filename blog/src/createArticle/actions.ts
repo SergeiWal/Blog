@@ -1,5 +1,5 @@
 import { createAction } from "@reduxjs/toolkit";
-import { AddArticlePayload } from "../store/reducers/articleReducer";
+import { AddArticlePayload } from "../store/requestsPayloads";
 import { withPayloadType } from "../store/store";
 
 export const addArticleAction = createAction(

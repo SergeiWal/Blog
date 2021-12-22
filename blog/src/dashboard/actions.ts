@@ -2,11 +2,12 @@ import { createAction } from "@reduxjs/toolkit";
 import { User } from "../authorization/types/userTypes";
 import { getRequestPayload } from "../globalTypes";
 import {
+  ArticlePayload,
+  DeleteTagPayload,
   DeleteUSerPayload,
+  TagPayload,
   UpdateUserStatus,
-} from "../store/reducers/allUsersReducer";
-import { ArticlePayload } from "../store/reducers/articleReducer";
-import { DeleteTagPayload, TagPayload } from "../store/reducers/tagsReducer";
+} from "../store/requestsPayloads";
 import { withPayloadType } from "../store/store";
 import { Tag } from "./types";
 

@@ -6,16 +6,6 @@ import {
 } from "../../dashboard/actions";
 import { Tag } from "../../dashboard/types";
 
-export type TagPayload = {
-  tag: string;
-  token: string;
-};
-
-export type DeleteTagPayload = {
-  id: string;
-  token: string;
-};
-
 export default function tagsReducer(
   state: Tag[] = [],
   action: PayloadAction<any>

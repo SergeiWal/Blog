@@ -2,19 +2,15 @@ import { createAction } from "@reduxjs/toolkit";
 import { withPayloadType } from "../store/store";
 import { ArticleComment } from "./types/articleTypes";
 import {
-  GetCommentsPayload,
-  SaveCommentPayload,
-} from "../store/reducers/commentsReducer";
-import {
+  BookmarkPayload,
   DeleteLikePayload,
+  GetCommentsPayload,
   getLikeCountPayload,
   isExistPayload,
-  saveLikePayload,
-} from "../store/reducers/likesReducer";
-import {
-  BookmarkPayload,
   SaveBookmarkPayload,
-} from "../store/reducers/bookmarksReducer";
+  SaveCommentPayload,
+  saveLikePayload,
+} from "../store/requestsPayloads";
 
 export const getCommentsAction = createAction(
   "GET_COMMENTS_REQUEST",
