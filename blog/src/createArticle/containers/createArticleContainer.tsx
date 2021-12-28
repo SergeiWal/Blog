@@ -21,7 +21,9 @@ const CreateArticleSchema = Yup.object({
   title: Yup.string().required("Required"),
   subTitle: Yup.string().required("Required"),
   text: Yup.string().required("Required"),
-  img: Yup.string().required("Required"),
+  img: Yup.string()
+    .matches(/a(.*)jpeg|png|jpg/, "Link to img isn't valid")
+    .required("Required"),
   selectedTags: Yup.array().min(1, "Required").required("Required"),
 });
 
