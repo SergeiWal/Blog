@@ -29,12 +29,17 @@ export const AuthFormFooter = styled(Container)(() => ({
 export const SignUpLink = styled(Link)(() => ({
   fontSize: "14px",
   color: "#51ACAE",
+  marginTop: "5px",
+  textDecoration: "none",
 }));
 
 export const BlogLogo = styled(Typography)(() => ({
+  color: "#5F626D",
+  textDecoration: "none",
+  fontSize: 32,
+  marginRight: "15px",
+  alignSelf: "self",
   textAlign: "center",
-  fontSize: "32px",
-  color: "#000",
 }));
 
 export const ErrorMessage = styled("div")(() => ({

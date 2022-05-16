@@ -1,5 +1,6 @@
 import { Container, FormControl, Typography } from "@mui/material";
 import { FormikErrors } from "formik";
+import { MainLetters } from "../header/styled";
 import { BaseButton } from "../shared/button/styled";
 import { AuthInput } from "../shared/input/styled";
 import {
@@ -38,7 +39,9 @@ export default function SignInPage({
   return (
     <AuthPageContainer>
       <Container>
-        <BlogLogo>WSABlog</BlogLogo>
+        <BlogLogo>
+          <MainLetters>WSA</MainLetters>Blog
+        </BlogLogo>
       </Container>
       <AuthFormContainer>
         <form onSubmit={handleSubmit}>

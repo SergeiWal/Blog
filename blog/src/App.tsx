@@ -1,4 +1,5 @@
 import { Fragment, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { signOutAction } from "./authorization/actions/authorizeActions";
 import Header from "./header/header";
 import { useAppDispatch, useAppSelector } from "./store/store";
@@ -9,7 +10,11 @@ type AppPropsType = {
 
 function App({ children }: AppPropsType) {
   const dispatch = useAppDispatch();
-  const { token } = useAppSelector((state) => state);
+  const {
+    token,
+    user: { roles, name: username },
+  } = useAppSelector((state) => state);
+  const history = useHistory();
 
   const socket = new WebSocket("ws://localhost:3026/");
 
@@ -28,11 +33,26 @@ function App({ children }: AppPropsType) {
 
   const signOutHandler = () => {
     dispatch(signOutAction());
+    history.push("/login");
+  };
+
+  const actionBtnClickHandler = () => {
+    const path = roles.includes("ADMIN") ? "/dashboard" : "/create";
+    history.push(path);
   };
 
   return (
     <Fragment>
-      {token && <Header signOutHandler={signOutHandler} />}
+      {token && (
+        <Header
+          username={username}
+          signOutHandler={signOutHandler}
+          actionBtnClickHandler={actionBtnClickHandler}
+          actionBtnMsg={
+            roles.includes("ADMIN") ? "ADMIN DASHBOARD" : "CREATE POST"
+          }
+        />
+      )}
       <div className="App">{children}</div>
     </Fragment>
   );
