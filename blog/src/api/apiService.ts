@@ -19,9 +19,7 @@ import {
   UpdateUserStatus,
 } from "../store/requestsPayloads";
 
-const instance = axios.create({
-  baseURL: process.env.REACT_APP_HOST,
-});
+const instance = axios.create({});
 
 instance.interceptors.response.use((response) => response.data);
 

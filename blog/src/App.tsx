@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { signOutAction } from "./authorization/actions/authorizeActions";
 import Header from "./header/header";
 import { useAppDispatch, useAppSelector } from "./store/store";
@@ -10,6 +10,21 @@ type AppPropsType = {
 function App({ children }: AppPropsType) {
   const dispatch = useAppDispatch();
   const { token } = useAppSelector((state) => state);
+
+  const socket = new WebSocket("ws://localhost:3026/");
+
+  socket.onopen = () => {
+    console.log("Socket opened");
+    socket.send("Hello");
+  };
+
+  socket.onerror = (error) => {
+    console.log("Error:", error);
+  };
+
+  socket.onmessage = (event) => {
+    console.log(event.data);
+  };
 
   const signOutHandler = () => {
     dispatch(signOutAction());
