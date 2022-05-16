@@ -1,5 +1,6 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
+import { useHistory, useLocation } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { signInAction } from "./actions/authorizeActions";
 import SignInPage from "./signInPage";
@@ -7,8 +8,9 @@ import { SignInSchema } from "./validationShemas";
 
 export default function SignInPageContainer() {
   const dispatch = useAppDispatch();
-  const { requests } = useAppSelector((state) => state);
+  const { requests, token } = useAppSelector((state) => state);
   const [server_error, setError] = useState("");
+  const history = useHistory();
 
   const formik = useFormik({
     initialValues: { username: "", password: "" },
@@ -31,6 +33,13 @@ export default function SignInPageContainer() {
       setError("");
     }
   }, [requests]);
+
+  useEffect(() => {
+    const key = signInAction.type.replace("_REQUEST", "");
+    if (requests[key] && token) {
+      history.push("/");
+    }
+  }, [requests, token]);
 
   return (
     <SignInPage

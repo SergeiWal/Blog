@@ -6,6 +6,7 @@ import CreateArticleContainer from "./createArticle/containers/createArticleCont
 import DashboardContainer from "./dashboard/containers/dashboardContainer";
 import SignUpContainer from "./authorization/signUpContainer";
 import AppRoute from "./appRoute";
+import SignInPageContainer from "./authorization/signInPageContainer";
 
 export default function AppRouter() {
   return (
@@ -13,6 +14,7 @@ export default function AppRouter() {
       <App>
         <Switch>
           <AppRoute exact={true} path="/" element={Feed} />
+          <Route path="/login" component={SignInPageContainer} />
           <Route path="/sign-up" component={SignUpContainer} />
           <AppRoute
             exact={false}

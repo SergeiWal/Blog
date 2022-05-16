@@ -81,7 +81,7 @@ export default function SignUp({
           <AuthFormFooter>
             {server_error ? <ErrorMessage>{server_error}</ErrorMessage> : null}
             <BaseButton type="submit">SIGN UP</BaseButton>
-            <SignUpLink to={"/"}>SIGN IN</SignUpLink>
+            <SignUpLink to={"/login"}>SIGN IN</SignUpLink>
           </AuthFormFooter>
         </form>
       </AuthFormContainer>
