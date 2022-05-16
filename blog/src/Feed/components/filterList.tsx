@@ -1,4 +1,3 @@
-import { Typography } from "@mui/material";
 import { Tag } from "../../dashboard/types";
 import FilterItemContainer from "../containers/filterItemContainer";
 import { FilterListTitle, TagListContainer, TagsListContainer } from "./styled";

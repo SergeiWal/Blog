@@ -1,4 +1,10 @@
-import { Button, Container, styled, Typography } from "@mui/material";
+import {
+  Button,
+  Container,
+  styled,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { FixedSizeList } from "react-window";
 import { Tag } from "../../dashboard/types";
 
@@ -50,4 +56,44 @@ export const TagListContainer = styled(Container)(() => ({
   borderTop: "2px solid #E0E2EB",
   display: "flex",
   flexWrap: "wrap",
+}));
+
+export const SearchContainer = styled(Container)(() => ({
+  minWidth: "500px",
+  marginTop: "30px",
+}));
+
+export const SearchInputContainer = styled(Container)(() => ({
+  paddingRight: 0,
+  paddingTop: "10px",
+  borderTop: "2px solid #E0E2EB",
+  display: "flex",
+}));
+
+export const SearchInput = styled(TextField)(() => ({
+  width: 300,
+
+  "& input": {
+    fontSize: 18,
+    padding: "7px ",
+  },
+}));
+
+export const SearchBtn = styled(Button)(() => ({
+  backgroundColor: "#E0E2EB",
+  color: "#5B5F70",
+  margin: "0 10px",
+  width: 120,
+
+  "&:hover": {
+    backgroundColor: "#E0E2EB",
+    color: "#5B5F70",
+    opacity: "0.7",
+  },
+
+  "&:active": {
+    backgroundColor: "#51ACAE",
+    color: "white",
+    opacity: "1",
+  },
 }));

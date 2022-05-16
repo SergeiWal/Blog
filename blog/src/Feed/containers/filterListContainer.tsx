@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { getTagsAction } from "../../dashboard/actions";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import FilterList from "../components/filterList";
+import SearchArticle from "../components/searchArticle";
+import { UserDaschboardContainer } from "../styled";
 
 export default function FilterListContainer() {
   const { tags, token } = useAppSelector((state) => state);
@@ -11,5 +13,10 @@ export default function FilterListContainer() {
     dispatch(getTagsAction({ token }));
   }, [dispatch]);
 
-  return <FilterList tags={tags} />;
+  return (
+    <UserDaschboardContainer>
+      <FilterList tags={tags} />
+      <SearchArticle />
+    </UserDaschboardContainer>
+  );
 }
