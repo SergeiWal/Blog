@@ -1,5 +1,15 @@
+import { Container, FormControl, Typography } from "@mui/material";
 import { FormikErrors } from "formik";
-import { Link } from "react-router-dom";
+import { BaseButton } from "../shared/button/styled";
+import { AuthInput } from "../shared/input/styled";
+import {
+  AuthFormContainer,
+  AuthFormFooter,
+  AuthPageContainer,
+  BlogLogo,
+  ErrorMessage,
+  SignUpLink,
+} from "./styled";
 
 export type SignUpPageProps = {
   username: string;
@@ -28,60 +38,53 @@ export default function SignUp({
   handleSubmit,
 }: SignUpPageProps) {
   return (
-    <div className="signInForm">
-      <form onSubmit={handleSubmit}>
-        <div className="formInput">
-          <label>
-            Username:
-            <br />
-            <input
+    <AuthPageContainer>
+      <Container>
+        <BlogLogo>WSABlog</BlogLogo>
+      </Container>
+      <AuthFormContainer>
+        <form onSubmit={handleSubmit}>
+          <FormControl>
+            <Typography>Username:</Typography>
+            <AuthInput
               type="text"
               name="username"
-              placeholder="username"
+              placeholder="Enter your name"
               value={username}
               onChange={handleChange}
+              label={errors.username}
             />
-          </label>
-          {errors.username ? <div>{errors.username}</div> : null}
-        </div>
-        <div className="formInput">
-          <label>
-            Password:
-            <br />
-            <input
+          </FormControl>
+          <FormControl>
+            <Typography>Password:</Typography>
+            <AuthInput
               type="password"
               name="password"
-              placeholder="password"
+              placeholder="Enter your password"
               value={password}
               onChange={handleChange}
+              label={errors.password}
             />
-          </label>
-          {errors.password ? <div>{errors.password}</div> : null}
-        </div>
-        <div className="formInput">
-          <label>
-            Repeat password:
-            <br />
-            <input
+          </FormControl>
+          <FormControl>
+            <Typography>Repeat password:</Typography>
+            <AuthInput
               type="password"
               name="password_repeated"
-              placeholder="password"
+              placeholder="Repeat your password"
               value={password_repeated}
               onChange={handleChange}
+              label={errors.password_repeated}
             />
-          </label>
-          {errors.password_repeated ? (
-            <div>{errors.password_repeated}</div>
-          ) : null}
-          {server_error ? <div>{server_error}</div> : null}
-        </div>
-        <button className="signInButton" type="submit">
-          SIGN UP
-        </button>
-        <div className="formLink">
-          <Link to={"/"}>SIGN IN</Link>
-        </div>
-      </form>
-    </div>
+          </FormControl>
+
+          <AuthFormFooter>
+            {server_error ? <ErrorMessage>{server_error}</ErrorMessage> : null}
+            <BaseButton type="submit">SIGN UP</BaseButton>
+            <SignUpLink to={"/"}>SIGN IN</SignUpLink>
+          </AuthFormFooter>
+        </form>
+      </AuthFormContainer>
+    </AuthPageContainer>
   );
 }
