@@ -1,14 +1,17 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { signUpAction } from "./actions/authorizeActions";
 import SignUp from "./signUpPage";
 import { SignUpSchema } from "./validationShemas";
 
 export default function SignUpContainer() {
-  const { requests } = useAppSelector((state) => state);
+  const { requests, signUp } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
   const [server_error, setError] = useState("");
+  const history = useHistory();
+  const [submited, setSubmitted] = useState(false);
 
   const formik = useFormik({
     initialValues: { username: "", password: "", password_repeated: "" },
@@ -21,6 +24,7 @@ export default function SignUpContainer() {
           photo: "",
         })
       );
+      setSubmitted(true);
     },
   });
 
@@ -33,6 +37,14 @@ export default function SignUpContainer() {
       setError("Sign Up failed");
     }
   }, [requests]);
+
+  useEffect(() => {
+    const key = signUpAction.type.replace("_REQUEST", "");
+
+    if (requests[key] && signUp && submited) {
+      history.push("/login");
+    }
+  }, [requests, signUp, submited]);
 
   return (
     <SignUp

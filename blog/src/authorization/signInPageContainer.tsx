@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../store/store";
 import { signInAction } from "./actions/authorizeActions";
 import SignInPage from "./signInPage";
