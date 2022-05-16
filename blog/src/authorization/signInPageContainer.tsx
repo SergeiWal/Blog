@@ -28,7 +28,7 @@ export default function SignInPageContainer() {
   useEffect(() => {
     const key = signInAction.type.replace("_REQUEST", "");
     if (requests[key] !== undefined && !requests[key]) {
-      setError("Sign In failed");
+      setError("Invalid password or username");
     } else {
       setError("");
     }

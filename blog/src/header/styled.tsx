@@ -2,6 +2,11 @@ import { Avatar, Button, IconButton, styled, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 export const AppHeader = styled("header")(() => ({
+  overflow: "hidden",
+  position: "fixed",
+  top: 0,
+  width: "100%",
+  zIndex: 1000,
   backgroundColor: "white",
   display: "flex",
   justifyContent: "space-between",

@@ -44,4 +44,6 @@ export const BlogLogo = styled(Typography)(() => ({
 
 export const ErrorMessage = styled("div")(() => ({
   color: "red",
+  marginTop: "-10px",
+  marginBottom: "5px",
 }));
