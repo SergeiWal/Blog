@@ -1,4 +1,5 @@
 import {
+  Container,
   FormControl,
   InputLabel,
   MenuItem,
@@ -7,6 +8,13 @@ import {
 } from "@mui/material";
 import { FormikErrors } from "formik";
 import { Tag } from "../../dashboard/types";
+import {
+  AddArticleContainer,
+  AddArticleInput,
+  AddArticleTextArea,
+  CreateArticleBtn,
+  CreateArticleHeader,
+} from "./styled";
 
 export type CreateArticleProps = {
   title: string;
@@ -41,48 +49,43 @@ export default function CreateArticle({
   handleChange,
 }: CreateArticleProps) {
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="createArticleForm">
-        <input
+    <AddArticleContainer>
+      <CreateArticleHeader>Create post</CreateArticleHeader>
+      <form onSubmit={handleSubmit}>
+        <AddArticleInput
           type="text"
-          className="articleTitleInput"
           name="title"
           placeholder="Title"
           onChange={handleChange}
           value={title}
         />
-        {errors.title ? (
-          <div className="ErrorMessage">{errors.title}</div>
-        ) : null}
-        <input
+        {errors.title && <div className="ErrorMessage">{errors.title}</div>}
+        <AddArticleInput
           type="text"
-          className="articleTitleInput"
           placeholder="Subtitle"
           name="subTitle"
           onChange={handleChange}
           value={subTitle}
         />
-        {errors.subTitle ? (
+        {errors.subTitle && (
           <div className="ErrorMessage">{errors.subTitle}</div>
-        ) : null}
-        <input
+        )}
+        <AddArticleInput
           type="text"
           name="img"
-          className="articleImgSrcInput"
           placeholder="Link to image"
           onChange={handleChange}
           value={img}
         />
-        {errors.img ? <div className="ErrorMessage">{errors.img}</div> : null}
-        <textarea
-          className="articleTextInput"
+        {errors.img && <div className="ErrorMessage">{errors.img}</div>}
+        <AddArticleTextArea
           name="text"
           placeholder="Text"
           onChange={handleChange}
           value={text}
         />
-        {errors.text ? <div className="ErrorMessage">{errors.text}</div> : null}
-        <div>
+        {errors.text && <div className="ErrorMessage">{errors.text}</div>}
+        <Container>
           <FormControl sx={{ m: 1, width: 300 }}>
             <InputLabel id="select_tags">Tags</InputLabel>
             <Select
@@ -101,17 +104,13 @@ export default function CreateArticle({
               ))}
             </Select>
           </FormControl>
-          {errors.selectedTags ? (
+          {errors.selectedTags && (
             <div className="ErrorMessage">{errors.selectedTags}</div>
-          ) : null}
-          {server_error ? (
-            <div className="ErrorMessage">{server_error}</div>
-          ) : null}
-        </div>
-        <div className="articlePublishButton">
-          <button type="submit">Publish</button>
-        </div>
-      </div>
-    </form>
+          )}
+          {server_error && <div className="ErrorMessage">{server_error}</div>}
+        </Container>
+        <CreateArticleBtn type="submit">Publish</CreateArticleBtn>
+      </form>
+    </AddArticleContainer>
   );
 }
