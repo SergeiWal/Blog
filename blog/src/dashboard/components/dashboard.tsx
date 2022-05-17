@@ -3,6 +3,12 @@ import ArticlesInfoContainer from "../containers/articlesInfoContainer";
 import UsersInfoContainer from "../containers/usersInfoContainer";
 import TabPanel from "./tabPanel";
 import TabsInfoConteiner from "../containers/tagsInfoContainer";
+import {
+  AppTab,
+  AppTabs,
+  DashboardContainer,
+  TabPanelContainer,
+} from "./styled";
 
 export const DashboardNotAllowed = () => (
   <div style={{ marginTop: 60, textAlign: "center" }}>
@@ -17,24 +23,23 @@ export type DashboardProps = {
 
 export default function Dashboard({ tabValue, handleChange }: DashboardProps) {
   return (
-    <Box sx={{ width: "100%", marginTop: 7 }}>
-      <Box sx={{ borderBottom: 1, borderColor: "black" }}>
-        <Tabs
+    <DashboardContainer>
+      <TabPanelContainer>
+        <AppTabs
           value={tabValue}
           onChange={handleChange}
           aria-label="basic tabs example"
-          textColor={"inherit"}
           TabIndicatorProps={{
             style: {
-              backgroundColor: "black",
+              backgroundColor: "#51ACAE",
             },
           }}
         >
-          <Tab label="Articles" />
-          <Tab label="Users" />
-          <Tab label="Tags" />
-        </Tabs>
-      </Box>
+          <AppTab label="Articles" />
+          <AppTab label="Users" />
+          <AppTab label="Tags" />
+        </AppTabs>
+      </TabPanelContainer>
       <TabPanel value={tabValue} index={0}>
         <ArticlesInfoContainer />
       </TabPanel>
@@ -44,6 +49,6 @@ export default function Dashboard({ tabValue, handleChange }: DashboardProps) {
       <TabPanel value={tabValue} index={2}>
         <TabsInfoConteiner />
       </TabPanel>
-    </Box>
+    </DashboardContainer>
   );
 }

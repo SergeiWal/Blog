@@ -1,4 +1,5 @@
 import { Tag } from "../types";
+import { TagListContainer } from "./styled";
 import TagItem from "./tagItem";
 
 export type FilterListProps = {
@@ -8,14 +9,12 @@ export type FilterListProps = {
 
 export default function TagsList({ items, deleteHandler }: FilterListProps) {
   return (
-    <div className="tags">
-      <div className="tag_list">
-        {items.map((item) => {
-          return (
-            <TagItem key={item.name} tag={item} deleteHandler={deleteHandler} />
-          );
-        })}
-      </div>
-    </div>
+    <TagListContainer>
+      {items.map((item) => {
+        return (
+          <TagItem key={item.name} tag={item} deleteHandler={deleteHandler} />
+        );
+      })}
+    </TagListContainer>
   );
 }

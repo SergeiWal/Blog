@@ -1,4 +1,7 @@
+import { Box, Typography } from "@mui/material";
 import { FormikErrors } from "formik";
+import { ErrorMessage } from "../../authorization/styled";
+import { TagInput, TagSubmitBtn } from "./styled";
 
 export type AddTagsFormProps = {
   value: string;
@@ -21,25 +24,27 @@ export default function AddTagsForm({
   handleChange,
 }: AddTagsFormProps) {
   return (
-    <div>
+    <Box>
       <form onSubmit={handleSubmit}>
-        <label className="inputLabel">
+        <Typography
+          style={{ color: "#5F626D", fontWeight: "bold", marginBottom: "5px" }}
+        >
           Add tag:
-          <br />
-          <input
-            className="formInput addTagInput"
-            type="text"
-            value={value}
-            name="value"
-            onChange={handleChange}
-          />
-        </label>
-        <button className="button" type="submit">
-          ADD
-        </button>
+        </Typography>
+        <TagInput
+          type="text"
+          value={value}
+          name="value"
+          onChange={handleChange}
+        />
+        <TagSubmitBtn type="submit">ADD</TagSubmitBtn>
       </form>
-      {errors.value ? <div>{errors.value}</div> : null}
-      {errors.add_tag ? <div>{errors.add_tag}</div> : null}
-    </div>
+      {errors.value && (
+        <ErrorMessage style={{ marginTop: 2 }}>{errors.value}</ErrorMessage>
+      )}
+      {errors.add_tag && (
+        <ErrorMessage style={{ marginTop: 2 }}>{errors.add_tag}</ErrorMessage>
+      )}
+    </Box>
   );
 }

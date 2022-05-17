@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addTagsAction, deleteTagAction, getTagsAction } from "../actions";
 import AddTabsForm from "../components/addTagsForm";
@@ -25,6 +25,7 @@ const validate = (values) => {
 export default function TabsInfoContainer() {
   const dispatch = useAppDispatch();
   const { tags, token, requests } = useAppSelector((state) => state);
+  const [isSubmitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     dispatch(getTagsAction({ token }));
@@ -35,13 +36,14 @@ export default function TabsInfoContainer() {
     validate,
     onSubmit: (values, { resetForm }) => {
       dispatch(addTagsAction({ tag: values.value, token }));
+      setSubmitted(true);
       resetForm();
     },
   });
 
   useEffect(() => {
     const key = addTagsAction.type.replace("_REQUEST", "");
-    if (!requests[key]) {
+    if (!requests[key] && isSubmitted) {
       formik.errors.add_tag = "Add tag failed";
     }
   }, [requests]);

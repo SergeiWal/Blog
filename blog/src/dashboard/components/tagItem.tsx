@@ -1,12 +1,7 @@
 import { Button } from "@mui/material";
 import { Tag } from "../types";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-
-const tagItemStyle = {
-  margin: 3,
-  color: "#ccc",
-  background: "#000",
-};
+import { TagBtn } from "./styled";
 
 export type TagItemProps = {
   tag: Tag;
@@ -15,13 +10,9 @@ export type TagItemProps = {
 
 export default function TagItem({ tag, deleteHandler }: TagItemProps) {
   return (
-    <Button
-      variant="contained"
-      style={tagItemStyle}
-      onClick={() => deleteHandler(tag)}
-    >
+    <TagBtn variant="contained" onClick={() => deleteHandler(tag)}>
       {tag.name}
       <CloseRoundedIcon color="inherit" />
-    </Button>
+    </TagBtn>
   );
 }
