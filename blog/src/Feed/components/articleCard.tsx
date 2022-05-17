@@ -7,6 +7,7 @@ import { createTextPreview } from "../../article/services/articles";
 import { cardStyle } from "../../styles/styles";
 import "../../styles/feed.css";
 import moment from "moment";
+import { CardInfoContainer, CardTypography, CardTitle } from "./styled";
 
 export default function ArticleCard({ article }: ArticlePreviewProps) {
   const { _id, author, title, subtitle, text, tags, date, updateDate, img } =
@@ -16,21 +17,20 @@ export default function ArticleCard({ article }: ArticlePreviewProps) {
       <CardActionArea>
         <CardContent>
           <Link to={`/articles/${_id}`} className="cardContent">
-            <div className="cardInfo">
-              <div className="blogName">{author.name}</div>
-              <div className="articleTitle">{title}</div>
-              <div>{subtitle}</div>
+            <CardInfoContainer>
+              <CardTypography>{author.name}</CardTypography>
+              <CardTitle>{title}</CardTitle>
+              <CardTypography>{subtitle}</CardTypography>
               <div className="articleText">{createTextPreview(text)}</div>
               <div className="articleCardTagsList">
                 {tags.map((tag) => {
-                  return <div key={tag._id}>{tag.name}</div>;
+                  return <div key={tag._id}>#{tag.name.toLowerCase()}</div>;
                 })}
               </div>
               <div className="timeInfo">
                 {moment(date).format("DD:MM:YY")} .
-                {moment(updateDate).format("DD:MM:YY")}
               </div>
-            </div>
+            </CardInfoContainer>
             <div className="cardImg">
               <img src={img} alt={`Article ${_id}`}></img>
             </div>

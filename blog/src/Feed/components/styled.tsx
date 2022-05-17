@@ -97,3 +97,22 @@ export const SearchBtn = styled(Button)(() => ({
     opacity: "1",
   },
 }));
+
+export const CardInfoContainer = styled(Container)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  flexWrap: "nowrap",
+  fontSize: "18px",
+  marginRight: "20px",
+  color: "#5B5F70",
+}));
+
+export const CardTypography = styled(Typography)(() => ({
+  fontWeight: "normal",
+}));
+
+export const CardTitle = styled(Typography)(() => ({
+  fontWeight: "bold",
+
+  fontSize: 24,
+}));
