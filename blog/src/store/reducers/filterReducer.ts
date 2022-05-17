@@ -1,6 +1,9 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { Tag } from "../../dashboard/types";
-import { changeFilterAction } from "../../Feed/articleListActions";
+import {
+  changeFilterAction,
+  clearFilterAction,
+} from "../../Feed/articleListActions";
 
 const defaultFilters: Tag[] = [];
 
@@ -11,6 +14,8 @@ export default function FilterReducer(
   switch (action.type) {
     case changeFilterAction.type:
       return [...state];
+    case clearFilterAction.type:
+      return [];
     default:
       return state;
   }

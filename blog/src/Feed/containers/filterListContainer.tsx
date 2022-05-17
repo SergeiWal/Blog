@@ -5,7 +5,13 @@ import FilterList from "../components/filterList";
 import SearchArticle from "../components/searchArticle";
 import { UserDaschboardContainer } from "../styled";
 
-export default function FilterListContainer() {
+export interface FilterListContainerProps {
+  setSearchValueHandler: (value: string) => void;
+}
+
+export default function FilterListContainer({
+  setSearchValueHandler,
+}: FilterListContainerProps) {
   const { tags, token } = useAppSelector((state) => state);
   const dispatch = useAppDispatch();
 
@@ -16,7 +22,7 @@ export default function FilterListContainer() {
   return (
     <UserDaschboardContainer>
       <FilterList tags={tags} />
-      <SearchArticle />
+      <SearchArticle setSearchValueHandler={setSearchValueHandler} />
     </UserDaschboardContainer>
   );
 }

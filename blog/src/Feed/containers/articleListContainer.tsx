@@ -4,34 +4,16 @@ import { useEffect, useState } from "react";
 import { getArticleAction } from "../articleListActions";
 import ArticleList from "../components/articleList";
 import ArticleListLoader from "../components/articleListLoader";
-import { selectArticlesByFilters } from "../services/feedServices";
+import { Article as ArticleItem } from "../../article/types/articleTypes";
 
-export const generateArticleListRows = ({
-  data,
-  index,
-  style,
-}: ListGeneratorParams) => {
-  return <div style={style}>{data[index]}</div>;
-};
+export interface ArticleListContainerProps {
+  articleList: ArticleItem[];
+}
 
-export default function ArticleListContainer() {
-  const { articles, filters, isFetching, token } = useAppSelector(
-    (state: RootState) => state
-  );
-  const [articleList, setArticleList] = useState<Array<Article>>([]);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(getArticleAction({ token }));
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (filters.length > 0) {
-      setArticleList(selectArticlesByFilters(articles, filters));
-    } else {
-      setArticleList(articles);
-    }
-  }, [filters, articles]);
+export default function ArticleListContainer({
+  articleList,
+}: ArticleListContainerProps) {
+  const { isFetching } = useAppSelector((state: RootState) => state);
 
   return isFetching[getArticleAction.type] ? (
     <ArticleListLoader />

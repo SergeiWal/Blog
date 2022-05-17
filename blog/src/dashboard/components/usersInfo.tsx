@@ -2,8 +2,8 @@ import { User } from "../../authorization/types/userTypes";
 import UserInfoCardContainer from "../containers/userInfoCardContainer";
 import { FixedSizeList as List } from "react-window";
 import { WINDOW_HEIGHT } from "../../Feed/constants/feedConstants";
-import { generateArticleListRows } from "../../Feed/containers/articleListContainer";
 import { userCardHeight, cardMaxWidth } from "../../styles/styles";
+import { generateArticleListRows } from "../../Feed/containers/feedContainer";
 
 export type UsersInfoProps = {
   users: User[];

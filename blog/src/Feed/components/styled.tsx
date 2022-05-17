@@ -63,7 +63,7 @@ export const SearchContainer = styled(Container)(() => ({
   marginTop: "30px",
 }));
 
-export const SearchInputContainer = styled(Container)(() => ({
+export const SearchInputForm = styled("form")(() => ({
   paddingRight: 0,
   paddingTop: "10px",
   borderTop: "2px solid #E0E2EB",

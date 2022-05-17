@@ -19,3 +19,5 @@ export const getArticleActionFailed = createAction(
 );
 
 export const changeFilterAction = createAction("CHANGED_FILTER");
+
+export const clearFilterAction = createAction("CLEAR_FILTER");

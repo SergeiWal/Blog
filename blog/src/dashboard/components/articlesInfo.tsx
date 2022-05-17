@@ -1,7 +1,7 @@
 import { FixedSizeList as List } from "react-window";
 import { Article, Articles } from "../../article/types/articleTypes";
 import { WINDOW_HEIGHT } from "../../Feed/constants/feedConstants";
-import { generateArticleListRows } from "../../Feed/containers/articleListContainer";
+import { generateArticleListRows } from "../../Feed/containers/feedContainer";
 import { cardHeight, cardMaxWidth } from "../../styles/styles";
 import ArticleInfoCard from "./articleInfoCard";
 
