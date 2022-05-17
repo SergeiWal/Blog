@@ -26,11 +26,6 @@ export default function AddTagsForm({
   return (
     <Box>
       <form onSubmit={handleSubmit}>
-        <Typography
-          style={{ color: "#5F626D", fontWeight: "bold", marginBottom: "5px" }}
-        >
-          Add tag:
-        </Typography>
         <TagInput
           type="text"
           value={value}

@@ -22,6 +22,7 @@ export const DashboardTagContainer = styled(Container)(() => ({
   flexDirection: "column",
   alignItems: "center",
   width: 600,
+  padding: "20px 5px 30px",
 }));
 
 export const TabPanelContainer = styled(Box)(() => ({

@@ -26,6 +26,7 @@ export default function SearchArticle({
       setSearchValueHandler(value);
       resetForm();
       dispatch(clearFilterAction());
+      setSearchValueHandler("");
     },
   });
 

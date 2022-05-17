@@ -1,8 +1,10 @@
+import { Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addTagsAction, deleteTagAction, getTagsAction } from "../actions";
 import AddTabsForm from "../components/addTagsForm";
+import { DashboardTagContainer } from "../components/styled";
 import TagsList from "../components/tagsList";
 import { Tag } from "../types";
 
@@ -55,7 +57,17 @@ export default function TabsInfoContainer() {
   };
 
   return (
-    <div>
+    <DashboardTagContainer>
+      <Typography
+        style={{
+          color: "#5F626D",
+          fontWeight: "bold",
+          marginBottom: "5px",
+          fontSize: 20,
+        }}
+      >
+        Tags management
+      </Typography>
       <AddTabsForm
         value={formik.values.value}
         errors={formik.errors}
@@ -63,6 +75,6 @@ export default function TabsInfoContainer() {
         handleSubmit={formik.handleSubmit}
       />
       <TagsList items={tags} deleteHandler={deleteHandler} />
-    </div>
+    </DashboardTagContainer>
   );
 }

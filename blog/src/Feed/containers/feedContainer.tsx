@@ -29,7 +29,7 @@ export default function FeedContainer() {
   useEffect(() => {
     if (filters.length > 0) {
       setArticleList(selectArticlesByFilters(articles, filters));
-    } else {
+    } else if (!searchValue || searchValue == "") {
       setArticleList(articles);
     }
   }, [filters, articles]);
