@@ -6,11 +6,22 @@ import {
   Tab,
   Tabs,
   TextField,
+  Typography,
 } from "@mui/material";
 
 export const DashboardContainer = styled(Box)(() => ({
   marginTop: 80,
   width: "100%",
+}));
+
+export const DashboardTagContainer = styled(Container)(() => ({
+  marginTop: 10,
+  backgroundColor: "white",
+  borderRadius: 20,
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  width: 600,
 }));
 
 export const TabPanelContainer = styled(Box)(() => ({
@@ -87,4 +98,44 @@ export const CardInfoContainer = styled(Container)(() => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
+}));
+
+export const UserInfoContainer = styled(Container)(() => ({
+  display: "flex",
+  justifyContent: "space-between",
+  color: "black",
+  backgroundColor: "transparent",
+  textDecoration: "none",
+}));
+
+export const UserInfoLabel = styled(Typography)(() => ({
+  color: "#5F626D",
+  fontWeight: "bold",
+}));
+
+export const UserInfoBtnContainer = styled(Container)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-around",
+  alignItems: "flex-end",
+  padding: "0 0",
+}));
+
+export const ActionBtn = styled(Button)(() => ({
+  backgroundColor: "#E0E2EB",
+  color: "#5B5F70",
+  margin: "10px 0",
+  width: 120,
+
+  "&:hover": {
+    backgroundColor: "#E0E2EB",
+    color: "#5B5F70",
+    opacity: "0.7",
+  },
+
+  "&:active": {
+    backgroundColor: "#51ACAE",
+    color: "white",
+    opacity: "1",
+  },
 }));

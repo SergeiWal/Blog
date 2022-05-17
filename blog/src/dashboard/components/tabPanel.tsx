@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { DashboardTagContainer } from "./styled";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -10,7 +11,7 @@ export default function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
+    <DashboardTagContainer
       className="tabPanel"
       role="tabpanel"
       hidden={value !== index}
@@ -19,6 +20,6 @@ export default function TabPanel(props: TabPanelProps) {
       {...other}
     >
       {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
-    </div>
+    </DashboardTagContainer>
   );
 }

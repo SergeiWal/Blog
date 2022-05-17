@@ -1,7 +1,14 @@
-import { Button, Card, CardContent } from "@mui/material";
+import { Box, Button, Card, CardContent, Container } from "@mui/material";
 import { cardButtonStyle, cardStyle } from "../../styles/styles";
 import { User } from "../../authorization/types/userTypes";
 import { Fragment } from "react";
+import { BaseButton } from "../../shared/button/styled";
+import {
+  ActionBtn,
+  UserInfoBtnContainer,
+  UserInfoContainer,
+  UserInfoLabel,
+} from "./styled";
 
 export type UserInfoCardProps = {
   blockButtonValue: string;
@@ -19,45 +26,39 @@ export default function UserInfoCard({
   return (
     <Card sx={cardStyle}>
       <CardContent>
-        <div className="cardContent">
-          <div className="cardInfo ">
-            <div>
-              <div>{user.name}</div>
-              <div>Roles: {user.roles.join(", ")}</div>
-              <div>Status: {user.activate ? "Active" : "Blocked"}</div>
-              {/* <div>Articles: {user.posts.length}</div> */}
-            </div>
-            <div>
-              <div>
-                {!user.roles.includes("ADMIN") && (
-                  <Fragment>
-                    <Button
-                      sx={cardButtonStyle}
-                      size="small"
-                      variant="contained"
-                      color="inherit"
-                      onClick={() => deleteHandler(user)}
-                    >
-                      Delete
-                    </Button>
-                    <Button
-                      sx={cardButtonStyle}
-                      size="small"
-                      variant="contained"
-                      color="inherit"
-                      onClick={blockedHandler}
-                    >
-                      {blockButtonValue}
-                    </Button>
-                  </Fragment>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="userCardImg">
-            <img src={user.photo} alt={`User ${1}`}></img>
-          </div>
-        </div>
+        <UserInfoContainer>
+          <Container style={{ minWidth: 300, padding: 0 }}>
+            <UserInfoLabel>{user.name}</UserInfoLabel>
+            <UserInfoLabel>Roles: {user.roles.join(", ")}</UserInfoLabel>
+            <UserInfoLabel>
+              Status: {user.activate ? "Active" : "Blocked"}
+            </UserInfoLabel>
+          </Container>
+          <UserInfoBtnContainer>
+            {!user.roles.includes("ADMIN") && (
+              <Fragment>
+                <ActionBtn
+                  sx={cardButtonStyle}
+                  size="small"
+                  variant="contained"
+                  color="inherit"
+                  onClick={() => deleteHandler(user)}
+                >
+                  Delete
+                </ActionBtn>
+                <ActionBtn
+                  sx={cardButtonStyle}
+                  size="small"
+                  variant="contained"
+                  color="inherit"
+                  onClick={blockedHandler}
+                >
+                  {blockButtonValue}
+                </ActionBtn>
+              </Fragment>
+            )}
+          </UserInfoBtnContainer>
+        </UserInfoContainer>
       </CardContent>
     </Card>
   );

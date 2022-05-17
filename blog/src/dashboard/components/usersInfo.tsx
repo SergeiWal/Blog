@@ -25,7 +25,7 @@ export default function UsersInfo({ users, deleteHandler }: UsersInfoProps) {
       itemData={listArticle}
       height={WINDOW_HEIGHT}
       itemCount={listArticle.length}
-      itemSize={userCardHeight}
+      itemSize={140}
       width={cardMaxWidth}
     >
       {generateArticleListRows}
