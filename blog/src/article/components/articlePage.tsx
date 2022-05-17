@@ -21,8 +21,8 @@ export default function ArticlePage({
         title={title}
         subtitle={subtitle}
         name={author.name}
-        date={moment(date).format("DD:MM:YY")}
-        updatedate={moment(updateDate).format("DD:MM:YY")}
+        date={moment(date).format("DD.MM.YY")}
+        updatedate={moment(updateDate).format("DD.MM.YY")}
       />
       <ArticlePageMainContent id={_id} img={img} text={text} />
       <TagList list={tags} />

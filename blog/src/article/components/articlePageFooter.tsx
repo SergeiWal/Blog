@@ -18,20 +18,23 @@ export default function ArticlePageFooter({
   closeHandler,
   saveCommentHandler,
 }: ArticlePageFooterProps) {
+  const likedColor = isLiked ? "#3A7C7D" : "#5F626D";
+  const bookmarkColor = isBookmark ? "#3A7C7D" : "#5F626D";
   return (
     <div>
       <div className="articleFooter">
         <Button
-          startIcon={<RecommendOutlinedIcon />}
-          color={isLiked ? "success" : "inherit"}
+          startIcon={<RecommendOutlinedIcon style={{ color: likedColor }} />}
           onClick={likeHandler}
           size="large"
+          style={{ color: likedColor }}
         >
           {likeCount}
         </Button>
         <Button
-          startIcon={<BookmarkAddOutlinedIcon />}
-          color={isBookmark ? "success" : "inherit"}
+          startIcon={
+            <BookmarkAddOutlinedIcon style={{ color: bookmarkColor }} />
+          }
           onClick={addToBookmarksHandler}
           size="large"
         ></Button>

@@ -11,9 +11,8 @@ export default function ArticlePageHeader({
     <div className="articleHeader">
       <div className="articleTitle">{title}</div>
       <div className="articleSubtitle">{subtitle}</div>
-      <div>{name}</div>
-      <div className="articleDateInfo">
-        cretead: {date} last update:{updatedate}
+      <div>
+        {name} {updatedate}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { Container, FormControl, Typography } from "@mui/material";
 import { FormikErrors } from "formik";
 import { MainLetters } from "../header/styled";
 import { BaseButton } from "../shared/button/styled";
-import { AuthInput } from "../shared/input/styled";
+import { AuthFormControl, AuthInput, AuthLabel } from "../shared/input/styled";
 import {
   AuthFormContainer,
   AuthFormFooter,
@@ -45,8 +45,8 @@ export default function SignInPage({
       </Container>
       <AuthFormContainer>
         <form onSubmit={handleSubmit}>
-          <FormControl>
-            <Typography>Username:</Typography>
+          <AuthFormControl>
+            <AuthLabel>Username:</AuthLabel>
             <AuthInput
               type="text"
               name="username"
@@ -55,9 +55,9 @@ export default function SignInPage({
               onChange={handleChange}
               label={errors.username}
             />
-          </FormControl>
-          <FormControl>
-            <Typography>Password:</Typography>
+          </AuthFormControl>
+          <AuthFormControl>
+            <AuthLabel>Password:</AuthLabel>
             <AuthInput
               type="password"
               name="password"
@@ -66,7 +66,7 @@ export default function SignInPage({
               onChange={handleChange}
               label={errors.password}
             />
-          </FormControl>
+          </AuthFormControl>
 
           <AuthFormFooter>
             {server_error && <ErrorMessage>{server_error}</ErrorMessage>}

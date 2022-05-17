@@ -5,11 +5,7 @@ import { ArticleCommentsProps } from "../types/articlePropsTypes";
 import CommentView from "./commentView";
 
 const generateCommentRows = ({ data, index, style }: ListGeneratorParams) => {
-  return (
-    <div style={style} className="CommentView">
-      {data[index]}
-    </div>
-  );
+  return <div style={{ ...style, margin: "15px 0" }}>{data[index]}</div>;
 };
 
 export default function ArticleCommentList({ comments }: ArticleCommentsProps) {

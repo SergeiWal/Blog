@@ -5,7 +5,9 @@ import {
   DialogActions,
   Button,
 } from "@mui/material";
+
 import { CommentFormProps } from "../types/articlePropsTypes";
+import { WriteCommentBtn, WriteCommentField } from "./styled";
 
 export default function CommentForm({
   open,
@@ -15,10 +17,11 @@ export default function CommentForm({
 }: CommentFormProps) {
   return (
     <Dialog open={open} onClose={closeHandler}>
-      <DialogTitle>New comment</DialogTitle>
+      <DialogTitle style={{ color: "#5F626D", fontWeight: "bold" }}>
+        New comment
+      </DialogTitle>
       <DialogContent>
-        <textarea
-          className="commentInputField"
+        <WriteCommentField
           color="info"
           autoFocus
           id="comment"
@@ -26,13 +29,9 @@ export default function CommentForm({
           onChange={(e) => changeCommentHandler(e.target.value)}
         />
       </DialogContent>
-      <DialogActions>
-        <Button onClick={closeHandler} color="inherit">
-          Cancel
-        </Button>
-        <Button onClick={saveCommentHandler} color="inherit">
-          Save
-        </Button>
+      <DialogActions style={{ margin: "0 15px 10px" }}>
+        <WriteCommentBtn onClick={closeHandler}>Cancel</WriteCommentBtn>
+        <WriteCommentBtn onClick={saveCommentHandler}>Save</WriteCommentBtn>
       </DialogActions>
     </Dialog>
   );
