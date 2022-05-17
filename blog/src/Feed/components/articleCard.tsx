@@ -27,9 +27,7 @@ export default function ArticleCard({ article }: ArticlePreviewProps) {
                   return <div key={tag._id}>#{tag.name.toLowerCase()}</div>;
                 })}
               </div>
-              <div className="timeInfo">
-                {moment(date).format("DD:MM:YY")} .
-              </div>
+              <div className="timeInfo">{moment(date).format("DD:MM:YY")}</div>
             </CardInfoContainer>
             <div className="cardImg">
               <img src={img} alt={`Article ${_id}`}></img>

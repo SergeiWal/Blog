@@ -78,3 +78,13 @@ export const TagInput = styled(TextField)(() => ({
     },
   },
 }));
+
+export const CardContainer = styled(Container)(() => ({
+  display: "flex",
+}));
+
+export const CardInfoContainer = styled(Container)(() => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
+}));
