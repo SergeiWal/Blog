@@ -8,11 +8,16 @@ import SignUpContainer from "./authorization/signUpContainer";
 import AppRoute from "./appRoute";
 import SignInPageContainer from "./authorization/signInPageContainer";
 import FeedContainer from "./Feed/containers/feedContainer";
+import { WSServerMessage } from "./interfaces";
 
-export default function AppRouter() {
+export interface AppRouterProps {
+  lastWsMessage: WSServerMessage;
+}
+
+export default function AppRouter({ lastWsMessage }: AppRouterProps) {
   return (
     <Router>
-      <App>
+      <App lastWsMessage={lastWsMessage}>
         <Switch>
           <AppRoute exact={true} path="/" element={FeedContainer} />
           <Route path="/login" component={SignInPageContainer} />

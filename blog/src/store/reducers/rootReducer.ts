@@ -11,6 +11,7 @@ import likesReducer from "./likesReducer";
 import bookmarkReducer from "./bookmarksReducer";
 import SignUpReducer from "./signUpReducer";
 import RequestReducer from "./requestReducer";
+import wsReducer from "./wsReducer";
 
 const rootReducer = combineReducers({
   articles: articleReducer,
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   bookmark: bookmarkReducer,
   signUp: SignUpReducer,
   requests: RequestReducer,
+  wsClient: wsReducer,
 });
 
 export default rootReducer;

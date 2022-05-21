@@ -1,35 +1,27 @@
-import { Fragment, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Alert, Snackbar } from "@mui/material";
+import { Fragment, useEffect, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 import { signOutAction } from "./authorization/actions/authorizeActions";
 import Header from "./header/header";
+import { WSServerMessage } from "./interfaces";
+import { AppAlert } from "./shared/alert/styled";
+import { AppLink } from "./shared/link/styled";
 import { useAppDispatch, useAppSelector } from "./store/store";
 
 type AppPropsType = {
   children: any;
+  lastWsMessage: WSServerMessage;
 };
 
-function App({ children }: AppPropsType) {
+function App({ children, lastWsMessage }: AppPropsType) {
+  const [alertIsOpen, setAlertIsOpen] = useState(false);
+
   const dispatch = useAppDispatch();
   const {
     token,
     user: { roles, name: username },
   } = useAppSelector((state) => state);
   const history = useHistory();
-
-  const socket = new WebSocket("ws://localhost:3026/");
-
-  socket.onopen = () => {
-    console.log("Socket opened");
-    socket.send("Hello");
-  };
-
-  socket.onerror = (error) => {
-    console.log("Error:", error);
-  };
-
-  socket.onmessage = (event) => {
-    console.log(event.data);
-  };
 
   const signOutHandler = () => {
     dispatch(signOutAction());
@@ -40,6 +32,14 @@ function App({ children }: AppPropsType) {
     const path = roles.includes("ADMIN") ? "/dashboard" : "/create";
     history.push(path);
   };
+
+  const handleCloseAlert = () => {
+    setAlertIsOpen(false);
+  };
+
+  useEffect(() => {
+    setAlertIsOpen(true);
+  }, [lastWsMessage]);
 
   return (
     <Fragment>
@@ -54,6 +54,21 @@ function App({ children }: AppPropsType) {
         />
       )}
       <div className="App">{children}</div>
+      <Snackbar
+        open={alertIsOpen}
+        autoHideDuration={6000}
+        onClose={handleCloseAlert}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <AppAlert icon={false} onClose={handleCloseAlert}>
+          {lastWsMessage.message}
+          {lastWsMessage.attachment && (
+            <AppLink to={lastWsMessage.attachment}>
+              {lastWsMessage.attachment}
+            </AppLink>
+          )}
+        </AppAlert>
+      </Snackbar>
     </Fragment>
   );
 }

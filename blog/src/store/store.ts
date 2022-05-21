@@ -5,6 +5,7 @@ import createSagaMiddleware from "@redux-saga/core";
 import rootSaga from "./rootSaga";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import wsReducer from "./reducers/wsReducer";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -14,6 +15,7 @@ const composeEnhancers =
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["wsClient"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -5,6 +5,8 @@ import { useAppDispatch, useAppSelector } from "../../store/store";
 import { addArticleAction } from "../actions";
 import CreateArticle from "../components/createArticle";
 import * as Yup from "yup";
+import { WSClientMessage } from "../../interfaces";
+import { WSMessageType } from "../../constants";
 
 export type NewArticle = {
   title: string;
@@ -32,9 +34,13 @@ const getSelectedTagsFromStrArr = (strArr: string[], tags: Tag[]): Tag[] => {
 };
 
 export default function CreateArticleContainer() {
-  const { user, tags, token, requests } = useAppSelector((state) => state);
+  const { user, tags, token, requests, wsClient, articles, isFetching } =
+    useAppSelector((state) => state);
   const dispatch = useAppDispatch();
+
+  const [isSubmit, setIsSubmit] = useState(false);
   const [server_error, setError] = useState("");
+  const [message, setMessage] = useState("");
 
   const formik = useFormik({
     initialValues: {
@@ -61,6 +67,8 @@ export default function CreateArticleContainer() {
         updateDate: date,
         tags: newTags,
       };
+      setIsSubmit(true);
+      setMessage(`${values.title}-${values.subTitle}`);
       dispatch(addArticleAction({ article, token }));
       resetForm();
     },
@@ -70,6 +78,10 @@ export default function CreateArticleContainer() {
     const key = addArticleAction.type.replace("_REQUEST", "");
     if (requests[key] !== undefined && !requests[key]) {
       setError("Add article failed");
+    } else if (isSubmit && requests[key]) {
+      const wsMessage: WSClientMessage = { message, type: WSMessageType.ADD };
+      wsClient.socket.send(JSON.stringify(wsMessage));
+      setError("");
     } else {
       setError("");
     }
