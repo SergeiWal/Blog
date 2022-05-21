@@ -6,7 +6,7 @@ import { Button, Card, CardContent } from "@mui/material";
 import { cardStyle } from "../../styles/styles";
 import moment from "moment";
 import { CardTitle, CardTypography } from "../../Feed/components/styled";
-import { CardContainer, CardInfoContainer } from "./styled";
+import { CardContainer, CardImg, CardInfoContainer } from "./styled";
 import { BaseButton } from "../../shared/button/styled";
 
 export type ArticleInfoCardProps = {
@@ -50,8 +50,8 @@ export default function ArticleInfoCard({
               </div>
             </div>
           </CardInfoContainer>
-          <div className="cardImg">
-            <img src={article.img} alt={`Article ${article._id}`}></img>
+          <div>
+            <CardImg src={article.img} alt={`Article ${article._id}`}></CardImg>
           </div>
         </CardContainer>
       </CardContent>

@@ -1,6 +1,7 @@
 import {
   Button,
   Container,
+  Select,
   styled,
   TextField,
   Typography,
@@ -30,10 +31,18 @@ export const AddArticleInput = styled(TextField)(() => ({
   fontSize: "18px",
   padding: "10px 0",
   borderRadius: 5,
+
+  "& .MuiOutlinedInput-root": {
+    color: "#5F626D",
+    "&.Mui-focused fieldset": {
+      borderColor: "#51ACAE",
+    },
+  },
 }));
 
 export const AddArticleTextArea = styled("textarea")(() => ({
   background: "transparent",
+  color: "#5F626D",
   width: " 860px",
   height: "400px",
   fontSize: "18px",
@@ -64,4 +73,16 @@ export const CreateArticleHeader = styled(Typography)(() => ({
   fontSize: 24,
   fontWeight: "bold",
   marginBottom: 15,
+}));
+
+export const AddArticleSelect = styled(Select)(() => ({
+  color: "#5F626D",
+  borderColor: "#51ACAE",
+
+  "&.MuiSelect-select": {
+    color: "#5F626D",
+    "&.Mui-focused fieldset": {
+      borderColor: "#51ACAE",
+    },
+  },
 }));

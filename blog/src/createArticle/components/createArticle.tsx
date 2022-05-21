@@ -11,6 +11,7 @@ import { Tag } from "../../dashboard/types";
 import {
   AddArticleContainer,
   AddArticleInput,
+  AddArticleSelect,
   AddArticleTextArea,
   CreateArticleBtn,
   CreateArticleHeader,
@@ -88,7 +89,7 @@ export default function CreateArticle({
         <Container>
           <FormControl sx={{ m: 1, width: 300 }}>
             <InputLabel id="select_tags">Tags</InputLabel>
-            <Select
+            <AddArticleSelect
               labelId="select_tags"
               id="select"
               name="selectedTags"
@@ -102,7 +103,7 @@ export default function CreateArticle({
                   {tag.name}
                 </MenuItem>
               ))}
-            </Select>
+            </AddArticleSelect>
           </FormControl>
           {errors.selectedTags && (
             <div className="ErrorMessage">{errors.selectedTags}</div>

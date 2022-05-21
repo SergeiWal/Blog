@@ -33,7 +33,7 @@ export default function SignUpContainer() {
     if (requests[key] !== undefined && requests[key]) {
       setError("");
       formik.resetForm();
-    } else {
+    } else if (submited) {
       setError("Sign Up failed");
     }
   }, [requests]);

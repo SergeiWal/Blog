@@ -7,7 +7,12 @@ import { createTextPreview } from "../../article/services/articles";
 import { cardStyle } from "../../styles/styles";
 import "../../styles/feed.css";
 import moment from "moment";
-import { CardInfoContainer, CardTypography, CardTitle } from "./styled";
+import {
+  CardInfoContainer,
+  CardTypography,
+  CardTitle,
+  CardImg,
+} from "./styled";
 
 export default function ArticleCard({ article }: ArticlePreviewProps) {
   const { _id, author, title, subtitle, text, tags, date, updateDate, img } =
@@ -29,8 +34,8 @@ export default function ArticleCard({ article }: ArticlePreviewProps) {
               </div>
               <div className="timeInfo">{moment(date).format("DD:MM:YY")}</div>
             </CardInfoContainer>
-            <div className="cardImg">
-              <img src={img} alt={`Article ${_id}`}></img>
+            <div>
+              <CardImg src={img} alt={`Article ${_id}`}></CardImg>
             </div>
           </Link>
         </CardContent>

@@ -77,6 +77,13 @@ export const SearchInput = styled(TextField)(() => ({
     fontSize: 18,
     padding: "7px ",
   },
+
+  "& .MuiOutlinedInput-root": {
+    color: "#5B5F70",
+    "&.Mui-focused fieldset": {
+      borderColor: "#51ACAE",
+    },
+  },
 }));
 
 export const SearchBtn = styled(Button)(() => ({
@@ -115,4 +122,10 @@ export const CardTitle = styled(Typography)(() => ({
   fontWeight: "bold",
 
   fontSize: 24,
+}));
+
+export const CardImg = styled("img")(() => ({
+  width: "200px",
+  height: "250px",
+  objectFit: "cover",
 }));

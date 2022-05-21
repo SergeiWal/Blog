@@ -140,3 +140,9 @@ export const ActionBtn = styled(Button)(() => ({
     opacity: "1",
   },
 }));
+
+export const CardImg = styled("img")(() => ({
+  width: "200px",
+  height: "150px",
+  objectFit: "cover",
+}));

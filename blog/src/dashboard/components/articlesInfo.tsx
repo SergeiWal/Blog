@@ -28,7 +28,7 @@ export default function ArticlesInfo({
       itemData={listArticle}
       height={WINDOW_HEIGHT}
       itemCount={listArticle.length}
-      itemSize={cardHeight}
+      itemSize={250}
       width={cardMaxWidth}
     >
       {generateArticleListRows}
