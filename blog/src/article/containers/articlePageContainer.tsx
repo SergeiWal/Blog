@@ -17,6 +17,7 @@ import { findArticle } from "../services/articles";
 import ArticlePage from "../components/articlePage";
 import ArticlePageLoader from "../components/articlePageLoader";
 import { getArticleByIdAction } from "../../authorization/actions/authorizeActions";
+import { getArticleAction } from "../../Feed/articleListActions";
 
 export default function ArticlePageContainer() {
   const { id } = useParams<ArticleParamsType>();
@@ -44,6 +45,10 @@ export default function ArticlePageContainer() {
   useEffect(() => {
     setArticle(findArticle(state.articles, id));
   }, [state, id]);
+
+  useEffect(() => {
+    dispatch(getArticleAction({ token: state.token }));
+  }, [dispatch]);
 
   const likeHandler = () => {
     if (state.like.isLiked) {
@@ -81,7 +86,8 @@ export default function ArticlePageContainer() {
     }
   };
 
-  return state.isFetching[getArticleByIdAction.type] ? (
+  return state.isFetching[getArticleByIdAction.type] ||
+    state.isFetching[getArticleAction.type] ? (
     <ArticlePageLoader />
   ) : (
     <ArticlePage

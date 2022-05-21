@@ -55,7 +55,7 @@ function App({ children, lastWsMessage }: AppPropsType) {
       )}
       <div className="App">{children}</div>
       <Snackbar
-        open={alertIsOpen}
+        open={alertIsOpen && lastWsMessage.message !== ""}
         autoHideDuration={6000}
         onClose={handleCloseAlert}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
@@ -63,9 +63,7 @@ function App({ children, lastWsMessage }: AppPropsType) {
         <AppAlert icon={false} onClose={handleCloseAlert}>
           {lastWsMessage.message}
           {lastWsMessage.attachment && (
-            <AppLink to={lastWsMessage.attachment}>
-              {lastWsMessage.attachment}
-            </AppLink>
+            <AppLink to={lastWsMessage.attachment}>New article</AppLink>
           )}
         </AppAlert>
       </Snackbar>
