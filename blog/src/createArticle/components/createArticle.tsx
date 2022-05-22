@@ -7,6 +7,7 @@ import {
   Select,
 } from "@mui/material";
 import { FormikErrors } from "formik";
+import { ErrorMessage } from "../../authorization/styled";
 import { Tag } from "../../dashboard/types";
 import {
   AddArticleContainer,
@@ -60,7 +61,11 @@ export default function CreateArticle({
           onChange={handleChange}
           value={title}
         />
-        {errors.title && <div className="ErrorMessage">{errors.title}</div>}
+        {errors.title && (
+          <ErrorMessage style={{ textAlign: "left", marginLeft: 10 }}>
+            {errors.title}
+          </ErrorMessage>
+        )}
         <AddArticleInput
           type="text"
           placeholder="Subtitle"
@@ -69,7 +74,9 @@ export default function CreateArticle({
           value={subTitle}
         />
         {errors.subTitle && (
-          <div className="ErrorMessage">{errors.subTitle}</div>
+          <ErrorMessage style={{ textAlign: "left", marginLeft: 10 }}>
+            {errors.subTitle}
+          </ErrorMessage>
         )}
         <AddArticleInput
           type="text"
@@ -78,14 +85,22 @@ export default function CreateArticle({
           onChange={handleChange}
           value={img}
         />
-        {errors.img && <div className="ErrorMessage">{errors.img}</div>}
+        {errors.img && (
+          <ErrorMessage style={{ textAlign: "left", marginLeft: 10 }}>
+            {errors.img}
+          </ErrorMessage>
+        )}
         <AddArticleTextArea
           name="text"
           placeholder="Text"
           onChange={handleChange}
           value={text}
         />
-        {errors.text && <div className="ErrorMessage">{errors.text}</div>}
+        {errors.text && (
+          <ErrorMessage style={{ textAlign: "left", marginLeft: 10 }}>
+            {errors.text}
+          </ErrorMessage>
+        )}
         <Container>
           <FormControl sx={{ m: 1, width: 300 }}>
             <InputLabel id="select_tags">Tags</InputLabel>
@@ -106,11 +121,27 @@ export default function CreateArticle({
             </AddArticleSelect>
           </FormControl>
           {errors.selectedTags && (
-            <div className="ErrorMessage">{errors.selectedTags}</div>
+            <ErrorMessage>{errors.selectedTags}</ErrorMessage>
           )}
-          {server_error && <div className="ErrorMessage">{server_error}</div>}
+          {server_error && (
+            <ErrorMessage style={{ marginBottom: -10, marginTop: 5 }}>
+              {server_error}
+            </ErrorMessage>
+          )}
         </Container>
-        <CreateArticleBtn type="submit">Publish</CreateArticleBtn>
+        <CreateArticleBtn
+          type="submit"
+          disabled={
+            !!errors.selectedTags ||
+            !!errors.text ||
+            !!errors.img ||
+            !!errors.subTitle ||
+            !!errors.title ||
+            title == ""
+          }
+        >
+          Publish
+        </CreateArticleBtn>
       </form>
     </AddArticleContainer>
   );

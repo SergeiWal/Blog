@@ -2,12 +2,15 @@ import * as Yup from "yup";
 
 const BaseAuthSchema = {
   username: Yup.string()
-    .min(4, "Must be from 4 to 10 characters ")
-    .max(10, "Must be from 4 to 10 characters ")
+    .min(4, "Must be from 4 to 20 characters ")
+    .max(20, "Must be from 4 to 20 characters ")
+    .matches(/^[A-Z-a-z_.\s]+$/, "Username can contain: [a-z-_.] and spaces")
     .required("Required"),
   password: Yup.string()
-    .min(4, "Must be from 4 to 10 characters ")
-    .max(10, "Must be from 4 to 10 characters ")
+    .min(8, "Must be from 8 to 16 characters ")
+    .max(16, "Must be from 8 to 16 characters ")
+    .matches(/^[A-Za-z0-9]*$/, "Password can contain: [a-z0-9]")
+    .matches(/^([A-Za-z]+)([A-Za-z0-9]*)$/, "Password should start with latter")
     .required("Required"),
 };
 

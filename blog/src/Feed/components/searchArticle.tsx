@@ -40,7 +40,9 @@ export default function SearchArticle({
           onChange={formik.handleChange}
           value={formik.values.value}
         />
-        <SearchBtn type="submit">Find</SearchBtn>
+        <SearchBtn type="submit" disabled={formik.values.value == ""}>
+          Find
+        </SearchBtn>
       </SearchInputForm>
     </SearchContainer>
   );

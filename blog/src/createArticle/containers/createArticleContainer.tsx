@@ -20,9 +20,24 @@ export type NewArticle = {
 };
 
 const CreateArticleSchema = Yup.object({
-  title: Yup.string().required("Required"),
-  subTitle: Yup.string().required("Required"),
-  text: Yup.string().required("Required"),
+  title: Yup.string()
+    .matches(
+      /^[A-Za-z0-9]+$/,
+      "Title should conatain only latin alphabet and numbers"
+    )
+    .required("Required"),
+  subTitle: Yup.string()
+    .matches(
+      /^[A-Za-z0-9]+$/,
+      "Subtitle should conatain only latin alphabet and numbers"
+    )
+    .required("Required"),
+  text: Yup.string()
+    .matches(
+      /^[A-Z-a-z0-9\s\t!?$%#@^*&+_<>=.,:;"'~`(){}[\]]+$/,
+      "Text should conatain only latin latters"
+    )
+    .required("Required"),
   img: Yup.string()
     .matches(/a(.*)jpeg|png|jpg/, "Link to img isn't valid")
     .required("Required"),
@@ -76,7 +91,7 @@ export default function CreateArticleContainer() {
 
   useEffect(() => {
     const key = addArticleAction.type.replace("_REQUEST", "");
-    if (requests[key] !== undefined && !requests[key]) {
+    if (requests[key] !== undefined && !requests[key] && isSubmit) {
       setError("Add article failed");
     } else if (isSubmit && requests[key]) {
       const wsMessage: WSClientMessage = { message, type: WSMessageType.ADD };

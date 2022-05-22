@@ -74,6 +74,11 @@ export const TagSubmitBtn = styled(Button)(() => ({
     backgroundColor: "#51ACAE",
     opacity: "0.7",
   },
+  "&.Mui-disabled": {
+    backgroundColor: "#E0E2EB",
+    color: "#5B5F70",
+    opacity: "0.7",
+  },
 }));
 
 export const TagInput = styled(TextField)(() => ({

@@ -70,7 +70,14 @@ export default function SignInPage({
 
           <AuthFormFooter>
             {server_error && <ErrorMessage>{server_error}</ErrorMessage>}
-            <BaseButton type="submit">SIGN IN</BaseButton>
+            <BaseButton
+              type="submit"
+              disabled={
+                !!errors.password || !!errors.username || username == ""
+              }
+            >
+              SIGN IN
+            </BaseButton>
             <SignUpLink to={"/sign-up"}>SIGN UP</SignUpLink>
           </AuthFormFooter>
         </form>

@@ -32,7 +32,9 @@ export default function AddTagsForm({
           name="value"
           onChange={handleChange}
         />
-        <TagSubmitBtn type="submit">ADD</TagSubmitBtn>
+        <TagSubmitBtn type="submit" disabled={!!errors.value || value == ""}>
+          ADD
+        </TagSubmitBtn>
       </form>
       {errors.value && (
         <ErrorMessage style={{ marginTop: 2 }}>{errors.value}</ErrorMessage>

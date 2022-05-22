@@ -34,7 +34,7 @@ export default function SignUpContainer() {
       setError("");
       formik.resetForm();
     } else if (submited) {
-      setError("Sign Up failed");
+      setError("Failed (maybe such user exist)");
     }
   }, [requests]);
 
